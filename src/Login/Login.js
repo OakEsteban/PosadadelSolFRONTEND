@@ -17,13 +17,13 @@ function Login() {
                 src={require('../images/logo.jpeg')} alt="" />
             
             <h3><strong> Registro </strong></h3>
-            <h4>Ingrese sus datos para continuar</h4>
+            <h4>Ingresa tus datos para continuar</h4>
             
             <input type="text" className='control2' placeholder='Nombres' />
             <input type="text" className='control2' placeholder='Apellidos' />
-            <input type="text" className='control1' placeholder='Correo' />
-            <input type="password" className='control1' placeholder='Contraseña' />
-            <input type="password" className='control1' placeholder='Confirmar contraseña' />
+            <input type="text" className='control1' placeholder='Correo' required/>
+            <input type="password" className='control1' placeholder='Contraseña' required/>
+            <input type="password" className='control1' placeholder='Confirmar contraseña' required/>
             <br />
             <input type="checkbox" name='terminos' className='check'/>
             <label htmlFor="terminos">Acepto los <a href='#'> Terminos y Condiciones</a></label>

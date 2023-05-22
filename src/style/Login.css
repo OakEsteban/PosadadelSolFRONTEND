@@ -10,6 +10,8 @@
     border: none;
     text-align: center;
     background-color: #f5f6f7;
+   border-radius: 30px;
+    box-shadow: 1px 1px 1px rgb(219, 143, 226);
 
 }
 
@@ -54,23 +56,24 @@ h4{
 
 .logo{
     padding: 11px;
-    width: 15rem;
+    width: 18rem;
     height: 5rem;
+    
 }
 
 .cont-formulario h3{
-    font-family: Montserrat, bold, medium;
+    font-family: 'Montserrat', bold, medium;
     font-size: 30px;
 }
 
 .cont-formulario h5{
-    font-family: Montserrat, bold, medium;
+    font-family: 'Montserrat', bold, medium;
     font-size: 12px;
 }
 
 .cont-formulario h3, h5{
-    margin: 0;
-    padding: 12px;
+    
+    margin-bottom: 15px;
 }
 
 
@@ -79,6 +82,7 @@ h4{
     margin-bottom: 16px;
     margin-left: 10px;
     border-radius: 6px;
+    border: 1px solid #a96596;
     
 }
 .control1{
@@ -107,6 +111,17 @@ h4{
     border: none;
     background-color: #f5c424;
     margin-top: 12px;
+    cursor: pointer;
+}
+
+
+.boton:hover, .boton:focus {
+  color: #020202;
+  outline: 0;
+}
+
+.boton:hover {
+  box-shadow: 0 0 10px 0 #f5c424 inset, 0 0 10px 4px #f5c424;
 }
 
 .cont-formulario a{
@@ -115,6 +130,6 @@ h4{
 }
 
 .inicio{
-    font-family: Montserrat, bold, medium;
+    font-family: 'Montserrat', bold, medium;
     margin-top: 20px;
 }
