@@ -1,7 +1,7 @@
 import img1 from './Images/hotel.png';
 import logoPosada from './Images/logoPosada.png';
 import './Login.css';
-import React, {useState} from 'react';
+//import React, {useState} from 'react';
 //import {useform} from "react-hook-form"
 
 function login(){
