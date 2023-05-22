@@ -1,0 +1,108 @@
+.App {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .App-header {
+    background-color: #ffffff;
+    min-height: 80vh;
+    min-width: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(5px + 2vmin);
+    color: black;
+  }
+  
+  .App-body {
+    background-color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+  }
+  
+  .titulo{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  
+  }
+  
+  h2{
+    font-family: Arial, Helvetica, sans-serif;
+    min-width: auto;
+    font-size: 25px;
+  }
+  
+  a[type="nombre"]{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #883C77;
+    font-size: 40px;
+  }
+  
+  form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .input-group {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif
+  }
+  
+  .textField{
+    border-radius: 5px;
+    width: 250px;
+    height: 30px;
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  
+  }
+  
+  .buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  button[type="recuperar"]
+  {
+    color: black;
+    background: none;
+    cursor: pointer;
+    width: 150px;
+    height: 30px;
+    font-size: small;
+    margin-left: 120px;
+    margin-bottom: 5px;
+    border: none;
+    color: blue;
+    font-style: italic;
+  
+  }
+  
+  input[type = "submit"]
+  {
+    position: relative;
+    border-radius: 14px;
+    font-size: 18x;
+    width: 180px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    background: #FFD143;
+  }
+  
+  .images{
+    border-radius: 20px;
+    width: 33vi;
+  }
