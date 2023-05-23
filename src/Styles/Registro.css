@@ -1,0 +1,135 @@
+.contenedor{
+    width: 95vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 20px;
+    align-items: center;
+    background-color: #fff;
+    border: none;
+    text-align: center;
+    background-color: #f5f6f7;
+   border-radius: 30px;
+    box-shadow: 1px 1px 1px rgb(219, 143, 226);
+
+}
+
+h4{
+    margin-bottom: 11px;
+}
+
+.cont-formulario, .cont-imagen{
+    background-color: #f5f6f7;
+}
+
+.cont-imagen{
+    
+    float: left;
+    flex: 1;
+    width: 75vw;
+    height: 100vh;
+    border: none;
+    border-radius: 6px;
+    
+}
+
+.cont-imagen img{
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: auto;
+    border-radius: 20px;
+}
+
+.cont-formulario{
+    overflow: hidden;
+    text-align: flex;
+    float: right;
+    flex: 1;
+    width: 80vw;
+    height: 100vh;
+    border: none;
+    border-radius: 10px;
+   
+}
+
+.logo{
+    padding: 11px;
+    width: 18rem;
+    height: 5rem;
+    
+}
+
+.cont-formulario h3{
+    font-family: 'Montserrat', bold, medium;
+    font-size: 30px;
+}
+
+.cont-formulario h5{
+    font-family: 'Montserrat', bold, medium;
+    font-size: 12px;
+}
+
+.cont-formulario h3, h5{
+    
+    margin-bottom: 15px;
+}
+
+
+.control1, .control2{
+    padding: 12px;
+    margin-bottom: 16px;
+    margin-left: 10px;
+    border-radius: 6px;
+    border: 1px solid #a96596;
+    
+}
+.control1{
+    width: 90%;
+}
+
+.control2{
+    width: 41.5%;
+}
+
+.imagen1{
+    max-width: 600px;
+    max-height: 600px;
+    display: block;
+    margin: auto;
+    
+}
+
+.check{
+    margin-bottom: 12px;
+}
+
+.boton{
+    width: 80%;
+    padding: 16px;
+    border: none;
+    background-color: #f5c424;
+    margin-top: 12px;
+    cursor: pointer;
+}
+
+
+.boton:hover, .boton:focus {
+  color: #020202;
+  outline: 0;
+}
+
+.boton:hover {
+  box-shadow: 0 0 10px 0 #f5c424 inset, 0 0 10px 4px #f5c424;
+}
+
+.cont-formulario a{
+    color: rgb(186, 11, 209);
+    text-decoration: none;
+}
+
+.inicio{
+    font-family: 'Montserrat', bold, medium;
+    margin-top: 20px;
+}
