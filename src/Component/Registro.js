@@ -1,12 +1,12 @@
 import React from 'react'
-import '../style/Registro.css';
+import '../Style/Registro.css';
 
 function Registro() {
   return (
     <div className="contenedor">
         <div className="cont-imagen">
             <img
-                src={require('../images/posada.jpg')} 
+                src={require('../Images/posada.jpg')} 
                 alt="Posada del sol" />
 
         </div>
@@ -14,7 +14,7 @@ function Registro() {
         <div className="cont-formulario">
             <img
                 className='logo' 
-                src={require('../images/logo.jpeg')} alt="" />
+                src={require('../Images/logo.jpeg')} alt="" />
             
             <h3><strong> Registro </strong></h3>
             <h4>Ingresa tus datos para continuar</h4>
