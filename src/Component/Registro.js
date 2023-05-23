@@ -1,7 +1,7 @@
 import React from 'react'
-import '../style/Login.css';
+import '../style/Registro.css';
 
-function Login() {
+function Registro() {
   return (
     <div className="contenedor">
         <div className="cont-imagen">
@@ -46,4 +46,4 @@ function Login() {
   )
 }
 
-export default Login
+export default Registro
