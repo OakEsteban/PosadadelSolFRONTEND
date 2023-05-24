@@ -4,17 +4,23 @@ import '../Styles/Registro.css';
 function Registro() {
   return (
     <div className="contenedor">
-        <div className="cont-imagen">
+        <div className="cont-imagen" name="logo"> 
             <img
-                src={require('../Images/posada.jpg')} 
+                src={require('../Images/hotel.png')} 
                 alt="Posada del sol" />
+            
 
         </div>
 
         <div className="cont-formulario">
-            <img
+           
+            <div className='logo1'>
+              <img
                 className='logo' 
-                src={require('../Images/logo.jpeg')} alt="" />
+                src={require('../Images/logoPosada.png')} alt="" />
+                <h3>La posada del sol</h3>
+            </div>
+            
             
             <h3><strong> Registro </strong></h3>
             <h4>Ingresa tus datos para continuar</h4>

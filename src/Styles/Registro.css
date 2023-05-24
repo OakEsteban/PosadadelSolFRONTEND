@@ -43,6 +43,7 @@ h4{
 }
 
 .cont-formulario{
+    margin-top: 50px;
     overflow: hidden;
     text-align: flex;
     float: right;
@@ -54,11 +55,22 @@ h4{
    
 }
 
-.logo{
-    padding: 11px;
-    width: 18rem;
-    height: 5rem;
-    
+
+.logo1{
+    display: flex;
+    padding: auto;
+}
+
+
+.logo1 h3{
+    font-family: 'Montserrat', 'bold', 'medium';
+    margin-top: 35px;
+    color: #a96596;
+}
+.logo1 img{
+    margin-left: 110px;
+    width: 100px;
+    height: 100px;
 }
 
 .cont-formulario h3{
