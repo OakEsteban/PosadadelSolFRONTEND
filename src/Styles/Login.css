@@ -102,6 +102,7 @@
   }
 
   .password{
+    color: #a96596;
     font-family: 'Montserrat', bold, medium;
     margin-bottom: 20px;
     margin-left: 120px;
@@ -112,4 +113,8 @@
     font-family: 'Montserrat', bold, medium;
     padding: 10px;
     font-size: small;
+}
+
+a{
+  text-decoration: none;
 }
