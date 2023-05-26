@@ -28,8 +28,9 @@ function login(){
               </div>
 
               <div class = "buttons">
-              <button type='recuperar' >Olvidé mi Constraseña</button>
+              <a href='#' className='password'>Olvidé mi Constraseña</a>
               <input type='submit' value="Ingresar"></input>
+              <p className='registro'>¿No tienes una cuenta?  <a href='#'> Registrarse </a></p>
               </div>
   
         </form>
