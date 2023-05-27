@@ -1,7 +1,7 @@
 import img1 from "../Images/hotel.png";
 import logoPosada from "../Images/logoPosada.png";
 import "../Styles/Login.css";
-//import React, { useState } from "react";
+import React, { useState } from "react";
 //import {useform} from "react-hook-form"
 
 function login() {
@@ -36,7 +36,7 @@ function login() {
               </a>
               <input type="submit" value="Ingresar"></input>
               <p className="registro">
-                <b> ¿No tienes una cuenta?</b> <a href="http//"> Registrarse </a>
+                <b> ¿No tienes una cuenta?</b> <a href="#"> Registrarse </a>
               </p>
             </div>
           </form>
