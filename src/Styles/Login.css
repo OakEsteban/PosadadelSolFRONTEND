@@ -1,120 +1,114 @@
-.App {
+.login {
   width: 95vw;
   height: 100vh;
   display: flex;
   flex-direction: row;
   align-items: center;
   text-align: center;
-  }
-  
-  .App-header {
-    background-color: #ffffff;
-    min-height: 80vh;
-    min-width: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(5px + 2vmin);
-    color: black;
-    margin-left: 10vmin;
-  }
-  
-  .App-body {
-    
-    background-color: #ffffff;
-    min-height: 200vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 10vmin;
-
-
-  }
-  
-  .titulo{
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-  
-  }
-  
-  h2{
-    font-family: Arial, Helvetica, sans-serif;
-    min-width: auto;
-    font-size: 3.5vh;
-  }
-  
-  a[type="nombre"]{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: #883C77;
-    font-size: 40px;
-  }
-  
-  form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  input{
-    border-color: #883C77;
-  }
-
-  .input-group {
-    margin-bottom: 10px;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    font-size: 18px;
-    font-family: Arial, Helvetica, sans-serif;
-
-  }
-  
-  .textField{
-    border-radius: 5px;
-    width: 40vmin;
-    height: 4vh;
-    font-size: 15px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-  }
-  
-  .buttons{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  input[type = "submit"]
-  {
-    position: relative;
-    border-radius: 8px;
-    font-size: 18x;
-    width: 35vmin;
-    height: 30px;
-    border: none;
-    cursor: pointer;
-    background: #FFD143;
-  }
-  
-  .images{
-    border-radius: 20px;
-    width: 33vi;
-  }
-
-  .password{
-    color: #a96596;
-    font-family: 'Montserrat', bold, medium;
-    margin-bottom: 20px;
-    margin-left: 120px;
-    font-size: small;
 }
 
-  .registro{
-    font-family: 'Montserrat', bold, medium;
-    padding: 10px;
-    font-size: small;
+.login-header {
+  background-color: #ffffff;
+  min-height: 80vh;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(5px + 2vmin);
+  color: black;
+  margin-left: 10vmin;
 }
 
-a{
+.login-body {
+  background-color: #ffffff;
+  min-height: 200vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10vmin;
+}
+
+.titulo {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  min-width: auto;
+  font-size: 3.5vh;
+}
+
+a[type="nombre"] {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: #883c77;
+  font-size: 40px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  border-color: #883c77;
+}
+
+.input-group {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.textField {
+  border-radius: 5px;
+  width: 40vmin;
+  height: 4vh;
+  font-size: 15px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type="submit"] {
+  position: relative;
+  border-radius: 8px;
+  font-size: 18x;
+  width: 35vmin;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  background: #ffd143;
+}
+
+.images {
+  border-radius: 20px;
+  width: 33vi;
+}
+
+.password {
+  color: #a96596;
+  font-family: "Montserrat", bold, medium;
+  margin-bottom: 20px;
+  margin-left: 120px;
+  font-size: small;
+}
+
+.registro {
+  font-family: "Montserrat", bold, medium;
+  padding: 10px;
+  font-size: small;
+}
+
+a {
   text-decoration: none;
 }

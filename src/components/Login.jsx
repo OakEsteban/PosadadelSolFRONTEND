@@ -6,8 +6,8 @@ import React, { useState } from "react";
 
 function login() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="login">
+      <header className="login-header">
         <div>
           <div class="titulo">
             <img src={logoPosada} alt="logo" width="100" height="100"></img>
@@ -43,7 +43,7 @@ function login() {
         </div>
       </header>
 
-      <body className="App-body">
+      <body className="login-body">
         <img class="images" src={img1} alt="logo" width="500"></img>
       </body>
     </div>
