@@ -1,13 +1,12 @@
 import React from 'react'
 import '../Styles/Registro.css';
+import UncontrolledExample from './Imagenes-hotel';
 
 function Registro() {
   return (
     <div className="contenedor">
         <div className="cont-imagen" name="logo"> 
-            <img
-                src={require('../Images/hotel.png')} 
-                alt="Posada del sol" />
+            <UncontrolledExample/>
             
 
         </div>
@@ -18,7 +17,7 @@ function Registro() {
               <img
                 className='logo' 
                 src={require('../Images/logoPosada.png')} alt="" />
-                <h3>La posada del sol</h3>
+                <h3><a href="http//"> La posada del sol</a></h3>
             </div>
             
             
@@ -32,7 +31,7 @@ function Registro() {
             <input type="password" className='control1' placeholder='Confirmar contraseña' required/>
             <br />
             <input type="checkbox" name='terminos' className='check'/>
-            <label htmlFor="terminos">Acepto los <a href='#'> Terminos y Condiciones</a></label>
+            <label htmlFor="terminos">Acepto los <a href='hhtp//'> Terminos y Condiciones</a></label>
             <br />
             <input type="checkbox" name='ofertas'className='check'/>
             <label htmlFor="ofertas">Acepto recibir ofertas en mi correo</label>
@@ -40,7 +39,7 @@ function Registro() {
             <button className='boton'>REGISTRARSE</button>
             <br />
 
-            <p className='inicio'>Ya tengo una cuenta  <a href='#'> Ingresa </a></p>
+            <p className='inicio'>Ya tengo una cuenta  <a href='http//'> Ingresa </a></p>
 
 
 
