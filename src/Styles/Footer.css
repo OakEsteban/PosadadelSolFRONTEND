@@ -1,0 +1,139 @@
+footer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2vmin;
+
+}
+
+.footerTop{
+    background-color: #A96596;
+    width: 50%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 50px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.footerBottom{
+    background: rgb(222,146,209);
+    background: radial-gradient(circle, rgba(210,128,196,1) 0%, rgba(222,146,209,1) 100%);
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    padding-top: 12vmin;
+    padding-bottom: 30px;
+}
+
+
+
+.descriptionText{
+    color:white;
+}
+
+.posada{
+    display: flex;
+    flex-direction: column;
+}
+
+.subscription{
+    padding-left: 15vmin;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ofertaContainer{ 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+}
+
+.inputEmail{
+    border-radius: 5px;
+    width: 40vmin;
+    height: 5vmin;
+    font-size: 15px;
+    border: none;
+    padding: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.button1{
+    position: relative;
+    border-radius: 8px;
+    font-size: 18px;
+    width: auto;
+    height: 35px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background: #DE92D1;
+    padding:10px;
+    margin-left: 10px;
+}
+
+.box{
+    padding-left: 4vmin;
+}
+
+.list{
+    display: flex;
+    flex-direction: column;
+}
+
+.logo{
+    width: 15vmin;
+    height: 15vmin; 
+}
+
+.posadaText{
+    color: white;
+}
+
+.button2{
+    position: relative;
+    border-radius: 8px;
+    font-size: 18x;
+    width: 12vmin;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    background: #A96596;
+    margin-top: 70px;
+}
+
+@media screen and (max-width: 720px) {
+    .footerTop {
+      width: 80%;
+      padding: 10px;
+    }
+    
+    .subscription {
+      padding-left: 0;
+      margin-top: 30px;
+    }
+    
+    .inputEmail {
+      width: 70%;
+    }
+    
+    .button1 {
+      margin: 10px 0;
+    }
+    
+    .box {
+      padding-left: 0;
+    }
+    
+    .logo {
+      width: 5vmin;
+      height: 5vmin;
+    }
+}
