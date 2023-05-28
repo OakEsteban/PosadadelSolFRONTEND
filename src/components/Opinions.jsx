@@ -15,7 +15,7 @@ function Opinions() {
           
   <div class="testimonial-heading">
       <span>Comentarios</span>
-      <h1>Nuestros clientes dicen</h1>
+      <h1>Nuestros clientes opinan...</h1>
   </div>
  
   

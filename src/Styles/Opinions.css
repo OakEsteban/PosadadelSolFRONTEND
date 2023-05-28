@@ -47,11 +47,11 @@ a{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    width: 100%;
+    width: 200%;
 }
 
 .testimonial-box-container{
-    width: 600px;
+    width: 1000px;
     box-shadow: 2px 2px 30px rgba(0,0,0, 0.1);
     background-color: #ffffff;
     padding: 20px;
@@ -59,7 +59,7 @@ a{
     cursor: pointer;
 }
 .profile-img{
-    width: 80px;
+    width: 120px;
     height: 80px;
     border-radius: 50%;
     overflow: hidden;
@@ -128,7 +128,7 @@ a{
 
 @media(max-width:790px){
     .testimonial-box{
-        width: 100%;
+        width: 10%;
     }
     .testimonial-heading h1{
         font-size: 1.4rem;
