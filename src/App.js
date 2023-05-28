@@ -7,9 +7,11 @@ import Opinions from './components/Opinions.jsx';
 
 
 function App() {
+
+
   return (
     <div className="App">
-      <Registro />
+      <Login />
     </div>
   );
 }
