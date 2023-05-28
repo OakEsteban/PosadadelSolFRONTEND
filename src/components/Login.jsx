@@ -1,10 +1,34 @@
 import img1 from "../Images/hotel.png";
 import logoPosada from "../Images/logoPosada.png";
 import "../Styles/Login.css";
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
+import { gapi } from "gapi-script";
+import GoogleLogin from "react-google-login";
 //import {useform} from "react-hook-form"
 
-function login() {
+function Login() {
+
+  const clientID = "414623149877-301o39ojep9gto5vh1jsf69udhjk7g4u.apps.googleusercontent.com";
+  const [user, setUser] = useState({});
+
+  useEffect (() => {
+    const start = () => {
+      gapi.auth2.init({
+        clientId: clientID,
+      })
+    }
+    gapi.load("client:auth2", start)
+  }, [])
+
+  const onSuccess = (response) => {
+    setUser(response.profileObj)
+  }
+
+  const onFailure = () => {
+    console.log("Something went wrong")
+  }
+
+
   return (
     <div className="login">
       <header className="login-header">
@@ -39,15 +63,32 @@ function login() {
                 <b> ¿No tienes una cuenta?</b> <a href="#"> Registrarse </a>
               </p>
             </div>
+            <div>
+        <GoogleLogin 
+          clientId={clientID}
+          onSuccess={onSuccess}
+          onFailure={onFailure}
+          cookiePolicy={"single_host_policy"}
+        />
+      </div>
           </form>
         </div>
+        
       </header>
 
       <body className="login-body">
         <img class="images" src={img1} alt="logo" width="500"></img>
       </body>
+
+      <div className={user? "profile":"hidden"}>
+        <img src={user.imageUrl} alt=""/>
+        <h3>{user.name}</h3>
+
+      </div>
+      
+
     </div>
   );
 }
 
-export default login;
+export default Login;
