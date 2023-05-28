@@ -8,7 +8,9 @@ import Navbar from './components/navbar/Navbar.jsx';
 function App() {
   return (
     <div className="App">
-        <Footer />
+      <Navbar/>
+      <Registro/>
+      <Footer/>
 
     </div>
   );

@@ -22,7 +22,7 @@ function Footer() {
 
         <div className="footerBottom">
             <div className="posada box">
-                <img src={logoPosada} className="logo" width="100" height="100"></img>
+                <img src={logoPosada} className="logoPos" width="100" height="100"></img>
                 <a className="posadaText">La posada del sol</a>
             </div>
             <div className="box">

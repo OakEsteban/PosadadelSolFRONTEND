@@ -88,9 +88,9 @@ footer{
     flex-direction: column;
 }
 
-.logo{
-    width: 15vmin;
-    height: 15vmin; 
+.logoPos{
+    max-width: 15vmin;
+    max-height: 15vmin; 
 }
 
 .posadaText{
