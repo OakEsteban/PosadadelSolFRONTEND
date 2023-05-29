@@ -4,6 +4,8 @@ import Registro from './components/Registro';
 import Footer from './components/Footer.jsx';
 import Navbar from './components/navbar/Navbar.jsx';
 import Opinions from './components/Opinions.jsx';
+import Inicio from './components/Inicio'
+import Mapa from './components/Mapa';
 
 
 function App() {
@@ -11,7 +13,7 @@ function App() {
 
   return (
     <div className="App">
-      <Login />
+      <Mapa/>
     </div>
   );
 }
