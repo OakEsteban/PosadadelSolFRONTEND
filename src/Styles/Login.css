@@ -21,8 +21,6 @@
   
   .login-body {
     
-    background-color: #ffffff;
-    min-height: 200vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -37,13 +35,11 @@
   }
   
   .subtitulos{
-    font-family: Arial, Helvetica, sans-serif;
     min-width: auto;
     font-size: 3.5vh;
   }
   
   a[type="nombre"]{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #883C77;
     font-size: 40px;
   }
@@ -64,8 +60,6 @@
     flex-direction: column;
     text-align: left;
     font-size: 18px;
-    font-family: Arial, Helvetica, sans-serif;
-
   }
   
   .textField{
@@ -73,7 +67,6 @@
     width: 40vmin;
     height: 4vh;
     font-size: 15px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
   
   .buttons{
@@ -101,33 +94,12 @@
 
   .password{
     color: #a96596;
-    font-family: 'Montserrat', bold, medium;
     margin-bottom: 20px;
     margin-left: 120px;
     font-size: small;
 
 }
 
-.login-header {
-  background-color: #ffffff;
-  min-height: 80vh;
-  min-width: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(5px + 2vmin);
-  color: black;
-  margin-left: 10vmin;
-}
-
-.login-body {
-  background-color: #ffffff;
-  min-height: 200vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 10vmin;
-}
 
 .titulo {
   display: flex;
@@ -136,13 +108,11 @@
 }
 
 h2 {
-  font-family: Arial, Helvetica, sans-serif;
   min-width: auto;
   font-size: 3.5vh;
 }
 
 a[type="nombre"] {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: #883c77;
   font-size: 40px;
 }
@@ -163,7 +133,6 @@ input {
   flex-direction: column;
   text-align: left;
   font-size: 18px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .textField {
@@ -171,7 +140,6 @@ input {
   width: 40vmin;
   height: 4vh;
   font-size: 15px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .buttons {
@@ -198,14 +166,12 @@ input[type="submit"] {
 
 .password {
   color: #a96596;
-  font-family: "Montserrat", bold, medium;
   margin-bottom: 20px;
   margin-left: 120px;
   font-size: small;
 }
 
 .registro {
-  font-family: "Montserrat", bold, medium;
   padding: 10px;
   font-size: small;
 }
