@@ -13,6 +13,7 @@ import Col from "react-bootstrap/Col";
 
 function UncontrolledExample() {
   return (
+    
     <div>
       {/* --------------------------------------------------------------------- */}
       <section class={carrusel.font}>

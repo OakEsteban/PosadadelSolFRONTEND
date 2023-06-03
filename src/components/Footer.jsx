@@ -26,42 +26,42 @@ function Footer() {
                 <a className="posadaText">La posada del sol</a>
             </div>
             <div className="box">
-                <div className="list">
+                <div className="listHrefFooter">
                     <h3>Nuestro hotel</h3>
-                    <a href="#">Habitacion1</a>
-                    <a href="#">Habitacion2</a>
-                    <a href="#">Habitacion3</a>
+                    <a className="footerLink" href="#">Habitacion1</a>
+                    <a className="footerLink" href="#">Habitacion2</a>
+                    <a className="footerLink" href="#">Habitacion3</a>
                 </div>
             </div>
             <div className="box">
-                <div className="list">
+                <div className="listHrefFooter">
                     <h3>Nuestras habitaciones</h3>
-                    <a href="#">Habitacion1</a>
-                    <a href="#">Habitacion2</a>
-                    <a href="#">Habitacion3</a>
+                    <a className="footerLink" href="#">Habitacion1</a>
+                    <a className="footerLink" href="#">Habitacion2</a>
+                    <a className="footerLink" href="#">Habitacion3</a>
                 </div>
             </div>
             <div className="box">
-                <div className="list">
+                <div className="listHrefFooter">
                     <h3>Nuestros servicios</h3>
-                    <a href="#">Habitacion1</a>
-                    <a href="#">Habitacion2</a>
-                    <a href="#">Habitacion3</a>
+                    <a className="footerLink" href="#">Habitacion1</a>
+                    <a className="footerLink" href="#">Habitacion2</a>
+                    <a className="footerLink" href="#">Habitacion3</a>
                 </div>
             </div>
             <div className="box">
-                <div className="list">
+                <div className="listHrefFooter">
                     <h3>Acerca de nosotros</h3>
-                    <a href="#">Habitacion1</a>
-                    <a href="#">Habitacion2</a>
-                    <a href="#">Habitacion3</a>
+                    <a className="footerLink" href="#">Habitacion1</a>
+                    <a className="footerLink" href="#">Habitacion2</a>
+                    <a className="footerLink" href="#">Habitacion3</a>
                 </div>
             </div>
             <div className="box">
-                <div className="list">
+                <div className="listHrefFooter">
                     <h3>Contactanos</h3>
-                    <a href="#">Correo</a>
-                    <a href="#">Telefono</a>
+                    <a className="footerLink" href="#">Correo</a>
+                    <a className="footerLink"href="#">Telefono</a>
                 </div>
             </div>
             <div className="box">
