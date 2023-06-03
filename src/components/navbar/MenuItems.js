@@ -1,37 +1,40 @@
+
+//Todos los componentes de la barra de Navegación. 
+
 export const MenuItems = [
     {
         title: 'INICIO',
-        url: 'Inicio',
+        url: "/Inicio",
         cName: 'nav-links'
     },
     {
         title: 'HOTEL',
-        url: 'Hotel',
+        url: "/Hotel",
         cName: 'nav-links'
     },
     {
         title: 'HABITACIONES',
-        url: 'Habitaciones',
+        url: "/Habitaciones",
         cName: 'nav-links'
     },
     {
         title: 'SERVICIOS',
-        url: 'Servicios',
+        url: "/Servicios",
         cName: 'nav-links'
     },
     {
         title: 'NOSOTROS',
-        url: 'Acerca de nosotros',
+        url: "/Nosotros",
         cName: 'nav-links'
     },
     {
         title: 'CONTACTANOS',
-        url: 'Contactanos',
+        url: "/Contactanos",
         cName: 'nav-links'
     },
     {
         title: 'INICIA SESIÓN/REGISTRATE',
-        url: 'Inicia Sesión',
+        url: "/Inicia-Sesion",
         cName: 'nav-links-mobile'
     }
 
