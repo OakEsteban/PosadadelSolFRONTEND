@@ -135,8 +135,6 @@ function LoginRegistro() {
                                     <label id="label-10">Contraseña.</label>
 
                                 </div>
-
-
                             </div>
 
                             <div>
@@ -145,8 +143,8 @@ function LoginRegistro() {
                                     <a href="#"> Obtén ayuda.</a>
                                 </p>
 
-                                <input type="submit" value="Inicia Sesión" class="sign-btn-10" />
 
+                                <input type="submit" value="Inicia Sesión" class="sign-btn-10" />
                                 {/* Se añade el botón de Google */}
 
                                 <div
@@ -174,6 +172,8 @@ function LoginRegistro() {
                                         </div>
                                     )}
                                 </div>
+
+
 
                             </div>
 
