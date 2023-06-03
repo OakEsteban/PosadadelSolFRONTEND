@@ -1,4 +1,6 @@
-import '../../Styles/Button.css';
+import '../../Styles/navbar/Button.css';
+
+//Funciones y creación de constantes, para la modificacion del botón, ya que este tiende a cambiar según su tamaño en pantalla. 
 
 const STYLES = [
     'btn--primary',
