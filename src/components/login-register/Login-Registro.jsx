@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
 import "../../Styles/login-register/login-register.css";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useScript } from "../../hooks/useScript";
 import jwt_decode from "jwt-decode";
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
 function LoginRegistro() {
@@ -38,7 +39,7 @@ function LoginRegistro() {
     useEffect(() => {
 
 
-        const inputs = document.querySelectorAll('.input-field-10');
+        const inputs = document.querySelectorAll('.input-field-10, .input-field-11');
         const toggle_btn = document.querySelectorAll('.toggle-10');
         const main = document.querySelector("main");
         const bullets = document.querySelectorAll('.bullets span');
@@ -106,13 +107,284 @@ function LoginRegistro() {
     //Fin unciones de animaciones para el apartado de imagenes el carrusel, en el apartado de login.
 
 
-    //Import de React Hook Forms, para los formularios. 
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    //Import de React Hook Forms, para los formularios, y dividinos uno cada uno, para mas orden y que usen sus propias funciones
+    const Loginform = () => {
+        const { register, formState: { errors, setErrors }, handleSubmit } = useForm();
+        const [loggedIn, setLoggedIn] = useState(false);
+        const [loginError, setLoginError] = useState('');
 
-    const onSubmit = (data) => {
-        console.log(data)
-    }
 
+        const onSubmit = (data) => {
+            console.log(data)
+            axios.post('http://localhost:4000/login', data)
+                .then((response) => {
+                    // Manejar la respuesta del servidor si es exitosa
+                    console.log(response.data);
+                    setLoggedIn(true); // Establecer el estado de inicio de sesión exitoso
+                    setLoginError(''); // Limpiar el mensaje de error en caso de que haya uno anteriormente
+                })
+                .catch((error) => {
+                    // Manejar el error si la solicitud no se puede completar
+                    console.error(error);
+                    setLoggedIn(false); // Establecer el estado de inicio de sesión a false
+                    setLoginError('Correo o contraseña incorrectos'); // Establecer el mensaje de error
+                });
+        }
+
+        const handleLogout = () => {
+            // Lógica para cerrar la sesión del usuario
+            setLoggedIn(false);
+        };
+
+        return (
+            <form action="index.html" autoComplete="off" className="sign-in-form-10"
+                onSubmit={handleSubmit(onSubmit)}>
+                <div className="logo-10">
+                    <img src={require('../../Images/logoPosada.png')} alt="Posada del SOL" />
+                    <h3>La Posada del Sol</h3>
+                </div>
+                <div className="heading-10">
+                    <h2> Inicia Sesión </h2>
+                    <h6>¿Aún no te has registrado? </h6>
+                    <a href="#" className="toggle-10"> Registrate ahora.</a>
+                </div>
+                {/* 2 Inputs para el INICO DE SESIÓN. */}
+
+                <div className="actual-form-10">
+                    <div className="input-wrap-10">
+                        <input type="email" className="input-field-10" autoComplete="off" name='email'
+                            {...register('email', {
+                                required: true,
+                                pattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                            })} />
+                        <label id="label-10">Correo Electrónico.</label>
+                        {errors.email?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
+                        {errors.email?.type === 'pattern' && <p className='p-error-114'> El formato del correo, es incorrecto </p>}
+
+                    </div>
+
+                    <div className="input-wrap-10">
+                        <input type="password" className="input-field-10" autoComplete="off" name='contrasena'
+                            {...register('contrasena', {
+                                required: true,
+                                pattern: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/,
+                            })} />
+                        <label id="label-10">Contraseña.</label>
+                        {errors.contrasena?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
+                        {errors.contrasena?.type === 'pattern' && <p className='p-error-114'> La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.
+                        </p>}
+                    </div>
+                </div>
+
+                <div>
+                    <p className="text-10">
+                        ¿Olvidaste tu contraseña?
+                        <a href="#"> Obtén ayuda.</a>
+                    </p>
+
+
+                    {loggedIn ? (
+                        <div>
+                            <p>Iniciaste sesión exitosamente</p>
+                            <button onClick={handleLogout}>Cerrar sesión</button>
+                        </div>
+                    ) : (
+                        <input type="submit" value="Inicia Sesión" className="sign-btn-10" />
+                    )}
+                    {/* Se añade el botón de Google */}
+                    <div
+                        style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            height: "40px",
+                        }}
+                    >
+                        {!user && <div ref={googlebuttonref}></div>}
+                        {user && (
+                            <div>
+                                <h1>{user.name}</h1>
+                                <img src={user.picture} alt="profile" />
+                                <p>{user.email}</p>
+
+                                <button
+                                    onClick={() => {
+                                        setuser(false);
+                                    }}
+                                >
+                                    Logout
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                </div>
+
+
+                <div
+                    style={{
+                        display: loggedIn ? "none" : "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        height: "40px",
+                    }}
+                >
+                    {!user && <div ref={googlebuttonref}></div>}
+                    {user && (
+                        <div>
+                            <h1>{user.name}</h1>
+                            <img src={user.picture} alt="profile" />
+                            <p>{user.email}</p>
+
+                            <button
+                                onClick={() => {
+                                    setuser(false);
+                                }}
+                            >
+                                Logout
+                            </button>
+                        </div>
+                    )}
+                </div>
+
+                {loginError && <p>{loginError}</p>}
+
+            </form>
+        );
+    };
+
+    const Signupform = () => {
+        const { register, formState: { errors }, handleSubmit } = useForm();
+        const navigate = useNavigate();
+
+        const onSubmit = (data) => {
+            console.log(data)
+            axios.post('http://localhost:4000/users', data)
+                .then(response => {
+                    console.log(response.data);
+                    navigate('/Inicia-Sesion');
+                    // Aquí puedes realizar cualquier otra acción después de que el usuario se haya registrado correctamente.
+                })
+                .catch(error => {
+                    console.error(error);
+                    // Aquí puedes manejar cualquier error que ocurra durante el registro.
+                });
+        }
+
+        return (
+            <form action="index.html" autoComplete="off" className="sign-up-form-10" onSubmit={handleSubmit(onSubmit)}>
+                <div className="logo-10">
+                    <img src={require('../../Images/logoPosada.png')} alt="Posada del SOL" />
+                    <h3 > La Posada del Sol</h3>
+                </div>
+                <div className="heading-10">
+                    <h2> Registrate </h2>
+                    <h6>¿Ya tienes una cuenta? </h6>
+                    <a href="#" className="toggle-10"> Inicia Sesión.</a>
+                </div>
+
+
+                {/* 5 Inputs para el Registro. */}
+
+
+                <div className="actual-form-10">
+                    <div className="input-wrap-10">
+                        <input type="text" className="input-field-11" autoComplete="off" name="nombres" {...register('nombres', {
+                            required: true,
+                            maxLength: 30
+                        })} />
+                        <label id="label-10">Nombres.</label>
+                        {errors.nombres?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
+                        {errors.nombres?.type === 'maxLength' && <p className='p-error-114'> Estas excediendo el limite de caracteres (30) </p>}
+                    </div>
+
+                    <div className="input-wrap-10">
+                        <input type="text" className="input-field-11" autoComplete="off" name="apellidos" {...register('apellidos', {
+                            required: true,
+                            maxLength: 30
+                        })} />
+
+                        <label id="label-10">Apellidos.</label>
+                        {errors.apellidos?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
+                        {errors.apellidos?.type === 'maxLength' && <p className='p-error-114'> Estas excediendo el limite de caracteres (30) </p>}
+                    </div>
+
+                    <div className="input-wrap-10">
+                        <input type="email" className="input-field-11" autoComplete="off"  {...register('email', {
+                            required: true,
+                            pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i
+                        })} />
+                        <label id="label-10">Correo Electrónico.</label>
+                        {errors.email?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
+                        {errors.email?.type === 'pattern' && <p className='p-error-114'> El formato del correo, es incorrecto </p>}
+                    </div>
+
+                    <div className="input-wrap-10">
+                        <input type="password" className="input-field-11" autoComplete="off" {...register('contrasena', {
+                            required: true,
+                            maxLength: 13,
+                            pattern: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/,
+                        })} />
+                        <label id="label-10">Contraseña.</label>
+                        {errors.contrasena?.type === 'pattern' && <p className='p-error-114'> La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.</p>}
+                        {errors.contrasena?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
+                        {errors.contrasena?.type === 'maxLength' && <p className='p-error-114'> Estas excediendo el limite de caracteres (13) </p>}
+                    </div>
+
+                    {/* <div className="input-wrap-10">
+                        <input type="password" className="input-field-11" autoComplete=" off" {...register('contraseñareg', {
+                            required: true,
+                            maxLength: 13,
+                            pattern: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/,
+                        })} />
+                        <label id="label-10">Confirma tu contraseña.</label>
+                        {errors.contraseñalogin?.type === 'pattern' && <p className='p-error-114'> La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.</p>}
+                        {errors.contraseñareg?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
+                        {errors.contraseñareg?.type === 'maxLength' && <p className='p-error-114'> Estas excediendo el limite de caracteres (13) </p>}
+                    </div> */}
+
+
+
+                </div>
+
+                <div>
+                    <p className="text-10">
+                        Al registrarme, acepto las <a href="#">condiciones de servicio</a> y la <a
+                            href="#">política de privacidad. </a>
+                    </p>
+
+                    <input type="submit" value="Registrate" className="sign-btn-11" />
+
+                    {/* Se añade el botón de Google */}
+
+                    <div
+                        style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            height: "40px",
+                        }}
+                    >
+                        {!user && <div ref={googlebuttonref}></div>}
+                        {user && (
+                            <div>
+                                <h1>{user.name}</h1>
+                                <img src={user.picture} alt="profile" />
+                                <p>{user.email}</p>
+
+                                <button
+                                    onClick={() => {
+                                        setuser(false);
+                                    }}
+                                >
+                                    Logout
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </form>
+        );
+    };
 
     //Todo el HTML para el código de Login-Registro
     return (
@@ -120,201 +392,9 @@ function LoginRegistro() {
             <div className="box-10">
                 <div className="inner-box-10">
 
-                    {/* Aquí comienza el INICO DE SESIÓN. */}
-
                     <div className="forms-wrap-10">
-                        <form action="index.html" autoComplete="off" className="sign-in-form-10"
-                            onSubmit={handleSubmit(onSubmit)}>
-                            <div className="logo-10">
-                                <img src={require('../../Images/logoPosada.png')} alt="Posada del SOL" />
-                                <h3>La Posada del Sol</h3>
-                            </div>
-                            <div className="heading-10">
-                                <h2> Inicia Sesión </h2>
-                                <h6>¿Aún no te has registrado? </h6>
-                                <a href="#" className="toggle-10"> Registrate ahora.</a>
-                            </div>
-                            {/* 2 Inputs para el INICO DE SESIÓN. */}
-
-                            <div className="actual-form-10">
-                                <div className="input-wrap-10">
-                                    <input type="email" className="input-field-10" autoComplete="off"
-                                        {...register('email', {
-                                            required: true,
-                                            pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i
-                                        })} />
-                                    <label id="label-10">Correo Electrónico.</label>
-                                    {errors.email?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
-                                    {errors.email?.type === 'pattern' && <p className='p-error-114'> El formato del correo, es incorrecto </p>}
-
-                                </div>
-
-                                <div className="input-wrap-10">
-                                    <input type="password" className="input-field-10" autoComplete="off"
-                                        {...register('contraseña', {
-                                            required: true,
-                                            maxLength: 13
-                                        })} />
-                                    <label id="label-10">Contraseña.</label>
-                                    {errors.contraseña?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
-                                    {errors.contraseña?.type === 'maxLength' && <p className='p-error-114'> Estas excediendo el limite de caracteres (13) </p>}
-
-                                </div>
-                            </div>
-
-                            <div>
-                                <p className="text-10">
-                                    ¿Olvidaste tu contraseña?
-                                    <a href="#"> Obtén ayuda.</a>
-                                </p>
-
-
-                                <input type="submit" value="Inicia Sesión" className="sign-btn-10" />
-                                {/* Se añade el botón de Google */}
-
-                                <div
-                                    style={{
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        alignItems: "center",
-                                        height: "40px",
-                                    }}
-                                >
-                                    {!user && <div ref={googlebuttonref}></div>}
-                                    {user && (
-                                        <div>
-                                            <h1>{user.name}</h1>
-                                            <img src={user.picture} alt="profile" />
-                                            <p>{user.email}</p>
-
-                                            <button
-                                                onClick={() => {
-                                                    setuser(false);
-                                                }}
-                                            >
-                                                Logout
-                                            </button>
-                                        </div>
-                                    )}
-                                </div>
-
-
-
-                            </div>
-
-                        </form>
-
-
-                        {/* Aquí comienza el REGISTRO. */}
-
-                        <form action="index.html" autoComplete="off" className="sign-up-form-10" onSubmit={handleSubmit(onSubmit)}>
-                            <div className="logo-10">
-                                <img src={require('../../Images/logoPosada.png')} alt="Posada del SOL" />
-                                <h3 > La Posada del Sol</h3>
-                            </div>
-                            <div className="heading-10">
-                                <h2> Registrate </h2>
-                                <h6>¿Ya tienes una cuenta? </h6>
-                                <a href="#" className="toggle-10"> Inicia Sesión.</a>
-                            </div>
-
-
-                            {/* 5 Inputs para el Registro. */}
-
-
-                            <div className="actual-form-10">
-                                <div className="input-wrap-10">
-                                    <input type="text" className="input-field-10" autoComplete="off" {...register('nombres', {
-                                        required: true,
-                                        maxLength: 30
-                                    })} />
-                                    <label id="label-10">Nombres.</label>
-                                    {errors.nombre?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
-                                    {errors.nombre?.type === 'maxLength' && <p className='p-error-114'> Estas excediendo el limite de caracteres (30) </p>}
-                                </div>
-
-                                <div className="input-wrap-10">
-                                    <input type="text" className="input-field-10" autoComplete="off"  {...register('apellidos', {
-                                        required: true,
-                                        maxLength: 30
-                                    })} />
-
-                                    <label id="label-10">Apellidos.</label>
-                                    {errors.apellido?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
-                                    {errors.apellido?.type === 'maxLength' && <p className='p-error-114'> Estas excediendo el limite de caracteres (30) </p>}
-                                </div>
-
-                                <div className="input-wrap-10">
-                                    <input type="email" className="input-field-10" autoComplete="off"  {...register('email', {
-                                        required: true,
-                                        pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i
-                                    })} />
-                                    <label id="label-10">Correo Electrónico.</label>
-                                    {errors.email?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
-                                    {errors.email?.type === 'pattern' && <p className='p-error-114'> El formato del correo, es incorrecto </p>}
-                                </div>
-
-                                <div className="input-wrap-10">
-                                    <input type="password" className="input-field-10" autoComplete="off" {...register('contraseña', {
-                                        required: true,
-                                        maxLength: 13
-                                    })} />
-                                    <label id="label-10">Contraseña.</label>
-                                    {errors.contraseña?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
-                                    {errors.contraseña?.type === 'maxLength' && <p className='p-error-114'> Estas excediendo el limite de caracteres (13) </p>}
-                                </div>
-
-                                <div className="input-wrap-10">
-                                    <input type="password" className="input-field-10" autoComplete="off" {...register('contraseña2', {
-                                        required: true,
-                                        maxLength: 13
-                                    })} />
-                                    <label id="label-10">Confirma tu contraseña.</label>
-                                    {errors.contraseña?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
-                                    {errors.contraseña?.type === 'maxLength' && <p className='p-error-114'> Estas excediendo el limite de caracteres (13) </p>}
-                                </div>
-
-
-
-                            </div>
-
-                            <div>
-                                <p className="text-10">
-                                    Al registrarme, acepto las <a href="#">condiciones de servicio</a> y la <a
-                                        href="#">política de privacidad. </a>
-                                </p>
-
-                                <input type="submit" value="Registrate" className="sign-btn-10" />
-
-                                {/* Se añade el botón de Google */}
-
-                                <div
-                                    style={{
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        alignItems: "center",
-                                        height: "40px",
-                                    }}
-                                >
-                                    {!user && <div ref={googlebuttonref}></div>}
-                                    {user && (
-                                        <div>
-                                            <h1>{user.name}</h1>
-                                            <img src={user.picture} alt="profile" />
-                                            <p>{user.email}</p>
-
-                                            <button
-                                                onClick={() => {
-                                                    setuser(false);
-                                                }}
-                                            >
-                                                Logout
-                                            </button>
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
-                        </form>
+                        <Loginform />
+                        <Signupform />
                     </div>
 
                     {/* Carousel de imagenes. */}

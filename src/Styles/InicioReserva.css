@@ -9,7 +9,6 @@
   font-family: "Montserrat", sans-serif;
   border: none;
   text-decoration: none;
-  text-transform: capitalize;
   transition: 0.2s linear;
 }
 
@@ -109,7 +108,7 @@ section {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
-  background: #eee;
+  background: #fbc1f1;
   padding: 2rem;
   border-radius: 0.5rem;
 }
@@ -119,6 +118,7 @@ section {
 }
 
 .availability-176 form .box-176 p {
+  font-weight: 700;
   font-size: 1rem;
   color: var(--primary);
 }
@@ -126,7 +126,8 @@ section {
 .availability-176 form .box-176 .input-176 {
   width: 100%;
   padding: 1rem;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
   color: var(--black);
   margin: 1rem 0;
   border-radius: 0.5rem;
