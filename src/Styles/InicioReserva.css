@@ -1,0 +1,142 @@
+:root {
+  --primary: #883c77;
+  --black: #333;
+  --white: #fff;
+  --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+* {
+  font-family: "Montserrat", sans-serif;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: 0.2s linear;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-padding-top: 9rem;
+  scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 0.6rem;
+}
+
+section {
+  padding: 5rem 7%;
+}
+
+.btn-176 {
+  display: inline-block;
+  margin-top: 1rem;
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
+  padding: 1rem 3rem;
+  background: var(--primary);
+  border-radius: 0.5rem;
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-176:hover {
+  transition: all 0.3s ease-out;
+  background: #efefef;
+  color: var(--primary);
+  transition: 250ms;
+}
+
+/* home */
+
+.home-176 {
+  margin-top: 3rem;
+  padding: 0;
+}
+
+.home-176 .slide-176 {
+  min-height: 100vh;
+  background-size: cover !important;
+  background-position: center !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+}
+
+.home-176 .slide-176 .content-176 {
+  width: 80rem;
+  text-align: center;
+}
+
+.home-176 .slide-176 .content-176 h3 {
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 1.1;
+  padding: 0;
+  font-size: 30px;
+  font-weight: 600;
+  text-shadow: 2px 2px #ffffff44;
+  background-color: var(--primary);
+}
+
+.swiper-slide-176 {
+  background-image: url(../Images/hoteltxt.jpg);
+  background-repeat: no-repeat;
+}
+
+.content-176 img {
+  width: 90px;
+  margin: 0.3rem;
+}
+
+/* end */
+
+/* availability */
+
+.availability-176 form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  background: #eee;
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+.availability-176 form .box-176 {
+  flex: 1 1 20rem;
+}
+
+.availability-176 form .box-176 p {
+  font-size: 1rem;
+  color: var(--primary);
+}
+
+.availability-176 form .box-176 .input-176 {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  color: var(--black);
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+}
+
+.form-100-176 {
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: 0.2s linear;
+}
+
+/* end */

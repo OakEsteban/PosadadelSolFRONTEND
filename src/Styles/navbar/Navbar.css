@@ -39,7 +39,7 @@
   padding-right: 5px;
 }
 
-a.logo {
+a.logo-114 {
   float: left;
   padding: 0px 0px 0px 0px;
   height: 60px;
@@ -47,11 +47,11 @@ a.logo {
   cursor: pointer;
 }
 
-.logo img {
+.logo-114 img {
   height: 60px;
 }
 
-.logo img:hover {
+.logo-114 img:hover {
   transform: scale(1.1);
 }
 
@@ -69,7 +69,7 @@ a.logo {
   font-weight: 550;
 }
 
-.button {
+.button-114 {
   justify-self: center;
   margin: 0;
   padding: 0;
@@ -147,14 +147,14 @@ a.logo {
     border-radius: 0;
   }
 
-  .navbar-logo {
+  .navbar-logo-114 {
     position: absolute;
     top: 0;
     left: 0;
     transform: translate(25%, 50%);
   }
 
-  .logo {
+  .logo-114 {
     position: absolute;
     background-size: contain;
     background-repeat: no-repeat;
@@ -200,7 +200,7 @@ a.logo {
     color: var(--white-color);
     transition: 250ms;
   }
-  .btn--primary {
+  .btn-111--primary {
     display: none;
   }
 }

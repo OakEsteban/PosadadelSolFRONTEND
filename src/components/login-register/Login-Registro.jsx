@@ -3,6 +3,7 @@ import "../../Styles/login-register/login-register.css";
 import { useState, useRef } from "react";
 import { useScript } from "../../hooks/useScript";
 import jwt_decode from "jwt-decode";
+import { useForm } from 'react-hook-form';
 
 
 function LoginRegistro() {
@@ -29,8 +30,20 @@ function LoginRegistro() {
         });
     });
 
+    //Fin sección Botón Google. 
+
+
+    //Funciones de animaciones para el apartado de imagenes el carrusel, en el apartado de login.
 
     useEffect(() => {
+
+
+        const inputs = document.querySelectorAll('.input-field-10');
+        const toggle_btn = document.querySelectorAll('.toggle-10');
+        const main = document.querySelector("main");
+        const bullets = document.querySelectorAll('.bullets span');
+        const images = document.querySelectorAll('.image');
+
         const handleInputFocus = (event) => {
             event.target.classList.add('active');
         };
@@ -44,15 +57,6 @@ function LoginRegistro() {
             const main = document.querySelector('main');
             main.classList.toggle('sign-up-mode');
         };
-
-        //Fin sección Botón Google. 
-
-
-        //Funciones de animaciones para el apartado de imagenes el carrusel, en el apartado de login.
-        const inputs = document.querySelectorAll('.input-field-10');
-        const toggle_btn = document.querySelectorAll('.toggle-10');
-        const bullets = document.querySelectorAll('.bullets span');
-        const images = document.querySelectorAll('.image');
 
         const handleBulletClick = (event) => {
             const index = event.target.dataset.value;
@@ -102,49 +106,70 @@ function LoginRegistro() {
     //Fin unciones de animaciones para el apartado de imagenes el carrusel, en el apartado de login.
 
 
+    //Import de React Hook Forms, para los formularios. 
+    const { register, formState: { errors }, handleSubmit } = useForm();
+
+    const onSubmit = (data) => {
+        console.log(data)
+    }
+
 
     //Todo el HTML para el código de Login-Registro
     return (
         <main id='main-10'>
-            <div class="box-10">
-                <div class="inner-box-10">
+            <div className="box-10">
+                <div className="inner-box-10">
 
                     {/* Aquí comienza el INICO DE SESIÓN. */}
 
-                    <div class="forms-wrap-10">
-                        <form action="index.html" autocomplete="off" class="sign-in-form-10">
-                            <div class="logo-10">
+                    <div className="forms-wrap-10">
+                        <form action="index.html" autoComplete="off" className="sign-in-form-10"
+                            onSubmit={handleSubmit(onSubmit)}>
+                            <div className="logo-10">
                                 <img src={require('../../Images/logoPosada.png')} alt="Posada del SOL" />
                                 <h3>La Posada del Sol</h3>
                             </div>
-                            <div class="heading-10">
+                            <div className="heading-10">
                                 <h2> Inicia Sesión </h2>
                                 <h6>¿Aún no te has registrado? </h6>
-                                <a href="#" class="toggle-10"> Registrate ahora.</a>
+                                <a href="#" className="toggle-10"> Registrate ahora.</a>
                             </div>
                             {/* 2 Inputs para el INICO DE SESIÓN. */}
 
-                            <div class="actual-form-10">
-                                <div class="input-wrap-10">
-                                    <input type="email" class="input-field-10" autocomplete="off" required />
+                            <div className="actual-form-10">
+                                <div className="input-wrap-10">
+                                    <input type="email" className="input-field-10" autoComplete="off"
+                                        {...register('email', {
+                                            required: true,
+                                            pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i
+                                        })} />
                                     <label id="label-10">Correo Electrónico.</label>
+                                    {errors.email?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
+                                    {errors.email?.type === 'pattern' && <p className='p-error-114'> El formato del correo, es incorrecto </p>}
+
                                 </div>
 
-                                <div class="input-wrap-10">
-                                    <input type="password" class="input-field-10" autocomplete="off" required />
+                                <div className="input-wrap-10">
+                                    <input type="password" className="input-field-10" autoComplete="off"
+                                        {...register('contraseña', {
+                                            required: true,
+                                            maxLength: 13
+                                        })} />
                                     <label id="label-10">Contraseña.</label>
+                                    {errors.contraseña?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
+                                    {errors.contraseña?.type === 'maxLength' && <p className='p-error-114'> Estas excediendo el limite de caracteres (13) </p>}
 
                                 </div>
                             </div>
 
                             <div>
-                                <p class="text-10">
+                                <p className="text-10">
                                     ¿Olvidaste tu contraseña?
                                     <a href="#"> Obtén ayuda.</a>
                                 </p>
 
 
-                                <input type="submit" value="Inicia Sesión" class="sign-btn-10" />
+                                <input type="submit" value="Inicia Sesión" className="sign-btn-10" />
                                 {/* Se añade el botón de Google */}
 
                                 <div
@@ -182,45 +207,71 @@ function LoginRegistro() {
 
                         {/* Aquí comienza el REGISTRO. */}
 
-                        <form action="index.html" autocomplete="off" class="sign-up-form-10">
-                            <div class="logo-10">
+                        <form action="index.html" autoComplete="off" className="sign-up-form-10" onSubmit={handleSubmit(onSubmit)}>
+                            <div className="logo-10">
                                 <img src={require('../../Images/logoPosada.png')} alt="Posada del SOL" />
                                 <h3 > La Posada del Sol</h3>
                             </div>
-                            <div class="heading-10">
+                            <div className="heading-10">
                                 <h2> Registrate </h2>
                                 <h6>¿Ya tienes una cuenta? </h6>
-                                <a href="#" class="toggle-10"> Inicia Sesión.</a>
+                                <a href="#" className="toggle-10"> Inicia Sesión.</a>
                             </div>
 
 
                             {/* 5 Inputs para el Registro. */}
 
 
-                            <div class="actual-form-10">
-                                <div class="input-wrap-10">
-                                    <input type="text" class="input-field-10" autocomplete="off" required />
+                            <div className="actual-form-10">
+                                <div className="input-wrap-10">
+                                    <input type="text" className="input-field-10" autoComplete="off" {...register('nombres', {
+                                        required: true,
+                                        maxLength: 30
+                                    })} />
                                     <label id="label-10">Nombres.</label>
+                                    {errors.nombre?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
+                                    {errors.nombre?.type === 'maxLength' && <p className='p-error-114'> Estas excediendo el limite de caracteres (30) </p>}
                                 </div>
 
-                                <div class="input-wrap-10">
-                                    <input type="text" class="input-field-10" autocomplete="off" required />
+                                <div className="input-wrap-10">
+                                    <input type="text" className="input-field-10" autoComplete="off"  {...register('apellidos', {
+                                        required: true,
+                                        maxLength: 30
+                                    })} />
+
                                     <label id="label-10">Apellidos.</label>
+                                    {errors.apellido?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
+                                    {errors.apellido?.type === 'maxLength' && <p className='p-error-114'> Estas excediendo el limite de caracteres (30) </p>}
                                 </div>
 
-                                <div class="input-wrap-10">
-                                    <input type="email" class="input-field-10" autocomplete="off" required />
+                                <div className="input-wrap-10">
+                                    <input type="email" className="input-field-10" autoComplete="off"  {...register('email', {
+                                        required: true,
+                                        pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i
+                                    })} />
                                     <label id="label-10">Correo Electrónico.</label>
+                                    {errors.email?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
+                                    {errors.email?.type === 'pattern' && <p className='p-error-114'> El formato del correo, es incorrecto </p>}
                                 </div>
 
-                                <div class="input-wrap-10">
-                                    <input type="password" class="input-field-10" autocomplete="off" required />
+                                <div className="input-wrap-10">
+                                    <input type="password" className="input-field-10" autoComplete="off" {...register('contraseña', {
+                                        required: true,
+                                        maxLength: 13
+                                    })} />
                                     <label id="label-10">Contraseña.</label>
+                                    {errors.contraseña?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
+                                    {errors.contraseña?.type === 'maxLength' && <p className='p-error-114'> Estas excediendo el limite de caracteres (13) </p>}
                                 </div>
 
-                                <div class="input-wrap-10">
-                                    <input type="password" class="input-field-10" autocomplete="off" required />
+                                <div className="input-wrap-10">
+                                    <input type="password" className="input-field-10" autoComplete="off" {...register('contraseña2', {
+                                        required: true,
+                                        maxLength: 13
+                                    })} />
                                     <label id="label-10">Confirma tu contraseña.</label>
+                                    {errors.contraseña?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
+                                    {errors.contraseña?.type === 'maxLength' && <p className='p-error-114'> Estas excediendo el limite de caracteres (13) </p>}
                                 </div>
 
 
@@ -228,12 +279,12 @@ function LoginRegistro() {
                             </div>
 
                             <div>
-                                <p class="text-10">
+                                <p className="text-10">
                                     Al registrarme, acepto las <a href="#">condiciones de servicio</a> y la <a
                                         href="#">política de privacidad. </a>
                                 </p>
 
-                                <input type="submit" value="Registrate" class="sign-btn-10" />
+                                <input type="submit" value="Registrate" className="sign-btn-10" />
 
                                 {/* Se añade el botón de Google */}
 
@@ -268,26 +319,26 @@ function LoginRegistro() {
 
                     {/* Carousel de imagenes. */}
 
-                    <div class="carousel-10">
-                        <div class="images-wrapper">
-                            <img src={require("../../Images/hotel21.jpg")} class="image img-1 show" alt="" />
-                            <img src={require("../../Images/hotel22.jpg")} class="image img-2" alt="" />
-                            <img src={require("../../Images/hotel23.jpg")} class="image img-3" alt="" />
+                    <div className="carousel-10">
+                        <div className="images-wrapper">
+                            <img src={require("../../Images/hotel21.jpg")} className="image img-1 show" alt="" />
+                            <img src={require("../../Images/hotel22.jpg")} className="image img-2" alt="" />
+                            <img src={require("../../Images/hotel23.jpg")} className="image img-3" alt="" />
 
                         </div>
 
                         {/* Slider y texto de imagenes. */}
-                        <div class="text-slider">
-                            <div class="text-wrap">
-                                <div class="text-group">
+                        <div className="text-slider">
+                            <div className="text-wrap">
+                                <div className="text-group">
                                     <h2>Elegancia y comodidad.</h2>
                                     <h2>Estancia inolvidable.</h2>
                                     <h2>Hospitalidad excepcional.</h2>
                                 </div>
                             </div>
 
-                            <div class="bullets">
-                                <span class="active" data-value="1"></span>
+                            <div className="bullets">
+                                <span className="active" data-value="1"></span>
                                 <span data-value="2"></span>
                                 <span data-value="3"></span>
                             </div>

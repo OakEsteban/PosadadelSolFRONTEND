@@ -20,7 +20,7 @@ class Navbar extends Component {
     return (
       <nav className='NavbarItems'>
         {/* Implementación de logo*/}
-        <Link to="/Inicio" className='logo'>
+        <Link to="/Inicio" className='logo-114'>
           <img src={require('../../Images/logoPosada.png')} alt="" />
         </Link>
         <div className='menu-icon' onClick={this.handleClick}>
@@ -43,7 +43,7 @@ class Navbar extends Component {
         </ul>
         {/* Implementación del Boton para iniciar sesion el cual te redirige a la pagina de inico de sesion/registro */}
 
-        <ul className='button'>
+        <ul className='button-114'>
           <Link to="/Inicia-Sesion" className="nav-link">
             <Button className='btn-111'> Entra <i className="fa-solid fa-right-to-bracket"></i></Button>
           </Link>

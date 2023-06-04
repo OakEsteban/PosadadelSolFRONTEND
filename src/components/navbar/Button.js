@@ -3,13 +3,13 @@ import '../../Styles/navbar/Button.css';
 //Funciones y creación de constantes, para la modificacion del botón, ya que este tiende a cambiar según su tamaño en pantalla. 
 
 const STYLES = [
-    'btn--primary',
-    'btn--outline'
+    'btn-111--primary',
+    'btn-111--outline'
 ]
 
 const SIZES = [
-    'btn--medium',
-    'btn large'
+    'btn-111--medium',
+    'btn-111 large'
 ]
 
 export const Button = ({
@@ -24,7 +24,7 @@ export const Button = ({
     const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0]
 
     return (
-        <button className={`btn ${checkButtonStyle} ${checkButtonSize}`} onClick={onClick} type={type}>
+        <button className={`btn-111 ${checkButtonStyle} ${checkButtonSize}`} onClick={onClick} type={type}>
             {children}
         </button>
     )

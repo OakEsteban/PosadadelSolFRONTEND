@@ -3,7 +3,7 @@
   --white-color: #fff;
 }
 
-.btn {
+.btn-111 {
   padding: 5px 5px;
   border-radius: 5px;
   outline: none;
@@ -12,7 +12,7 @@
   justify-self: end;
 }
 
-.btn:hover {
+.btn-111:hover {
   padding: 10px 15px;
   transition: all 0.3s ease-out;
   background: #efefef;
@@ -20,11 +20,11 @@
   transition: 250ms;
 }
 
-.btn--primary {
+.btn-111--primary {
   background-color: var(--primary);
 }
 
-.btn--outline {
+.btn-111--outline {
   background-color: transparent;
   color: var(--white-color);
   padding: 10px 15px;
@@ -33,14 +33,14 @@
   transition: all 0.3s ease-out;
 }
 
-.btn--medium {
+.btn-111--medium {
   padding: 10px 15px;
   border-radius: 5px;
   font-size: 0.65rem;
   color: var(--white-color);
 }
 
-.btn--large {
+.btn-111--large {
   padding: 10px 15px;
   border-radius: 5px;
   font-size: 0.65rem;
