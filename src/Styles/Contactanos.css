@@ -1,0 +1,183 @@
+.bodyContactenos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 120vmin
+}
+  .bannerContactenos {
+    background-color: #DE92D1;
+    width: 90%;
+    height: 20vh;
+    border-radius: 20px;
+    display: flex;
+    justify-content: left;
+    padding: 20px;
+    color: white;
+  }
+  .h1-contactenos{
+    display: flex;
+    padding-top: 5vh;
+    padding-left: 5vh;
+    font-size: 8vh;
+  }
+  .input-field-contactanos{
+    color: black;
+  }
+  
+  .logoinfomapContactanos {
+    width: 5vh;
+    height: 5vh;
+  }
+  
+  .logosmapContactenos {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+  }
+  
+  .boxContactenos {
+    background-color: white;
+    width: 80%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: row;
+    padding: 20px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .titulomapContactenos {
+    color: white;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .submapContactenos {
+    color: lightgray;
+  }
+  
+  .mapaContactenos {
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+  }
+  
+  .infoContactenos {
+    background-color: #883C77;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10vh;
+    border-radius: 10px;
+  }
+  .formularioConctactenos{
+    display: flex;
+    flex-direction: column;
+    padding-left: 5vh;
+  }
+  .pairConctactenos {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    justify-content: right;
+    padding: 2vh;
+  }
+  .pairConctactenos2 {
+    display: flex;
+    flex-direction: column;
+    padding: 0.4vh;
+    text-align: left;
+  }
+  .input-field-contactanos {
+    width: 200px;
+    border: none;
+    border-bottom: 1px solid #000; 
+    outline: none;
+  }
+
+  .input-field-contactanos2 {
+    width: 400px;
+    border: none;
+    border-bottom: 1px solid #000;
+    outline: none;
+    
+  }
+  .radio-contactenos{
+    display: flex;
+    width: 0.01vh;
+    flex-direction: row;
+  }
+  .radio-paircontactenos{
+    padding-left: 10px;
+  }
+  .input-button-contactenos{
+    display: inline-block;
+    border-radius: 5px;
+    border: none;
+    background-color: purple;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+  }
+  /* Estilos responsivos */
+  @media (max-width: 960px) {
+    .bannerContactenos {
+      width: 100%;
+      border-radius: 10px;
+      justify-content: center;
+      text-align: center;
+    }
+    .infoContactenos {
+      padding: 5vh;
+    }
+    .boxContactenos {
+      background-color: white;
+      width: 90%;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    .input-field-contactanos {
+      width: 100px;
+      border: none;
+      border-bottom: 1px solid #000; 
+      outline: none;
+    }
+  
+    .input-field-contactanos2 {
+      width: 200px;
+      border: none;
+      border-bottom: 1px solid #000;
+      outline: none;
+      
+    }
+    .radio-contactenos{
+      display: flex;
+      width: 0.01vh;
+      flex-direction: row;
+    }
+    .radio-paircontactenos{
+      padding-left: 0px;
+    }
+    .formularioConctactenos{
+      display: flex;
+      padding-right: 50px;
+    }
+    .h1-contactenos{
+      display: flex;
+      padding-top: 5vh;
+      padding-left: 5vh;
+      font-size: 6vh;
+    }
+
+  }
+  

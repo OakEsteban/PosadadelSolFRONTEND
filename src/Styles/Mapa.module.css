@@ -17,7 +17,12 @@
   width: 85vw;
   height: 400px;
 }
-
+.map2 {
+  border: 1px solid black;
+  border-radius: 30px;
+  width: 20vw;
+  height: 300px;
+}
 .description,
 .map,
 .titulo {
@@ -54,4 +59,12 @@
 .L,
 .R {
   margin-left: 5%;
+}
+@media (max-width: 960px){
+  .map2 {
+    border: 1px solid black;
+    border-radius: 30px;
+    width: 50vw;
+    height: 300px;
+  }
 }
