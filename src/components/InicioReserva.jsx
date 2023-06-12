@@ -1,5 +1,4 @@
 import React from 'react'
-import Navbar from '../components/navbar/Navbar'
 import '../Styles/InicioReserva.css'
 import { Link } from 'react-router-dom'
 
@@ -36,21 +35,6 @@ function InicioReserva() {
                             <p> Salida: <span>*</span></p>
                             <input type="date" className="input-176" />
                         </div>
-
-                        <div className="box-176">
-                            <p> Húespedes: <span>*</span></p>
-                            <select name="adults" id="" className="input-176">
-                                <option value="" disabled selected hidden>Elige la cantidad de huéspedes</option>
-                                <option value="1"> 1 Húesped</option>
-                                <option value="2"> 2 Húespedes</option>
-                                <option value="3"> 3 Húespedes</option>
-                                <option value="4"> 4 Húespedes</option>
-                                <option value="5"> 5 Húespedes</option>
-                                <option value="6"> 6 Húespedes</option>
-                                <option value="7"> Más...</option>
-                            </select>
-                        </div>
-
                         <div className="box-176">
                             <p> Tipo de habitación: <span>*</span></p>
                             <select name="child" id="" className="input-176">
@@ -64,17 +48,13 @@ function InicioReserva() {
                         </div>
 
                         <div className="box-176">
-                            <p>Cantidad de habitaciones. <span>*</span></p>
-                            <select name="rooms" id="" className="input-176">
-                                <option value="" disabled selected hidden>Elige la cantidad de habitaciones</option>
-                                <option value="1"> 1 habitaciones</option>
-                                <option value="2"> 2 habitaciones</option>
-                                <option value="3"> 3 habitaciones</option>
-                                <option value="4"> 4 habitaciones</option>
-                                <option value="5"> 5 habitaciones</option>
-                                <option value="6"> 6 habitaciones</option>
-                                <option value="7"> Más habitaciones</option>
-                            </select>
+                            <p> Adultos: <span>*</span></p>
+                            <input type="number" className="input-176" min="1" />
+                        </div>
+
+                        <div className="box-176">
+                            <p> Niños: <span>*</span></p>
+                            <input type="number" className="input-176" min="5" />
                         </div>
 
                         <input type="submit" value="Verificar" className="btn-176" />
@@ -90,3 +70,4 @@ function InicioReserva() {
 }
 
 export default InicioReserva
+
