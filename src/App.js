@@ -6,7 +6,7 @@ import Habitaciones from '../src/components/pages/Habitaciones.jsx';
 import Servicios from '../src/components/pages/Servicios.jsx';
 import Nosotros from '../src/components/pages/Nosotros.jsx';
 import Contactanos from '../src/components/pages/Contactanos.jsx';
-import IniciaSesion from './components/login-register/Login-Registro.jsx'
+import IniciaSesion from './components/login-register/Login-Registro.jsx';
 import Confirmacion from './components/pages/Confirmacion.jsx';
 
 function App() {
