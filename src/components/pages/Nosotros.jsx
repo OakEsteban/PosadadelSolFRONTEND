@@ -1,5 +1,6 @@
 import React from "react";
 import WorkerMod from "../WorkerMod";
+import Services from "../Services-Nosotros";
 
 
 export const Nosotros = () => {
@@ -14,6 +15,7 @@ export const Nosotros = () => {
       }}
     >
       <WorkerMod/> 
+      <Services/>
       
     </div>
   );
