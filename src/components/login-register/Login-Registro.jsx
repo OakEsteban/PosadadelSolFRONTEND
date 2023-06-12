@@ -260,8 +260,31 @@ function LoginRegistro() {
             console.log(data)
             axios.post('http://localhost:4000/users', data)
                 .then(response => {
-                    console.log(response.data);
-                    navigate('/Inicia-Sesion');
+                    
+                    /*const nodemailer = require('nodemailer');
+                    sendEmail = async () => {
+                        const config = {
+                            host : 'smtp.gmail.com',
+                            port : 587,
+                            auth : {
+                                user : 'marcelino.hudson@ethereal.email',
+                                pass: 'jrKNxGAt6yy8x9wQnm'
+                            }
+                        }
+                        const mensaje = {
+                            from : 'marcelino.hudson@ethereal.email',
+                            to : data.email,
+                            subject: 'Confirmación de cuenta',
+                            text : '¡Felicitaciones! su cuenta ha sido creada con exito'
+                        }
+                        const transport = nodemailer.createTransport(config);
+                        const info = await transport.sendMail(config);
+                    }
+
+                    sendEmail();*/
+                    
+
+                    navigate('/Confirmacion');
                     // Aquí puedes realizar cualquier otra acción después de que el usuario se haya registrado correctamente.
                 })
                 .catch(error => {

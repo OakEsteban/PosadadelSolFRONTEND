@@ -62,7 +62,7 @@ export const Contactanos = () => {
                             
                         </div>
                     </div>
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <form className='div-mapForm' onSubmit={handleSubmit(onSubmit)}>
                         <div className='formularioConctactenos'>
                         <div className='camposContactenos'>
                             <div className='pairConctactenos'>
@@ -115,7 +115,7 @@ export const Contactanos = () => {
                             <a>Mensaje</a>
                         </div>
                         <div>
-                            <input type="text" className="input-field-contactanos2" />
+                            <input type="text"  className="input-field-contactanos2" placeholder='Comentario'/>
                         </div>
                         </div>
                         <input type="submit" value="Enviar" className='input-button-contactenos'></input>
