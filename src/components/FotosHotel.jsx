@@ -1,7 +1,7 @@
 import React from "react";
-import img1 from "../Images/hotel.png";
-import img2 from "../Images/hotel1.jpg";
-import img3 from "../Images/hotel2.jpg";
+import img1 from "../Images/Principal 19.png";
+import img2 from "../Images/Principal 21.png";
+import img3 from "../Images/Principal 20.png";
 
 import Carousel from "react-bootstrap/Carousel";
 import carrusel from "../Styles/Carrusel.module.css";
@@ -74,9 +74,9 @@ function UncontrolledExample() {
                 class={carrusel.img}
               />
               <Carousel.Caption>
-                <h3>First slide label</h3>
+                <h3>Tranquilidad y descanso</h3>
                 <p>
-                  Nulla vitae elit libero, a pharetra augue mollis interdum.
+                  
                 </p>
               </Carousel.Caption>
             </Carousel.Item>
@@ -89,8 +89,8 @@ function UncontrolledExample() {
               />
 
               <Carousel.Caption>
-                <h3>Second slide label</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h3>Grandes vistas</h3>
+                <p></p>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -102,10 +102,8 @@ function UncontrolledExample() {
               />
 
               <Carousel.Caption>
-                <h3>Third slide label</h3>
+                <h3>Recreacion y deporte</h3>
                 <p>
-                  Praesent commodo cursus magna, vel scelerisque nisl
-                  consectetur.
                 </p>
               </Carousel.Caption>
             </Carousel.Item>

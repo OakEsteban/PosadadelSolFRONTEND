@@ -179,7 +179,7 @@ function LoginRegistro() {
                 <div>
                     <p className="text-10">
                         ¿Olvidaste tu contraseña?
-                        <a href="#"> Obtén ayuda.</a>
+                        <a href="../../components/login-register/Recuperar.jsx"> Obtén ayuda.</a>
                     </p>
 
 
