@@ -3,6 +3,7 @@ import RecuperarDesc from "../RecuperarDescripcion";
 import estilo from "../../Styles/RecuperarP.module.css";
 //import Logo from "../../Images/logoPosada.png";
 
+
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -13,7 +14,7 @@ function Recuperar() {
       <RecuperarDesc />
 
       <div className={estilo.cont2}>
-
+        
         <p className={estilo.text1}>
           <b>!Recupera tu contraseña¡</b>
         </p>
@@ -42,3 +43,5 @@ function Recuperar() {
 }
 
 export default Recuperar;
+
+

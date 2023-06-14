@@ -138,6 +138,8 @@ function LoginRegistro() {
             setLoggedIn(false);
         };
 
+        
+        
         return (
             <form action="index.html" autoComplete="off" className="sign-in-form-10"
                 onSubmit={handleSubmit(onSubmit)}>
@@ -181,7 +183,7 @@ function LoginRegistro() {
                 <div>
                     <p className="text-10">
                         ¿Olvidaste tu contraseña?
-                        <a href="#"> Obtén ayuda.</a>
+                        <a href="/Recuperar"> Obtén ayuda.</a>
                     </p>
 
 

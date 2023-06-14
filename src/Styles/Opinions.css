@@ -13,7 +13,7 @@
 
 .testimonial-heading {
   letter-spacing: 1px;
-  margin: 30px 0;
+  margin: 30px 0px;
   padding: 10px 20px;
   display: flex;
   flex-direction: column;
@@ -23,7 +23,7 @@
 
 .testimonial-heading h1 {
   font-size: 2.2rem;
-  font-weight: 500;
+  font-weight: 200;
   background-color: #202020;
   color: #ffffff;
   padding: 10px 20px;
@@ -43,20 +43,24 @@
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
+}
+
+.testimonial-box {
+  width: 800px;
   max-width: 1000px;
   box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
   padding: 20px;
   margin: 15px;
-  cursor: pointer;
+  cursor: pointer
 }
 
 .profile-img {
-  width: 120px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   overflow: hidden;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 .profile-img img {
