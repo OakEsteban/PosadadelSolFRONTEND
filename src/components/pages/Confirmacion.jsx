@@ -5,9 +5,9 @@ import { useNavigate } from 'react-router-dom';
 export const Confirmacion = () => {
     const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate('/Inicia-Sesion');
-  };
+    const handleClick = () => {
+        navigate('/Inicia-Sesion');
+    };
     return (
         <div style={{
 

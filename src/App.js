@@ -8,6 +8,7 @@ import Nosotros from '../src/components/pages/Nosotros.jsx';
 import Contactanos from '../src/components/pages/Contactanos.jsx';
 import IniciaSesion from './components/login-register/Login-Registro.jsx';
 import Confirmacion from './components/pages/Confirmacion.jsx';
+import Recuperar from './components/login-register/Recuperar.jsx';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/contactanos" element={<Contactanos />} />
         <Route path="/Inicia-Sesion" element={<IniciaSesion />} />
         <Route path="/Confirmacion" element={<Confirmacion/>} />
+        <Route path="/Recuperar" element={<Recuperar/>} />
         <Route path="*" element={<Navigate to="/Inicio" replace />} />
       </Routes>
     </Router>

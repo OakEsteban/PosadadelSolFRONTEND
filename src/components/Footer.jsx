@@ -28,7 +28,7 @@ function Footer() {
             <div className="box">
                 <div className="listHrefFooter">
                     <h3>Nuestro hotel</h3>
-                    <a className="footerLink" href="#">Habitacion1</a>
+                    <a className="footerLink" href="/Recuperar">ir</a>
                     <a className="footerLink" href="#">Habitacion2</a>
                     <a className="footerLink" href="#">Habitacion3</a>
                 </div>
