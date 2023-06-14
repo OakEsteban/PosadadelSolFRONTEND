@@ -4,6 +4,7 @@ import { useScript } from "../../hooks/useScript";
 import jwt_decode from "jwt-decode";
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+
 import axios from 'axios';
 
 
@@ -112,7 +113,7 @@ function LoginRegistro() {
         const { register, formState: { errors, setErrors }, handleSubmit } = useForm();
         const [loggedIn, setLoggedIn] = useState(false);
         const [loginError, setLoginError] = useState('');
-
+        const navigate = useNavigate();
 
         const onSubmit = (data) => {
             console.log(data)
@@ -122,6 +123,7 @@ function LoginRegistro() {
                     console.log(response.data);
                     setLoggedIn(true); // Establecer el estado de inicio de sesión exitoso
                     setLoginError(''); // Limpiar el mensaje de error en caso de que haya uno anteriormente
+                    navigate('/Inicio');
                 })
                 .catch((error) => {
                     // Manejar el error si la solicitud no se puede completar
@@ -136,6 +138,8 @@ function LoginRegistro() {
             setLoggedIn(false);
         };
 
+        
+        
         return (
             <form action="index.html" autoComplete="off" className="sign-in-form-10"
                 onSubmit={handleSubmit(onSubmit)}>
@@ -179,7 +183,7 @@ function LoginRegistro() {
                 <div>
                     <p className="text-10">
                         ¿Olvidaste tu contraseña?
-                        <a href="../../components/login-register/Recuperar.jsx"> Obtén ayuda.</a>
+                        <a href="/Recuperar"> Obtén ayuda.</a>
                     </p>
 
 
@@ -260,13 +264,36 @@ function LoginRegistro() {
             console.log(data)
             axios.post('http://localhost:4000/users', data)
                 .then(response => {
-                    console.log(response.data);
-                    navigate('/Inicia-Sesion');
-                    // Aquí puedes realizar cualquier otra acción después de que el usuario se haya registrado correctamente.
+                    
+                    /*const nodemailer = require('nodemailer');
+                    sendEmail = async () => {
+                        const config = {
+                            host : 'smtp.gmail.com',
+                            port : 587,
+                            auth : {
+                                user : 'marcelino.hudson@ethereal.email',
+                                pass: 'jrKNxGAt6yy8x9wQnm'
+                            }
+                        }
+                        const mensaje = {
+                            from : 'marcelino.hudson@ethereal.email',
+                            to : data.email,
+                            subject: 'Confirmación de cuenta',
+                            text : '¡Felicitaciones! su cuenta ha sido creada con exito'
+                        }
+                        const transport = nodemailer.createTransport(config);
+                        const info = await transport.sendMail(config);
+                    }
+
+                    sendEmail();*/
+                    
+
+                    navigate('/Confirmacion');
+                    // Aquí se realizan otras acciones después de que el usuario se haya registrado correctamente.
                 })
                 .catch(error => {
                     console.error(error);
-                    // Aquí puedes manejar cualquier error que ocurra durante el registro.
+                    // Aquí se realizan otras acciones para cualquier error que ocurra durante el registro.
                 });
         }
 
@@ -409,7 +436,7 @@ function LoginRegistro() {
 
                         {/* Slider y texto de imagenes. */}
                         <div className="text-slider">
-                            <div className="text-wrap">
+                            <div className="text-wrap-124">
                                 <div className="text-group">
                                     <h2>Elegancia y comodidad.</h2>
                                     <h2>Estancia inolvidable.</h2>
