@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "../../Styles/Contactanos.css";
 import {useForm} from "react-hook-form";
 import axios from 'axios';
-import stile from "../../Styles/Mapa.module.css";
+import stile from "../../Styles/MapaStyle.css";
 import Button from "react-bootstrap/Button";
 import map from "../../Images/pin_mark.png";
 import email from "../../Images/email.png";
@@ -54,7 +54,7 @@ export const Contactanos = () => {
                                 allowfullscreen=""
                                 loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade"
-                                className={stile.map2}
+                                id='map-2'
                             ></iframe>
 
                         </div>

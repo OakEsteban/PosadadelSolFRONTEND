@@ -76,3 +76,16 @@
 #btn1{
     margin-left: 90% ;
 } */
+
+/* ------------------------------------------------------------------------------- */
+
+/* Div: cont-9: Contiene el titulo y la descripcion 
+        cont-10: Contiene las fotos y el carrusel*/
+
+/* ID: title-8: titulo
+        desc-4: descripcion */
+.cont-9{
+    border: 1px solid black;
+    width: 90%;
+}
+

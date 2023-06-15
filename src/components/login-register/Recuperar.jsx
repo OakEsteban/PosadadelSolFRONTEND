@@ -1,7 +1,7 @@
 import React from "react";
 import RecuperarDesc from "../RecuperarDescripcion";
 import estilo from "../../Styles/RecuperarP.module.css";
-//import Logo from "../../Images/logoPosada.png";
+
 
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";

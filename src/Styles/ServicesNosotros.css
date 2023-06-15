@@ -15,12 +15,13 @@
     width: 90vi;
 }
 
+/* Contenedor de los servicios */
 .cont-4{
     display: flex;
     flex-direction: row;
     border: none;
-    width: 90vi;
-    height: 12vi;
+    width: 90%;
+    height: 10vi;
     border-radius: 1rem;
     margin-bottom: 3%;
     box-shadow: 10px 10px 19px -4px rgba(0,0,0,0.57);
@@ -39,12 +40,12 @@
     height: 100%;
 }
 #title-2{
-    font-size: 4vi;
+    font-size: 3vi;
     color: #a9659a;
 }
 
 #title-3{
-    font-size: 3vi;
+    font-size: 2.4vi;
     margin-left: 5%;
     margin-bottom: 0;
     color: #a35a93;
@@ -56,6 +57,6 @@
 }
 
 #sub-1{
-    font-size: 5vi;
+    font-size: 4vi;
     color: #f5c526ec;
 }

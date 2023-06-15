@@ -1,6 +1,9 @@
 import React from "react";
 import WorkerMod from "../WorkerMod";
 import Services from "../Services-Nosotros";
+import Recuperar from "../login-register/Recuperar";
+import Recuperar2 from '../login-register/Recuperar2'
+import Recuperar3 from '../login-register/Recuperar3'
 
 
 export const Nosotros = () => {
@@ -14,8 +17,12 @@ export const Nosotros = () => {
         justifyContent:"center"
       }}
     >
-      <WorkerMod/> 
-      <Services/>
+      {/* <WorkerMod/> 
+      <Services/> */}
+
+<Recuperar/>
+<Recuperar2/>
+<Recuperar3/>
       
     </div>
   );

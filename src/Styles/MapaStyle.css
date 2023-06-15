@@ -1,0 +1,123 @@
+/* .container {
+  align-items: center;
+  width: 90%;
+  height: 500px;
+  border-radius: 30px;
+  box-shadow: 3px 3px 3px rgb(236, 84, 198);
+}
+
+.titulo,
+.description {
+  font-family: "Montserrat";
+}
+
+.map {
+  border: 1px solid black;
+  border-radius: 30px;
+  width: 85vw;
+  height: 400px;
+}
+.map2 {
+  border: 1px solid black;
+  border-radius: 30px;
+  width: 20vw;
+  height: 300px;
+}
+.description,
+.map,
+.titulo {
+  margin-left: 30px;
+}
+
+.btn {
+  margin-top: 10%;
+  margin-left: 55%;
+  width: 200px;
+}
+
+.left {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  border: none;
+}
+
+.L {
+  width: 50%;
+  height: 100px;
+  float: left;
+  border: none;
+}
+
+.R {
+  width: 50%;
+  height: 100px;
+  border: none;
+  float: right;
+}
+
+.L,
+.R {
+  margin-left: 5%;
+}
+@media (max-width: 960px){
+  .map2 {
+    border: 1px solid black;
+    border-radius: 30px;
+    width: 50vw;
+    height: 300px;
+  }
+} */
+/* ------------------------------------------------------------------------------------- */
+
+/* Divs: cont-7: Ttiene el ttitulo descripcion y boton,
+         cont-8: contiene el mapa*/
+
+ /* Id: title-5: titulo,
+        txt-6: Descripcion,
+        map-1: Estilos del mapa 
+        btn-3: Boton para desplegar mapa*/
+.cont-7{
+  display: flex;
+  flex-wrap: wrap;
+  border: none;
+  width: 90%;
+  height: 12vi;
+  margin-bottom: 1%;
+}
+
+.cont-8{
+  border: none;
+  width: 90%;
+  height: 33vi;
+  border-bottom: 1px solid gray;
+}
+
+#title-5{
+  font-size: 3vi;
+  margin-bottom: 0;
+}
+
+#txt-6{
+  font-size: 2vi;
+}
+
+#map-1{
+  width: 100%;
+  height: 30vi;
+  border: solid 1px #a9659a;
+  border-radius: 1rem;
+  box-shadow: #a9659a 0px 10px 20px, #a9659a 0px 6px 6px;
+}
+
+#map-2{
+  border-radius: 1rem;
+  margin-top: 1%;
+}
+
+@media (max-width:640px) {
+  #txt-6{
+    font-size: 2vi;
+  }
+  
+}

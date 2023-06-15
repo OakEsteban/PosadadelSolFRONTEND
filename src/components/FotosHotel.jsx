@@ -146,15 +146,15 @@ function UncontrolledExample() {
     //   </div>
     // </div>
     <>
-      <div className="txt-6">
-        <p id="title-7">Conoce nuestro hotel</p>
+      <div className="cont-9">
+        <p id="title-8">Conoce nuestro hotel</p>
         <p id="desc-4">
           En nuestro hotel encontraras la mejor experiencia vacacional
         </p>
       </div>
-      <div className="fotos-2"></div>
-
-      <div className="carrusel"></div>
+      <div className="cont-10">
+        
+      </div>
     </>
   );
 }
