@@ -1,14 +1,25 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+
+//Barra de navegación.
 import Navbar from './components/navbar/Navbar.jsx';
+
+//Páginas principales.
 import Inicio from '../src/components/pages/Inicio.jsx';
 import Hotel from '../src/components/pages/Hotel.jsx';
 import Habitaciones from '../src/components/pages/Habitaciones.jsx';
 import Servicios from '../src/components/pages/Servicios.jsx';
 import Nosotros from '../src/components/pages/Nosotros.jsx';
 import Contactanos from '../src/components/pages/Contactanos.jsx';
+
+//Inicio de sesión.
 import IniciaSesion from './components/login-register/Login-Registro.jsx';
 import Confirmacion from './components/pages/Confirmacion.jsx';
 import Recuperar from './components/login-register/Recuperar.jsx';
+// import Recuperar2 from './components/login-register/Recuperar2.jsx';
+// import Recuperar3 from './components/login-register/Recuperar3.jsx';
+
+//Pagina 404.
+import Page404 from './components/Page404.jsx';
 
 function App() {
   return (
@@ -25,7 +36,7 @@ function App() {
         <Route path="/Inicia-Sesion" element={<IniciaSesion />} />
         <Route path="/Confirmacion" element={<Confirmacion />} />
         <Route path="/Recuperar" element={<Recuperar />} />
-        <Route path="*" element={<Navigate to="/Inicio" replace />} />
+        <Route path="*" element={<Page404 />} />
       </Routes>
     </Router>
   );

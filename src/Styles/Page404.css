@@ -1,0 +1,46 @@
+.page_404 {
+  padding: 1px 0;
+  background: #fff;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vmin;
+}
+
+.page_404 img {
+  max-width: 380px;
+  height: auto;
+}
+
+.h3-404 {
+  margin: 0;
+  font-weight: 800;
+  color: #883c77;
+}
+
+.p-404 {
+  margin: 10px;
+  font-weight: 700;
+  color: #883c77;
+}
+
+.link_404 {
+  color: white;
+  padding: 10px 20px;
+  background: #883c77;
+  display: inline-block;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  margin: 0;
+}
+
+.link_404:hover {
+  background-color: white;
+  font-weight: 500;
+  color: #883c77;
+  border: 2px solid #883c77;
+}
