@@ -73,11 +73,11 @@
 /* Divs: cont-7: Ttiene el ttitulo descripcion y boton,
          cont-8: contiene el mapa*/
 
- /* Id: title-5: titulo,
+/* Id: title-5: titulo,
         txt-6: Descripcion,
         map-1: Estilos del mapa 
         btn-3: Boton para desplegar mapa*/
-.cont-7{
+.cont-7 {
   display: flex;
   flex-wrap: wrap;
   border: none;
@@ -86,23 +86,22 @@
   margin-bottom: 1%;
 }
 
-.cont-8{
+.cont-8 {
   border: none;
   width: 90%;
   height: 33vi;
-  border-bottom: 1px solid gray;
 }
 
-#title-5{
+#title-5 {
   font-size: 3vi;
   margin-bottom: 0;
 }
 
-#txt-6{
+#txt-6 {
   font-size: 2vi;
 }
 
-#map-1{
+#map-1 {
   width: 100%;
   height: 30vi;
   border: solid 1px #a9659a;
@@ -110,14 +109,13 @@
   box-shadow: #a9659a 0px 10px 20px, #a9659a 0px 6px 6px;
 }
 
-#map-2{
+#map-2 {
   border-radius: 1rem;
   margin-top: 1%;
 }
 
-@media (max-width:640px) {
-  #txt-6{
+@media (max-width: 640px) {
+  #txt-6 {
     font-size: 2vi;
   }
-  
 }

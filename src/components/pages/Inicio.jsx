@@ -18,8 +18,8 @@ export const Inicio = () => {
         }}>
             <InicioReserva />
             <FotosHotel />
-            {/* <Habitaciones />
-            <Servicios /> */}
+            <Habitaciones />
+            <Servicios />
             <Mapa />
             <Opinions />
             <Footer />

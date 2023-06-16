@@ -1,143 +1,221 @@
-footer{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 2vmin;
-
+footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2vmin;
 }
 
-.footerTop{
-    background-color: #A96596;
-    width: 61%;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    top: 50px;
-    justify-content: center;
-    padding: 20px;
+.footerTop {
+  background-color: #a96596;
+  width: 61%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  top: 50px;
+  justify-content: center;
+  padding: 20px;
 }
 
-.footerBottom{
-    background: rgb(222,146,209);
-    background: radial-gradient(circle, rgba(210,128,196,1) 0%, rgba(222,146,209,1) 100%);
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    padding-top: 12vmin;
-    padding-bottom: 30px;
+.footerTop h1 {
+  font-weight: 650;
+  color: white;
 }
 
-
-
-.descriptionText{
-    color:white;
+.footerTop h3 {
+  font-weight: 600;
+  color: white;
 }
 
-.posada{
-    display: flex;
-    flex-direction: column;
+.footerBottom h3 {
+  font-weight: 600;
+  color: white;
 }
 
-.subscription{
-    padding-left: 15vmin;
-    margin-top: 60px;
-    display: flex;
-    flex-direction: column;
+.footerBottom {
+  background: rgb(222, 146, 209);
+  background: radial-gradient(
+    circle,
+    rgba(210, 128, 196, 1) 0%,
+    rgba(222, 146, 209, 1) 100%
+  );
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  padding-top: 12vmin;
+  padding-bottom: 30px;
+  justify-content: space-between;
 }
 
-.ofertaContainer{ 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 20px;
+.descriptionText {
+  color: white;
 }
 
-.inputEmail{
-    border-radius: 5px;
-    width: 40vmin;
-    height: 5vmin;
-    font-size: 15px;
-    border: none;
-    padding: 10px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+.posada {
+  display: flex;
+  flex-direction: column;
 }
 
-.button1{
-    position: relative;
-    border-radius: 8px;
-    font-size: 18px;
-    width: auto;
-    height: 35px;
-    border: none;
-    cursor: pointer;
-    color: white;
-    background: #DE92D1;
-    padding:10px;
-    margin-left: 10px;
+.subscription {
+  padding-left: 15vmin;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
 }
 
-.box{
-    padding-left: 4vmin;
+.ofertaContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
 }
 
-.listHrefFooter{
-    display: flex;
-    flex-direction: column;
+.inputEmail {
+  border-radius: 5px;
+  width: 40vmin;
+  height: 5vmin;
+  font-size: 15px;
+  border: none;
+  padding: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.footerLink{
-    color: black;
+.button1 {
+  position: relative;
+  border-radius: 8px;
+  font-size: 18px;
+  width: auto;
+  height: 35px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background: #de92d1;
+  padding: 10px;
+  margin-left: 10px;
 }
 
-.logoPos{
-    max-width: 15vmin;
-    max-height: 15vmin; 
+.box {
+  padding-left: 4vmin;
 }
 
-.posadaText{
-    color: white;
+.listHrefFooter {
+  display: flex;
+  flex-direction: column;
 }
 
-.button2{
-    position: relative;
-    border-radius: 8px;
-    font-size: 18x;
-    width: 12vmin;
-    height: 40px;
-    border: none;
-    cursor: pointer;
-    background: #A96596;
-    margin-top: 70px;
+.footerLink {
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+}
+.footerLink:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.footerLinkTitles {
+  text-decoration: none;
+}
+
+.logoPos {
+  max-width: 15vmin;
+  max-height: 15vmin;
+}
+
+.posadaText {
+  color: white;
+}
+
+.button2 {
+  position: relative;
+  border-radius: 8px;
+  font-size: 18x;
+  width: 12vmin;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  background: #a96596;
+  margin-top: 70px;
 }
 
 @media screen and (max-width: 1080px) {
-    .footerTop {
-      width: 80%;
-      padding: 10px;
-    }
-    
-    .subscription {
-      padding-left: 0;
-      margin-top: 30px;
-    }
-    
-    .inputEmail {
-      width: 70%;
-    }
-    
-    .button1 {
-      margin: 10px 0;
-    }
-    
-    .box {
-      padding-left: 0;
-    }
-    
-    .logo {
-      width: 5vmin;
-      height: 5vmin;
-    }
+  .footerTop {
+    width: 80%;
+    padding: 10px;
+  }
+
+  .footerBottom {
+    justify-content: space-between;
+  }
+
+  .subscription {
+    padding-left: 0;
+    margin-top: 30px;
+  }
+
+  .inputEmail {
+    width: 70%;
+  }
+
+  .button1 {
+    margin: 10px 0;
+  }
+
+  .box {
+    padding-left: 0;
+  }
+
+  .logo {
+    width: 5vmin;
+    height: 5vmin;
+  }
+  .footerLink {
+    display: none;
+  }
+
+  .footerLinkTitles h3 {
+    font-size: 20px;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .footerTop {
+    width: 80%;
+    padding: 10px;
+  }
+
+  .footerBottom {
+    justify-content: space-between;
+  }
+
+  .subscription {
+    display: none;
+  }
+
+  .inputEmail {
+    width: 70%;
+  }
+
+  .button1 {
+    margin: 10px 0;
+  }
+
+  .box {
+    padding-left: 0;
+  }
+
+  .logo {
+    width: 5vmin;
+    height: 5vmin;
+  }
+  .footerLink {
+    display: none;
+  }
+
+  .footerLinkTitles h3 {
+    display: none;
+  }
 }

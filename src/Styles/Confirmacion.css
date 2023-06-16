@@ -1,49 +1,94 @@
-.confirmacion-box {
-    background-color: #DE92D1;
-    border-radius: 15px;
-    width: 50%;
-    height: 42vh;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.1);
+.main-confirmacion {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 4rem 2rem 2rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.confirmacion-element {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 1.5vh;
+.Contenedorr-Confirmacion {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  height: 540px;
+  background-color: white;
+  border-radius: 2.2rem;
+  box-shadow: rgba(100, 100, 111, 0.404) 0px 7px 29px 0px;
 }
 
-.confirmacion-button{
-    display: inline-block;
-    border-radius: 5px;
-    border: none;
-    background-color: purple;
-    color: white;
-    padding: 1vh 2vh;
-    text-align: center;
-    text-decoration: none;
-    font-size: 2.5vh;
+.Contenedorr-Datos {
+  position: absolute;
+  width: calc(100% - 2.1rem);
+  height: calc(100% - 2.1rem);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-/* Estilos para pantallas más pequeñas */
-@media (max-width: 1280px) {
-    .confirmacion-box {
-        width: 90%;
-        height: auto;
-        padding: 20px;
-    }
+.datos-confirmacion {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  transition: 0.8s ease-in-out;
+  background-color: #ffe843;
+  border-radius: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Estilos para pantallas aún más pequeñas */
-@media (max-width: 480px) {
-    .confirmacion-box {
-        width: 95%;
-        height: auto;
-        padding: 10px;
-    }
+.info-confirmacion {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.info-confirmacion h3 {
+  font-weight: 700;
+  color: #883c77;
+}
+
+.info-confirmacion p {
+  font-weight: 500;
+  color: #757575;
+}
+
+.botones-confirmacion {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.btn-1790 {
+  display: inline-block;
+  margin-top: 1rem;
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
+  padding: 1rem 3rem;
+  background: var(--primary);
+  border-radius: 0.5rem;
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-1790:hover {
+  transition: all 0.3s ease-out;
+  background: #efefef;
+  color: var(--primary);
+  transition: 250ms;
 }
