@@ -24,6 +24,7 @@ function App() {
         <Route path="/contactanos" element={<Contactanos />} />
         <Route path="/Inicia-Sesion" element={<IniciaSesion />} />
         <Route path="/Confirmacion" element={<Confirmacion/>} />
+        <Route path="/Recuperar" element={<Recuperar/>} />
         <Route path="*" element={<Navigate to="/Inicio" replace />} />
       </Routes>
     </Router>
