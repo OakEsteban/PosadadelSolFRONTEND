@@ -11,6 +11,7 @@ import Footer from '../Footer';
 
 export const Habitaciones = () => {
 
+
     const [opciones, setOpciones] = useState({
         todas: true,
         sencilla: false,
@@ -29,6 +30,34 @@ export const Habitaciones = () => {
         const { id, checked } = event.target;
         setOpciones({ ...opciones, [id]: checked });
     };
+
+    const [precio, setPrecio] = useState('');
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:4000/habitaciones');
+                const { data } = response;
+                const formattedPrecio = formatCurrency(data[0].precio);
+                setPrecio(formattedPrecio);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    const formatCurrency = (value) => {
+        const formattedValue = new Intl.NumberFormat('es-CO', {
+            style: 'currency',
+            currency: 'COP'
+        }).format(value);
+
+        return formattedValue.replace(/,00$/, '');
+    };
+    console.log(precio);
+
 
     return (
         <div>
@@ -191,7 +220,7 @@ export const Habitaciones = () => {
                     <div className="col-lg-9 col-md-12 px-4">
                         {opciones.todas && (
                             <>
-                                <HabSencilla />
+                                <HabSencilla precio={precio} />
                                 <HabDoble />
                                 <HabTriple />
                                 <HabEmpre />
