@@ -1,9 +1,5 @@
 import React from "react";
 import "./../Styles/ServicesNosotros.css";
-import ic1 from "../Images/iconService1.jpg";
-import ic2 from "../Images/iconService2.jpg";
-import ic3 from "../Images/iconService3.jpg";
-import ic4 from "../Images/iconService4.jpg";
 function Services() {
   return (
     <>
@@ -18,44 +14,43 @@ function Services() {
       <div className="cont-3">
         {/* ------------------------------------------------------ */}
         <div className="cont-4">
-          <img src={ic1} alt="" id="img2" />
+          <i className="fa-regular fa-star" style={{ color: '#ff7300', fontSize: '8vw', marginLeft: '1.4rem' }}></i>
           <div className="cont-5">
             <p id="title-3">
-              <strong>Servicios de atencion al cliente</strong>
+              <strong>Servicios de atención al cliente</strong>
             </p>
-            <p id="txt-5">Con la mejor atencion a nivel nacional</p>
+            <p id="txt-5">Con la mejor atención a nivel nacional.</p>
           </div>
         </div>
         {/* ------------------------------------------------------- */}
         <div className="cont-4">
-          <img src={ic2} alt="" id="img2" />
+          <i class="fa-solid fa-calendar-days" style={{ color: '#ff9500', fontSize: '8vw', marginLeft: '1.5rem' }}></i>
           <div className="cont-5">
             <p id="title-3">
               <strong>Disponibilidad en cualquier día del año</strong>
             </p>
-            <p id="txt-5">Sientete libre de visitarnos en cualquier momento.</p>
+            <p id="txt-5">Siéntete libre de visitarnos en cualquier momento.</p>
           </div>
         </div>
         {/* ------------------------------------------------------- */}
         <div className="cont-4">
-          <img src={ic3} alt="" id="img2" />
+          <i class="fa-solid fa-tags" style={{ color: '#ffc107', fontSize: '8vw', marginLeft: '1.5rem' }}></i>
           <div className="cont-5">
             <p id="title-3">
               <strong>Descuentos y promociones</strong>
             </p>
-            <p id="txt-5">Enterate de las ofertas que tenemos para ti.</p>
+            <p id="txt-5">Entérate de las ofertas que tenemos para ti.</p>
           </div>
         </div>
         {/* ------------------------------------------------------- */}
         <div className="cont-4">
-          <img src={ic4} alt="" id="img2" />
+          <i class="fa-solid fa-heart" style={{ color: '#ffde05', fontSize: '8vw', marginLeft: '1.5rem' }}></i>
           <div className="cont-5">
             <p id="title-3">
-              <strong>Siempre dispuesto a mejorar</strong>
+              <strong>Siempre dispuestos a mejorar</strong>
             </p>
             <p id="txt-5">
-              Cuentanos como fue tu experiencia en nuestro hotel para saber que
-              debemos mejorar y asi seguir brindando el mejor servicio
+              Siempre brindando el mejor servicio.
             </p>
           </div>
         </div>

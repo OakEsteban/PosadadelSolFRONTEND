@@ -5,6 +5,7 @@ import HabDoble from './HabitacionesCards/HabDoble';
 import HabTriple from './HabitacionesCards/HabTriple';
 import HabEmpre from './HabitacionesCards/HabEmpre';
 import HabPenth from './HabitacionesCards/HabPenth';
+import Footer from '../Footer';
 
 
 
@@ -33,8 +34,10 @@ export const Habitaciones = () => {
         <div>
 
             <div className='bannerHabServ'>
-                <h1 className='h1-HabServ'>Nuestras Habitaciones</h1>
+                <h1 className='h1-HabServ' >Nuestras Habitaciones </h1>
+
             </div>
+
 
 
             <div className="container">
@@ -207,7 +210,7 @@ export const Habitaciones = () => {
             </div>
 
             <footer>
-                {/* Aquí va el contenido del archivo 'inc/footer.php' */}
+                <Footer />
             </footer>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>

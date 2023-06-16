@@ -5,6 +5,7 @@ import Cena from './ServiciosCards/Cena';
 import Cuarto from './ServiciosCards/Cuarto';
 import Lavanderia from './ServiciosCards/Lavanderia';
 import Transporte from './ServiciosCards/Transporte';
+import Footer from '../Footer';
 
 
 
@@ -193,7 +194,7 @@ export const Servicios = () => {
             </div>
 
             <footer>
-                {/* Aquí va el contenido del archivo 'inc/footer.php' */}
+                <Footer />
             </footer>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>

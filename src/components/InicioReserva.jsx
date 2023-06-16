@@ -56,8 +56,7 @@ function InicioReserva() {
                             <p> Niños: <span>*</span></p>
                             <input type="number" className="input-176" min="5" />
                         </div>
-
-                        <input type="submit" value="Verificar" className="btn-176" />
+                        <input type="submit" value="Verificar" className="veri-btn-13" />
                     </form>
                 </section>
 

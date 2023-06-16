@@ -12,8 +12,8 @@ function WorkerMod() {
         <p id="txt-1">
           <strong> Conoce a nuestros trabajadores</strong>
           <p id="txt-2">
-            Contamos con el mejor servicio que podemos ofrecer, reconocido por
-            los expertos en la región
+            Contamos con un gran servicio que ofrecer, reconocido por
+            los expertos en la región.
           </p>
         </p>
       </div>
@@ -26,10 +26,10 @@ function WorkerMod() {
               <strong>Recepcionistas</strong>
             </p>
             <p id="desc"><b>
-              Nuestros recepcionistas entan capacitados con la mejor atencion al
-              cliente, estan siemprea tentos a los nuevos vicitantes para que se
-              sientan bienvenidos en todo momento.
-              </b>
+              Nuestros recepcionistas están capacitados con la mejor atención al cliente, estando siempre atentos a los visitantes.
+
+
+            </b>
             </p>
           </div>
         </div>
@@ -41,9 +41,8 @@ function WorkerMod() {
               <strong>Cocineros</strong>
             </p>
             <p id="desc"><b>
-              Tenemos los mejores cocinero de la region, capacitados para
-              ofrecerte los mejores platos que puedan ofrecer.
-              </b>
+              Tenemos los mejores cocineros de la región, capacitados para ofrecerte los mejores platos.
+            </b>
             </p>
           </div>
         </div>
@@ -56,10 +55,8 @@ function WorkerMod() {
               <strong>Servicios de limpieza</strong>
             </p>
             <p id="desc"><b>
-              El personal que se encargara de dejar todo limpio y arreglado para
-              mejorar lo maximo posible tu estadia y que tengas ganas de
-              regresar.
-              </b>
+              El personal se encargará de dejar todo limpio y arreglado para mejorar lo máximo posible tu estadía y que tengas ganas de regresar.
+            </b>
             </p>
           </div>
         </div>
