@@ -8,6 +8,7 @@ import Inicio from '../src/components/pages/Inicio.jsx';
 import Hotel from '../src/components/pages/Hotel.jsx';
 import Habitaciones from '../src/components/pages/Habitaciones.jsx';
 import Servicios from '../src/components/pages/Servicios.jsx';
+import Planes from './components/pages/Planes.jsx';
 import Nosotros from '../src/components/pages/Nosotros.jsx';
 import Contactanos from '../src/components/pages/Contactanos.jsx';
 
@@ -31,6 +32,7 @@ function App() {
         <Route path="/Hotel" element={<Hotel />} />
         <Route path="/Habitaciones" element={<Habitaciones />} />
         <Route path="/Servicios" element={<Servicios />} />
+        <Route path="/Planes" element={<Planes />} />
         <Route path="/Nosotros" element={<Nosotros />} />
         <Route path="/contactanos" element={<Contactanos />} />
         <Route path="/Inicia-Sesion" element={<IniciaSesion />} />
