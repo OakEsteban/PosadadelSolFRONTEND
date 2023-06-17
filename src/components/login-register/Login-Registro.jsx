@@ -4,6 +4,7 @@ import { useScript } from "../../hooks/useScript";
 import jwt_decode from "jwt-decode";
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import emailjs from '@emailjs/browser';
 
 import axios from 'axios';
 
@@ -255,6 +256,20 @@ function LoginRegistro() {
             </form>
         );
     };
+    
+
+    emailjs.init('IEnniO4mfUumuhLAb'); // Reemplaza 'YOUR_USER_ID' por tu ID de usuario de Email.js
+    // Paso 3: Define la función para enviar el correo electrónico.
+    function sendEmail(formdata) {
+
+    // Envía el correo electrónico utilizando la plantilla definida en tu cuenta de Email.js.
+    emailjs.send('service_c24qgpl', 'template_sgfjdeo', formdata)
+        .then(function(response) {
+        console.log('Correo electrónico enviado con éxito:', response);
+        }, function(error) {
+        console.error('Error al enviar el correo electrónico:', error);
+        });
+    }
 
     const Signupform = () => {
         const { register, formState: { errors }, handleSubmit } = useForm();
@@ -265,31 +280,13 @@ function LoginRegistro() {
             axios.post('http://localhost:4000/users', data)
                 .then(response => {
                     
-                    /*const nodemailer = require('nodemailer');
-                    sendEmail = async () => {
-                        const config = {
-                            host : 'smtp.gmail.com',
-                            port : 587,
-                            auth : {
-                                user : 'marcelino.hudson@ethereal.email',
-                                pass: 'jrKNxGAt6yy8x9wQnm'
-                            }
-                        }
-                        const mensaje = {
-                            from : 'marcelino.hudson@ethereal.email',
-                            to : data.email,
-                            subject: 'Confirmación de cuenta',
-                            text : '¡Felicitaciones! su cuenta ha sido creada con exito'
-                        }
-                        const transport = nodemailer.createTransport(config);
-                        const info = await transport.sendMail(config);
-                    }
-
-                    sendEmail();*/
+                    //Enviar correo
+                    const formdata = {nombres:data.nombres, email:data.email};
+                    sendEmail(formdata)
                     
-
+                    //Ir a pagina de confirmacion
                     navigate('/Confirmacion');
-                    // Aquí se realizan otras acciones después de que el usuario se haya registrado correctamente.
+                    
                 })
                 .catch(error => {
                     console.error(error);
