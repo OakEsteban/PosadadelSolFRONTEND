@@ -366,9 +366,18 @@ main.sign-up-mode .carousel-10 {
 }
 
 .p-error-114 {
-  color: #be3e39; /* Color rojo */
+  color: #be3e39;
   font-size: 0.9rem;
-  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.p-error-box {
+  background-color: #f8d7da; /* Color de fondo del recuadro */
+  border: 1px solid #dc3545; /* Borde del recuadro */
+  padding: 10px; /* Espaciado interno del recuadro */
+  border-radius: 4px; /* Radio de borde del recuadro */
+  width: fit-content; /* Ancho ajustado al contenido */
+  margin-left: -5px; /* Mover el recuadro a la izquierda para evitar molestias */
 }
 
 /* Diseños responsive en 640px y 850px  */

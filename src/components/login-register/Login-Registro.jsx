@@ -114,7 +114,6 @@ function LoginRegistro() {
         const { register, formState: { errors, setErrors }, handleSubmit } = useForm();
         const [loggedIn, setLoggedIn] = useState(false);
         const [loginError, setLoginError] = useState('');
-        const navigate = useNavigate();
 
         const onSubmit = (data) => {
             console.log(data)
@@ -162,8 +161,8 @@ function LoginRegistro() {
                                 pattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
                             })} />
                         <label id="label-10">Correo Electrónico.</label>
-                        {errors.email?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
-                        {errors.email?.type === 'pattern' && <p className='p-error-114'> El formato del correo, es incorrecto </p>}
+                        {errors.email?.type === 'required' && <p className='p-error-114'> Este campo es requerido. </p>}
+                        {errors.email?.type === 'pattern' && <p className='p-error-114'> El formato del correo, es incorrecto. </p>}
 
                     </div>
 
@@ -174,7 +173,7 @@ function LoginRegistro() {
                                 pattern: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/,
                             })} />
                         <label id="label-10">Contraseña.</label>
-                        {errors.contrasena?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
+                        {errors.contrasena?.type === 'required' && <p className='p-error-114'> Este campo es requerido. </p>}
                         {errors.contrasena?.type === 'pattern' && <p className='p-error-114'> La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.
                         </p>}
                     </div>
@@ -217,6 +216,16 @@ function LoginRegistro() {
     const Signupform = () => {
         const { register, handleSubmit, watch, formState: { errors } } = useForm();
         const navigate = useNavigate();
+
+        const [showError, setShowError] = useState(false);
+
+        const handleMouseEnter = () => {
+            setShowError(true);
+        };
+
+        const handleMouseLeave = () => {
+            setShowError(false);
+        };
 
         const onSubmit = (data) => {
             console.log(data)
@@ -263,8 +272,8 @@ function LoginRegistro() {
                             maxLength: 30
                         })} />
                         <label id="label-10">Nombres.</label>
-                        {errors.nombres?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
-                        {errors.nombres?.type === 'maxLength' && <p className='p-error-114'> Estas excediendo el limite de caracteres (30) </p>}
+                        {errors.nombres?.type === 'required' && <p className='p-error-114'> Este campo es requerido. </p>}
+                        {errors.nombres?.type === 'maxLength' && <p className='p-error-114'> Estas excediendo el limite de caracteres (30). </p>}
                     </div>
 
                     <div className="input-wrap-10">
@@ -274,8 +283,8 @@ function LoginRegistro() {
                         })} />
 
                         <label id="label-10">Apellidos.</label>
-                        {errors.apellidos?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
-                        {errors.apellidos?.type === 'maxLength' && <p className='p-error-114'> Estas excediendo el limite de caracteres (30) </p>}
+                        {errors.apellidos?.type === 'required' && <p className='p-error-114'> Este campo es requerido. </p>}
+                        {errors.apellidos?.type === 'maxLength' && <p className='p-error-114'> Estas excediendo el limite de caracteres (30). </p>}
                     </div>
 
                     <div className="input-wrap-10">
@@ -284,8 +293,8 @@ function LoginRegistro() {
                             pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i
                         })} />
                         <label id="label-10">Correo Electrónico.</label>
-                        {errors.email?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
-                        {errors.email?.type === 'pattern' && <p className='p-error-114'> El formato del correo, es incorrecto </p>}
+                        {errors.email?.type === 'required' && <p className='p-error-114'> Este campo es requerido. </p>}
+                        {errors.email?.type === 'pattern' && <p className='p-error-114'> El formato del correo, es incorrecto. </p>}
                     </div>
 
                     <div className="input-wrap-10">
@@ -293,21 +302,28 @@ function LoginRegistro() {
                             type="password"
                             className="input-field-11"
                             autoComplete="off"
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
                             {...register('contrasena', {
                                 required: true,
-                                maxLength: 13,
+                                maxLength: 16,
                                 pattern: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/,
                             })}
                         />
                         <label id="label-10">Contraseña.</label>
-                        {errors.contrasena?.type === 'pattern' && (
-                            <p className='p-error-114'>
+                        {showError && (
+                            <p className='p-error-114 p-error-box'>
                                 La contraseña debe tener entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.
                             </p>
                         )}
-                        {errors.contrasena?.type === 'required' && <p className='p-error-114'>Este campo es requerido</p>}
-                        {errors.contrasena?.type === 'maxLength' && <p className='p-error-114'>Estás excediendo el límite de caracteres (13)</p>}
+                        {errors.contrasena?.type === 'required' && (
+                            <p className='p-error-114'>Este campo es requerido.</p>
+                        )}
+                        {errors.contrasena?.type === 'maxLength' && (
+                            <p className='p-error-114'>Estás excediendo el límite de caracteres (16).</p>
+                        )}
                     </div>
+
 
                     <div className="input-wrap-10">
                         <input
@@ -316,23 +332,18 @@ function LoginRegistro() {
                             autoComplete="off"
                             {...register('confirmarContrasena', {
                                 required: true,
-                                maxLength: 13,
+                                maxLength: 16,
                                 pattern: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/,
                                 validate: value => value === password
                             })}
                         />
                         <label id="label-10">Confirma tu contraseña.</label>
-                        {errors.confirmarContrasena?.type === 'pattern' && (
-                            <p className='p-error-114'>
-                                La contraseña debe tener entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.
-                            </p>
-                        )}
-                        {errors.confirmarContrasena?.type === 'required' && <p className='p-error-114'>Este campo es requerido</p>}
+                        {errors.confirmarContrasena?.type === 'required' && <p className='p-error-114'>Este campo es requerido.</p>}
                         {errors.confirmarContrasena?.type === 'maxLength' && (
-                            <p className='p-error-114'>Estás excediendo el límite de caracteres (13)</p>
+                            <p className='p-error-114'>Estás excediendo el límite de caracteres (16).</p>
                         )}
                         {errors.confirmarContrasena?.type === 'validate' && (
-                            <p className='p-error-114'>Las contraseñas no coinciden</p>
+                            <p className='p-error-114'>Las contraseñas no coinciden.</p>
                         )}
                     </div>
 
