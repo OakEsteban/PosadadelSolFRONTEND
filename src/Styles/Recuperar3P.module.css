@@ -1,0 +1,127 @@
+/* .cont1{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100vw;
+    height: 99vh;
+    border: 1px solid black;
+} */
+
+.cont2{
+    margin-left: 5%;
+    margin-top: 5%;
+    width: 45%;
+    height: 80%;
+    border: none;
+    border-radius: 2rem;
+    /* box-shadow: 6px 14px 16px 1px rgba(0,0,0,0.24); */
+
+}
+
+/* Div pricipal */
+.cont3{    
+    margin-top: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    border: none;
+    text-align: center;
+    width: 95vw;
+    border-radius: 2rem;
+    box-shadow: 6px 14px 16px 1px rgba(0,0,0,0.24);
+
+}
+
+.text1{
+    margin-left: 5%;
+    font-size: 3vi;
+    text-align: left;
+}
+
+.text2{
+    font-size: 1.5vi;
+}
+#inpt1{
+    width: 95%;
+    border-color: #a96596;
+}
+
+#btn1{
+    width: 80%;
+    padding: 2%;
+    margin-bottom: 20%;
+}
+
+.text3{
+    font-size: 1.2rem;
+}
+
+#link1{
+    text-decoration: none;
+    color: #a96596;
+}
+
+/* ----------------------------------------------------------- */
+@media(max-width:640px) {
+    .cont1{
+        margin: 0;
+        padding: 0s;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 98vw;
+        height: 100vh;
+        border: 1px solid red;
+        text-align: center;
+        
+    }
+
+    .cont2{
+        border: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        flex-wrap:wrap;
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 5%;
+        text-align: center;
+        border-radius: 2rem;
+        /* box-shadow: 2px 4px 5px 5px rgba(0,0,0,0.24); */
+    }
+    .cont3{
+        margin-top: 10%;
+        border: none;
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .text1{
+        text-align: center;
+        font-size: 5vi;
+    }
+
+    .text2{
+        font-size: 3vi;
+    }
+
+    .text3{
+        font-size: .7rem;
+    }
+
+    #btn1{
+        margin-left: 10%;
+        margin-bottom: 5%;
+        padding: 2%;
+    }
+
+    #inpt1{
+        margin-left: 3%;
+        margin-bottom: .4%;
+        border-color: #a96596;
+    }
+
+   
+   
+ 
+} 

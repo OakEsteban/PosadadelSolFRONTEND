@@ -10,7 +10,9 @@ function habitaciones(){
             <div className='cabezal'>
                 <div className='cabezal-izquierda'>
                     <h1>Nuestras Habitaciones</h1>
-                    <p>Descripcion</p>
+                    <p>Exquisita elegancia en cada rincón. Habitaciones que acarician tus sueños con comodidad y lujo. Descubre un refugio sublime donde el confort y el estilo se entrelazan en armonía. Déjate seducir por la sofisticación de nuestro hotel y disfruta de una experiencia inigualable. ¡Bienvenido a la Posada del Sol!
+
+                    </p>
                 </div>
                 <div className='cabezal-derecha'>
                     <button className='botonsito'>

@@ -94,6 +94,12 @@ a.logo-114 {
   border-bottom: 1px solid var(--primary); /* Cambia el color a tu preferencia */
 }
 
+.nav-links.active {
+  color: var(--primary);
+  font-weight: 1000;
+  border-bottom: 1px solid var(--primary); /* Cambia el color a tu preferencia */
+}
+
 .fa-bars {
   color: var(--primary);
 }
@@ -104,6 +110,86 @@ a.logo-114 {
 
 .menu-icon {
   display: none;
+}
+
+/*Menu-User*/
+
+.user-pic {
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.sub-menu-wrap {
+  position: absolute;
+  top: 100%;
+  right: 10%;
+  width: 320px;
+  max-height: 0px;
+  overflow: hidden;
+}
+
+.sub-menu-wrap.open-menu {
+  max-height: 430px;
+}
+
+.sub-menu {
+  background: white;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 20px;
+  border: 2px solid rgb(167, 167, 167);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 10px;
+  color: #a96596;
+}
+
+.sub-menu hr {
+  border: 0.5;
+  height: 2px;
+  width: 100%;
+  background: #ccc;
+  margin: 15px 0 10px;
+}
+
+.sub-menu-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #525252;
+  margin: 12px 0;
+}
+
+.sub-menu-link p {
+  font-size: 0.9rem;
+  font-weight: 500;
+  width: 100%;
+  margin-bottom: 0;
+  color: #a96596;
+}
+
+.sub-menu-link span {
+  font-size: 1rem;
+  transition: transform 0.5s;
+  color: #a96596;
+}
+
+.sub-menu-link:hover span {
+  transform: translateX(5px);
+}
+
+.sub-menu-link:hover p {
+  font-weight: 700;
+  transform: translateX(5px);
 }
 
 @media (max-width: 640px) {

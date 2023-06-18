@@ -1,56 +1,125 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { MenuItems } from './MenuItems';
 import '../../Styles/navbar/Navbar.css';
 import { Button } from './Button';
-import { Link } from 'react-router-dom';
-
+import { Link, NavLink } from 'react-router-dom';
 
 class Navbar extends Component {
 
+  state = { clicked: false };
 
-  //Formulas para el cambio de estado, a la hora de que la barra al ser clickeada cambie de icono. 
-
-  state = { clicked: false }
-
-  handleClick = () => {
-    this.setState({ clicked: !this.state.clicked })
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false
+    };
+    this.menuRef = React.createRef();
   }
 
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
+
+  handleClickOutside = event => {
+    if (this.menuRef && !this.menuRef.current.contains(event.target)) {
+      this.setState({ isOpen: false });
+    }
+  };
+
+  toggleMenu = () => {
+    this.setState(prevState => ({
+      isOpen: !prevState.isOpen
+    }));
+  };
+
+
+  handleClick = () => {
+    this.setState({ clicked: !this.state.clicked });
+  };
+
   render() {
+
+    const { isOpen } = this.state;
+
+
     return (
       <nav className='NavbarItems'>
-        {/* Implementación de logo*/}
         <Link to="/Inicio" className='logo-114'>
           <img src={require('../../Images/logoPosada.png')} alt="" />
         </Link>
         <div className='menu-icon' onClick={this.handleClick}>
-          {/* Iconos implementados para cuando sea responsive, con  fontawesome*/}
-
           <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
         </div>
         <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
-          {/* Funcion, en donde se mapean los valores del archivo MenuItems, recorriendo cada uno y asigandolos a la barra de navegación */}
-          {MenuItems.map((item, index) => {
-            return (
-              <li key={index}>
-                <Link className={item.cName} to={item.url}>
-                  {item.title}
-                </Link>
-              </li>
-            )
-          })}
-
+          {MenuItems.map((item, index) => (
+            <li key={index}>
+              <NavLink
+                className={item.cName}
+                to={item.url}
+                activeClassName='nav-link-active'
+              >
+                {item.title}
+              </NavLink>
+            </li>
+          ))}
         </ul>
-        {/* Implementación del Boton para iniciar sesion el cual te redirige a la pagina de inico de sesion/registro */}
-
         <ul className='button-114'>
           <Link to="/Inicia-Sesion" className="nav-link">
             <Button className='btn-111'> Entra <i className="fa-solid fa-right-to-bracket"></i></Button>
           </Link>
         </ul>
+
+        {/* Dropdow UserMenu*/}
+        <img src={require('../../Images/user.png')} className='user-pic' onClick={this.toggleMenu} />
+
+        <div ref={this.menuRef} className={`sub-menu-wrap ${isOpen ? 'open-menu' : ''}`} id="subMenu">
+          <div className='sub-menu'>
+            <div className="user-info">
+              <img src={require('../../Images/user.png')} className='user-pic' />
+              <h2>Usuario</h2>
+            </div>
+            <hr />
+
+            <Link to="" className='sub-menu-link'>
+              <p> <i class="fa-solid fa-user" ></i>    Mi cuenta</p>
+              <span><i class="fa-solid fa-angle-right"></i></span>
+            </Link>
+            <Link to="" className='sub-menu-link'>
+              <p> <i class="fa-solid fa-cart-shopping"></i> Mis reservaciones</p>
+              <span><i class="fa-solid fa-angle-right"></i></span>
+            </Link>
+            <Link to="" className='sub-menu-link'>
+              <p> <i class="fa-solid fa-credit-card"></i> Método de pago</p>
+              <span><i class="fa-solid fa-angle-right"></i></span>
+            </Link>
+            <Link to="" className='sub-menu-link'>
+              <p> <i class="fa-solid fa-gear"></i> Configuraciones</p>
+              <span><i class="fa-solid fa-angle-right"></i></span>
+            </Link>
+
+            <hr />
+            <Link to="" className='sub-menu-link'>
+              <p> <i class="fa-solid fa-life-ring"></i> Soporte</p>
+              <span><i class="fa-solid fa-angle-right"></i></span>
+            </Link>
+            <Link to="" className='sub-menu-link'>
+              <p> <i class="fa-solid fa-right-from-bracket"></i> Salir</p>
+              <span><i class="fa-solid fa-angle-right"></i></span>
+            </Link>
+
+
+          </div>
+
+        </div>
+
       </nav>
-    )
+    );
   }
 }
 
 export default Navbar;
+

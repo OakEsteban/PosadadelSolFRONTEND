@@ -1,15 +1,11 @@
 
 //Todos los componentes de la barra de Navegación. 
 
+
 export const MenuItems = [
     {
         title: 'INICIO',
         url: "/Inicio",
-        cName: 'nav-links'
-    },
-    {
-        title: 'HOTEL',
-        url: "/Hotel",
         cName: 'nav-links'
     },
     {
@@ -20,6 +16,11 @@ export const MenuItems = [
     {
         title: 'SERVICIOS',
         url: "/Servicios",
+        cName: 'nav-links'
+    },
+    {
+        title: 'PLANES',
+        url: "/Planes",
         cName: 'nav-links'
     },
     {

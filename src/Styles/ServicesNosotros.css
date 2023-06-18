@@ -1,0 +1,85 @@
+/* <div className="txt-3">
+<p className='title-2'>NUESTROS SERVICIOS</p>
+<p id='sub-1'>Ofrecemos los mejores servicios</p>
+
+<div className='cont-4'>Servicios de atencion al cliente</div>
+<div className='cont-5'>Disponibilidad en cualquier día del año</div>
+<div className='cont-6'>Descuentos y promociones</div>
+<div className='cont-7'>Siempre dispuestos a mejorar</div>
+</div> */
+
+.txt-3 {
+  border: none;
+  margin-top: 5%;
+  width: 90vi;
+}
+
+.cont-4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  border: none;
+  width: 90vw;
+  height: 12vw;
+  border-radius: 1rem;
+  margin-bottom: 3%;
+}
+
+.txt-3 {
+  border: none;
+  margin-top: 5%;
+  width: 90vi;
+}
+
+.cont-4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  border: none;
+  width: 90vw;
+  height: 12vw;
+  border-radius: 1rem;
+  margin-bottom: 3%;
+  box-shadow: rgba(100, 100, 111, 0.404) 0px 7px 29px 0px;
+}
+
+.cont-5 {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  border: none;
+  width: 100%;
+}
+
+#img2 {
+  margin-left: 2%;
+  width: 12%;
+  height: 100%;
+}
+#title-2 {
+  font-size: 3vi;
+  margin-bottom: 0;
+  color: #a9659a;
+}
+
+#title-3 {
+  font-size: 1.5vi;
+  margin-left: 5%;
+  margin-bottom: 0;
+  color: #a35a93;
+}
+
+#txt-5 {
+  font-size: 1.3vi;
+  margin-left: 5%;
+  margin-bottom: 0;
+  font-weight: 500;
+}
+
+#sub-1 {
+  font-size: 2.5vi;
+  color: #f5c526ec;
+}

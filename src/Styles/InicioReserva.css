@@ -5,7 +5,7 @@
   --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
-* {
+.input-176 {
   font-family: "Montserrat", sans-serif;
   border: none;
   text-decoration: none;
@@ -50,6 +50,21 @@ section {
   text-decoration: none;
 }
 
+.veri-btn-13 {
+  display: inline-block;
+  width: 100%;
+  height: 43px;
+  font-weight: 700;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  transition: 0.3s;
+}
+
 .btn-176:hover {
   transition: all 0.3s ease-out;
   background: #efefef;
@@ -91,7 +106,7 @@ section {
 }
 
 .swiper-slide-176 {
-  background-image: url(../Images/hoteltxt.jpg);
+  background-image: url(../Images/Principal\ 18.png);
   background-repeat: no-repeat;
 }
 
@@ -111,6 +126,7 @@ section {
   background: #fbc1f1;
   padding: 2rem;
   border-radius: 0.5rem;
+  box-shadow: rgba(100, 100, 111, 0.404) 0px 7px 29px 0px;
 }
 
 .availability-176 form .box-176 {

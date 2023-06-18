@@ -12,6 +12,7 @@ import InicioReserva from '../InicioReserva';
 export const Inicio = () => {
     return (
         <div style={{
+            display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
         }}>

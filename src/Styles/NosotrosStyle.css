@@ -1,0 +1,159 @@
+/* 
+container-101 -> Contenedor de lan tarjeta
+imgp -> imagen de la tarjeta
+text-1 -> contenedor del texto de la tarjeta
+txt-1 -> titulo
+txt-2 -> descripcion
+
+*/
+
+/* 
+Container-100 -> Contenedor externo
+*/
+
+.container-100 {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-shadow: rgba(100, 100, 111, 0.404) 0px 7px 29px 0px;
+  border-radius: 10px;
+}
+
+.container-101 {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  width: 20vi;
+  height: 30vi;
+}
+
+.text-1 {
+  margin-top: -5%;
+  background-color: #d697c8;
+  width: 100%;
+  border-radius: 0.5rem;
+  box-shadow: rgba(100, 100, 111, 0.404) 0px 7px 29px 0px;
+  padding: 10px;
+}
+
+.cont3 {
+  display: flex;
+  flex-direction: column;
+  width: 80vi;
+  border: none;
+}
+
+#imgp {
+  width: 100%;
+}
+
+#img1 {
+  border-radius: 0.5rem;
+}
+
+#C1 {
+  margin-left: 5%;
+  margin-top: 3%;
+}
+#C2 {
+  margin-top: 10%;
+}
+
+#C3 {
+  margin-top: 15%;
+  margin-right: 5%;
+}
+
+#txt-1 {
+  text-align: right;
+  color: #a9659a;
+}
+
+#txt-2 {
+  font-size: 1.5vi;
+}
+
+#title {
+  font-size: 1.5vi;
+  color: #883c77;
+  font-weight: 800;
+}
+
+#desc {
+  font-size: 1vi;
+  font-weight: 400;
+}
+
+#txt-1 {
+  font-size: 2vi;
+}
+
+@media (max-width: 640px) {
+  .container-100 {
+    border: none;
+    border-bottom: 1px gray solid;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .container-101 {
+    border: none;
+    display: flex;
+    flex-direction: row;
+    width: 80vi;
+    height: 30vi;
+  }
+
+  .text-1 {
+    margin-top: 5%;
+    margin-left: -5%;
+    background-color: #d697c8;
+    width: 60%;
+    height: 100%;
+    border-radius: 0.5rem;
+    box-shadow: 10px 11px 5px -4px rgba(168, 151, 168, 1);
+  }
+
+  #txt-1 {
+    font-size: 5vi;
+    text-align: right;
+    color: #a9659a;
+  }
+
+  #txt-2 {
+    font-size: 3vi;
+  }
+
+  #img1 {
+    width: 50%;
+    border-radius: 0.5rem;
+  }
+
+  #title {
+    font-size: 3.5vi;
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  #desc {
+    font-size: 2.5vi;
+    text-align: center;
+  }
+
+  #C1 {
+    margin-left: 5%;
+    margin-top: 3%;
+  }
+  #C2 {
+    margin-left: 5%;
+    margin-top: 10%;
+  }
+
+  #C3 {
+    margin-top: 10%;
+    margin-left: 5%;
+  }
+}
