@@ -130,7 +130,7 @@ export const Nosotros = () => {
 
     </div>
   );
-// >>>>>>> d004488ffa6fbe92aac4ea33a6b75519c8f2198b
+
 };
 
 export default Nosotros;
