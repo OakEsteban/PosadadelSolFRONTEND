@@ -40,9 +40,6 @@ export const Servicios = () => {
     };
 
     return (
-<<<<<<< HEAD
-        <div></div>
-=======
         <div>
 
             <div className='bannerHabServ'>
@@ -182,7 +179,6 @@ export const Servicios = () => {
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
         </div>
->>>>>>> d004488ffa6fbe92aac4ea33a6b75519c8f2198b
     );
 }
 

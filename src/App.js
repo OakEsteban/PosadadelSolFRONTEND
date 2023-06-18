@@ -11,7 +11,6 @@ import Servicios from '../src/components/pages/Servicios.jsx';
 import Planes from './components/pages/Planes.jsx';
 import Nosotros from '../src/components/pages/Nosotros.jsx';
 import Contactanos from '../src/components/pages/Contactanos.jsx';
-import IniciaSesion from './components/login-register/Login-Registro.jsx'
 import Icono from './components/IconWhatsapp.jsx'
 //Inicio de sesión.
 import IniciaSesion from './components/login-register/Login-Registro.jsx';
