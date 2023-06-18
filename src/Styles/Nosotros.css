@@ -41,11 +41,21 @@
   .apartado-boton-1 {
     background-color: #8B2E57;
     color: white;
+    justify-content: center;
+    display: flex;
+    text-decoration: none;
+    padding: 10px 20px;
+    cursor: pointer;
   }
   
   .apartado-boton-2 {
     background-color: white;
     color: #8B2E57;
+    justify-content: center;
+    display: flex;
+    text-decoration: none;
+    padding: 10px 20px;
+    cursor: pointer;
   }
   
   .apartado-right {

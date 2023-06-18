@@ -15,8 +15,8 @@ const Nosotros = () => {
                         una experiencia inolvidable
                     </p>
                     <div className='apartado-botones'>
-                        <button className='apartado-boton-1'>Inicio</button>
-                        <button className='apartado-boton-2'>Reserva ahora</button>
+                        <a className='apartado-boton-1' href='/Inicio'>Inicio</a>
+                        <a className='apartado-boton-2' href='/Inicia-sesion'>Reservar</a>
                     </div>
                 </div>
                 <div className='apartado-right'>
