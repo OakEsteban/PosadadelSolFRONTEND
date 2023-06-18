@@ -1,0 +1,12 @@
+/* div: cont-11: titulo y descripcion
+        acordeon: contien las preguntas y sus respuestas */
+
+.cont-11{
+    border: 1px red solid;
+    width: 50%;
+}
+
+.acordeon{
+    width: 50%;
+    border: 1px solid blue;
+}

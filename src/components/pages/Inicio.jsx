@@ -7,6 +7,7 @@ import Opinions from '../Opinions';
 import Habitaciones from '../Habitaciones';
 import Servicios from '../Servicios';
 import InicioReserva from '../InicioReserva';
+import PreguntasFre from '../PreguntasFre';
 
 
 export const Inicio = () => {
@@ -22,6 +23,7 @@ export const Inicio = () => {
             <Servicios />
             <Mapa />
             <Opinions />
+            <PreguntasFre/>
             <Footer />
         </div>
     )
