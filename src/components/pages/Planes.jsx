@@ -11,17 +11,22 @@ import Footer from '../Footer';
 
 export const Planes = () => {
     const [opciones, setOpciones] = useState({
-        todos: true,
         plan1: false,
         plan2: false,
         plan3: false,
-        plan4: false,
+        plan4: false
     });
 
-    useEffect(() => {
-        // Se ejecuta al cargar la página
-        setOpciones((prevOpciones) => ({ ...prevOpciones, todos: true }));
-    }, []);
+    const borrarTodo = () => {
+        setOpciones({
+            plan1: false,
+            plan2: false,
+            plan3: false,
+            plan4: false
+        });
+    };
+
+    const todasLasOpcionesDesactivadas = Object.values(opciones).every(opcion => !opcion);
 
     const handleCheckboxChange = (event) => {
         const { id, checked } = event.target;
@@ -56,18 +61,6 @@ export const Planes = () => {
                                         <h5 className="mb-3" style={{ fontWeight: '600', color: '#A96596' }}>
                                             Tipo de servicio
                                         </h5>
-                                        <div className="mb-2">
-                                            <input
-                                                type="checkbox"
-                                                id="todos"
-                                                className="form-check-input shadow-none me-1"
-                                                checked={opciones.todos}
-                                                onChange={handleCheckboxChange}
-                                            />
-                                            <label className="form-check-label" style={{ fontWeight: '500' }} htmlFor="todos">
-                                                Todos
-                                            </label>
-                                        </div>
                                         <div className="mb-2">
                                             <input
                                                 type="checkbox"
@@ -117,26 +110,10 @@ export const Planes = () => {
                                             </label>
                                         </div>
                                     </div>
-
-                                    <div className="border bg-light p-3 rounded mb-3">
-                                        <h5 className="mb-3" style={{ fontWeight: '600', color: '#A96596' }}>
-                                            Precio
-                                        </h5>
-                                        <div className="d-flex">
-                                            <div className="me-2">
-                                                <label className="form-label" style={{ fontWeight: '500' }}>Min</label>
-                                                <input type="number" className="form-control shadow-none" min="100000" />
-                                            </div>
-                                            <div>
-                                                <label className="form-label" style={{ fontWeight: '500' }}>Max</label>
-                                                <input type="number" className="form-control shadow-none" max="500000" />
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div className="border bg-light p-3 rounded mb-3" >
-                                        <a href="#" className="btn btn-sm w-100 shadow-none" style={{ fontWeight: '500' }}>
+                                        <button className="btn btn-sm w-100 text-black btn-outline-dark custom-bg shadow-none mb-2" style={{ fontWeight: '500' }} onClick={borrarTodo}>
                                             Borrar todo
-                                        </a>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -145,7 +122,7 @@ export const Planes = () => {
 
 
                     <div className="col-lg-9 col-md-12 px-4">
-                        {opciones.todos && (
+                        {todasLasOpcionesDesactivadas && (
                             <>
                                 <Plan1 />
                                 <Plan2 />
@@ -153,10 +130,10 @@ export const Planes = () => {
                                 <Plan4 />
                             </>
                         )}
-                        {!opciones.todos && opciones.plan1 && <Plan1 />}
-                        {!opciones.todos && opciones.plan2 && <Plan2 />}
-                        {!opciones.todos && opciones.plan3 && <Plan3 />}
-                        {!opciones.todos && opciones.plan4 && <Plan4 />}
+                        {!todasLasOpcionesDesactivadas && opciones.plan1 && <Plan1 />}
+                        {!todasLasOpcionesDesactivadas && opciones.plan2 && <Plan2 />}
+                        {!todasLasOpcionesDesactivadas && opciones.plan3 && <Plan3 />}
+                        {!todasLasOpcionesDesactivadas && opciones.plan4 && <Plan4 />}
                     </div>
                 </div>
             </div>
