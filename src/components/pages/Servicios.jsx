@@ -9,8 +9,6 @@ import Footer from '../Footer';
 
 
 
-
-
 export const Servicios = () => {
     const [opciones, setOpciones] = useState({
         transporte: false,
@@ -40,6 +38,7 @@ export const Servicios = () => {
     };
 
     return (
+
         <div>
 
             <div className='bannerHabServ'>
@@ -179,6 +178,7 @@ export const Servicios = () => {
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
         </div>
+
     );
 }
 
