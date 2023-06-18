@@ -8,6 +8,7 @@ import Servicios from '../src/components/pages/Servicios.jsx';
 import Nosotros from '../src/components/pages/Nosotros.jsx';
 import Contactanos from '../src/components/pages/Contactanos.jsx';
 import IniciaSesion from './components/login-register/Login-Registro.jsx'
+import Icono from './components/IconWhatsapp.jsx'
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         <Route path="/Hotel" element={<Hotel />} />
         <Route path="/Habitaciones" element={<Habitaciones />} />
         <Route path="/Servicios" element={<Servicios />} />
-        <Route path="/Nosotros" element={<Nosotros />} />
+        <Route path="/Nosotros" element={<Nosotros />} Nosotros/>
         <Route path="/contactanos" element={<Contactanos />} />
         <Route path="/Inicia-Sesion" element={<IniciaSesion />} />
       </Routes>
