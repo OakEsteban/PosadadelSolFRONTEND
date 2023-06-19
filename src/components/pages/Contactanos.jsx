@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import "../../Styles/Contactanos.css";
 import { useForm } from "react-hook-form";
 import axios from 'axios';
-import stile from "../../Styles/MapaStyle.css";
 import Footer from '../Footer';
-import Button from "react-bootstrap/Button";
 
 export const Contactanos = () => {
 
@@ -12,12 +10,26 @@ export const Contactanos = () => {
     const handleOptionChange = (selectedOption) => {
         setOption(selectedOption);
     };
+    const { register, formState: { errors, setErrors }, handleSubmit, reset } = useForm();
 
-    const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
-
         console.log(data);
-    }
+        axios.post('http://localhost:4000/contacto', data)
+            .then((response) => {
+                // Manejar la respuesta del servidor si es exitosa
+                console.log(response.data);
+            })
+            .catch((error) => {
+                // Manejar el error si la solicitud no se puede completar
+                console.error('Error al enviar los datos:', error);
+            });
+    };
+
+    const handleClear = () => {
+        reset(); // Restablecer todos los campos del formulario a sus valores iniciales
+    };
+
+
 
     return (
         <div style={{
@@ -65,68 +77,127 @@ export const Contactanos = () => {
                             <div className='camposContactenos'>
                                 <div className='pairConctactenos'>
                                     <div className='pairConctactenos2'>
-                                        <a>Nombres:</a>
-                                        <input type="text" className="input-field-contactanos" {...register('Nombres')}></input>
+                                        <label htmlFor="nombres">Nombres:</label>
+                                        <input
+                                            type="text"
+                                            className="input-field-contactanos"
+                                            {...register('nombres', { required: true })}
+                                        />
+                                        {errors.nombres && <span className="p-error-114">Este campo es obligatorio</span>}
                                     </div>
                                     <div className='pairConctactenos2'>
-                                        <a>Apellidos:</a>
-                                        <input type="text" className="input-field-contactanos" {...register('Apellidos')}></input>
+                                        <label htmlFor="apellidos">Apellidos:</label>
+                                        <input
+                                            type="text"
+                                            className="input-field-contactanos"
+                                            {...register('apellidos', { required: true })}
+                                        />
+                                        {errors.apellidos && <span className="p-error-114">Este campo es obligatorio</span>}
                                     </div>
-
                                 </div>
                                 <div className='pairConctactenos'>
                                     <div className='pairConctactenos2'>
-                                        <a>Correo electrónico:</a>
-                                        <input type="text" className="input-field-contactanos" {...register('Email')}></input>
+                                        <label htmlFor="email">Correo electrónico:</label>
+                                        <input
+                                            type="email"
+                                            className="input-field-contactanos"
+                                            {...register('email', { required: true, pattern: /^\S+@\S+$/i })}
+                                        />
+                                        {errors.email && errors.email.type === 'required' && (
+                                            <span className="p-error-114">Este campo es obligatorio</span>
+                                        )}
+                                        {errors.email && errors.email.type === 'pattern' && (
+                                            <span className="p-error-114">Ingrese un correo electrónico válido</span>
+                                        )}
                                     </div>
                                     <div className='pairConctactenos2'>
-                                        <a>Número de teléfono:</a>
-                                        <input type="text" className="input-field-contactanos" {...register('Telefono')}></input>
+                                        <label htmlFor="telefono">Número de teléfono:</label>
+                                        <input
+                                            type="tel"
+                                            className="input-field-contactanos"
+                                            {...register('telefono', { required: true, pattern: /^\d+$/ })}
+                                        />
+                                        {errors.telefono && errors.telefono.type === 'required' && (
+                                            <span className="p-error-114">Este campo es obligatorio</span>
+                                        )}
+                                        {errors.telefono && errors.telefono.type === 'pattern' && (
+                                            <span className="p-error-114">Ingrese un número de teléfono válido (solo dígitos)</span>
+                                        )}
                                     </div>
-
                                 </div>
                             </div>
                             <div>
                                 <a>¿Acerca de qué quieres hablarnos?</a>
                             </div>
-
                             <div className='radio-contactenos'>
                                 <div className='radio-paircontactenos'>
-                                    <input type="radio" name="Sugerencias" value="coment" className='radio-button-contactenos' checked={option === "sugerencias"} onChange={() => handleOptionChange("sugerencias")} />
-                                    <a>  Sugerencias </a>
+                                    <input
+                                        type="radio"
+                                        id="sugerencias"
+                                        name="contactType"
+                                        value="sugerencias"
+                                        className='radio-button-contactenos'
+                                        {...register('tipo', { required: true })}
+                                    />
+                                    <label htmlFor="sugerencias">Sugerencias</label>
                                 </div>
                                 <div className='radio-paircontactenos'>
-                                    <input type="radio" name="Quejas" value="coment" className='radio-button-contactenos' checked={option === "Quejas"} onChange={() => handleOptionChange("Quejas")} />
-                                    <a>  Quejas </a>
+                                    <input
+                                        type="radio"
+                                        id="quejas"
+                                        name="contactType"
+                                        value="quejas"
+                                        className='radio-button-contactenos'
+                                        {...register('tipo', { required: true })}
+                                    />
+                                    <label htmlFor="quejas">Quejas</label>
                                 </div>
                                 <div className='radio-paircontactenos'>
-                                    <input type="radio" name="Consultas" value="coment" className='radio-button-contactenos' checked={option === "Consultas"} onChange={() => handleOptionChange("Consultas")} />
-                                    <a>  Consultas </a>
+                                    <input
+                                        type="radio"
+                                        id="consultas"
+                                        name="contactType"
+                                        value="consultas"
+                                        className='radio-button-contactenos'
+                                        {...register('tipo', { required: true })}
+                                    />
+                                    <label htmlFor="consultas">Consultas</label>
                                 </div>
                                 <div className='radio-paircontactenos'>
-                                    <input type="radio" name="Otros" value="coment" className='radio-button-contactenos' checked={option === "Otros"} onChange={() => handleOptionChange("Otros")} />
-                                    <a>  Otros </a>
+                                    <input
+                                        type="radio"
+                                        id="otros"
+                                        name="contactType"
+                                        value="otros"
+                                        className='radio-button-contactenos'
+                                        {...register('tipo', { required: true })}
+                                    />
+                                    <label htmlFor="otros">Otros</label>
                                 </div>
                             </div>
                             <div className='pairConctactenos2'>
-                                <a>Mensaje:</a>
+                                <label htmlFor="comentario">Mensaje:</label>
                                 <textarea
                                     cols={20}
                                     rows={5}
-                                    type="text"
                                     className="input-field-contactanos2"
                                     placeholder='Escribe tu mensaje...'
-                                    style={{ resize: 'none' }} // Agregamos el estilo para evitar la redimensión
-                                    {...register('Comentario')}
+                                    style={{ resize: 'none' }}
+                                    {...register('mensaje', { required: true })}
                                 ></textarea>
-
+                                {errors.mensaje && <span className="p-error-114">Este campo es obligatorio</span>}
                             </div>
-
                         </div>
-                        <input type="submit" value="Enviar el mensaje" className='input-button-contactenos'></input>
-
+                        <input type="submit" value="Enviar el mensaje" className='input-button-contactenos' />
+                        <input
+                            type="button"
+                            value="Borrar todo"
+                            className='input-button-borrartodo'
+                            onClick={handleClear}
+                        />
 
                     </form>
+
                 </div>
             </div>
             <Footer />

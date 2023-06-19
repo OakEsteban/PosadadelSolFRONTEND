@@ -85,8 +85,8 @@ export const Nosotros = () => {
                         una experiencia inolvidable
                     </p>
                     <div className='apartado-botones'>
-                        <button className='apartado-boton-1'>Inicio</button>
-                        <button className='apartado-boton-2'>Reserva ahora</button>
+                        <a className='apartado-boton-1' href='/Inicio'>Inicio</a>
+                        <a className='apartado-boton-2' href='/Inicia-sesion'>Reservar</a>
                     </div>
                 </div>
                 <div className='apartado-right'>
@@ -101,7 +101,8 @@ export const Nosotros = () => {
                     <h4 className='titulo-principal'>Nuestro Hotel</h4>
                     <h1 className='titulo-secundario'>Tranquilidad y </h1>
                     <h1 className='titulo-secundario'>Comodidad</h1>
-                    <p>descripcion</p>
+                    <p>!La posada del sol la mejor opcion</p>
+                    <p>para tu comodidad¡</p>
                     <div className='segundo-apartado-encabezado'>
                         <div className='segundo-apartado-encabezados'>
                             <h2 className='titulo-segundo-apartado'>500+</h2>

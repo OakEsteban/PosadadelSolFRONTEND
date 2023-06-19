@@ -51,6 +51,9 @@ const Cuarto = () => {
                     <a href="#" className="btn btn-sm w-100 text-black btn-outline-dark custom-bg shadow-none mb-2">
                         Adquirir
                     </a>
+                    <a href="#" className="btn btn-sm w-100 btn-outline-dark custom-bg2 shadow-none">
+                        Más detalles
+                    </a>
                 </div>
             </div>
         </div>
