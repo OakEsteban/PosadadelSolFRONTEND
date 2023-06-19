@@ -90,7 +90,7 @@ export const Habitaciones = () => {
         <div>
 
             <div className='bannerHabServ'>
-                <h1 className='h1-HabServ' >Nuestras Habitaciones </h1>
+                <h1 className='h1-HabServ' >Tipos de Habitaciones </h1>
 
             </div>
 

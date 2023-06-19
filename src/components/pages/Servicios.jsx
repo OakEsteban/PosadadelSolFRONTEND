@@ -42,7 +42,7 @@ export const Servicios = () => {
         <div>
 
             <div className='bannerHabServ'>
-                <h1 className='h1-HabServ'>Nuestros Servicios</h1>
+                <h1 className='h1-HabServ'>Servicios</h1>
             </div>
 
             <div className="container">

@@ -36,7 +36,7 @@ export const Planes = () => {
         <div>
 
             <div className='bannerHabServ'>
-                <h1 className='h1-HabServ'>Nuestros Servicios</h1>
+                <h1 className='h1-HabServ'>Planes</h1>
             </div>
 
             <div className="container">
