@@ -20,6 +20,8 @@ import Recuperar from './components/login-register/Recuperar.jsx';
 // import Recuperar3 from './components/login-register/Recuperar3.jsx';
 //Pagina 404.
 import Page404 from './components/Page404.jsx';
+//Panel administrador
+import PanelAdmin from './components/panel-admin/PanelAdmin.jsx';
 
 
 function App() {
@@ -41,6 +43,7 @@ function App() {
         <Route path="/Recuperar" element={<Recuperar />} />
         <Route path="*" element={<Page404 />} />
       </Routes>
+      <PanelAdmin></PanelAdmin>
     </Router>
   );
 }

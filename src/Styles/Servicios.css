@@ -6,8 +6,12 @@
 .bi{
     border: 1px solid aqua;
     border-radius: 2px;
-    width: 80px;
+    width: 100px;
     cursor: pointer;
+    justify-content: center;
+    padding: 13px 15px;
+    text-decoration: none;
+    color: #A96596;
 }
 
 
@@ -59,7 +63,7 @@
 
 
 .caja-lateral-1{
-    width: 335px;
+    width: 320px;
     height: 180px;
     margin-bottom: 20px;
     margin-left: 20px;
@@ -86,3 +90,4 @@
     margin-top: 10px;
     font-size: smaller;
 }
+
