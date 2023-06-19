@@ -1,7 +1,14 @@
 import React from "react";
-import img1 from "../Images/hotel.png";
-import img2 from "../Images/hotel1.jpg";
-import img3 from "../Images/hotel2.jpg";
+import img1 from "../Images/Carrusel/Carrusel1.jpeg";
+import img2 from "../Images/Carrusel/Carrusel2.jpeg";
+import img3 from "../Images/Carrusel/Carrusel3.jpeg";
+import img4 from "../Images/Carrusel/Carrusel4.jpeg";
+import img5 from "../Images/Carrusel/Carrusel5.jpeg";
+import img6 from "../Images/Carrusel/Carrusel6.jpeg";
+import img7 from "../Images/Carrusel/Carrusel7.jpeg";
+import img8 from "../Images/Carrusel/Carrusel8.jpeg";
+import img9 from "../Images/Carrusel/Carrusel9.jpeg";
+import img10 from "../Images/Carrusel/Carrusel10.jpeg";
 
 import Carousel from "react-bootstrap/Carousel";
 import "../Styles/Carrusel.css";
@@ -20,14 +27,14 @@ function UncontrolledExample() {
       <div className="cont-10">
         <div id="left">
           <img
-            src={img1}
+            src={img8}
             alt=""
             id="img-2"
             style={{ borderTopLeftRadius: "1rem" }}
           />
-          <img src={img1} alt="" id="img-2" />
+          <img src={img9} alt="" id="img-2" />
           <img
-            src={img1}
+            src={img10}
             alt=""
             id="img-2"
             style={{ borderBottomLeftRadius: "1rem" }}
@@ -44,8 +51,8 @@ function UncontrolledExample() {
               id="img-1"
             />
             <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              {/* <h3>First slide label</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -57,8 +64,8 @@ function UncontrolledExample() {
             />
 
             <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              {/* <h3>Second slide label</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -70,10 +77,10 @@ function UncontrolledExample() {
             />
 
             <Carousel.Caption>
-              <h3>Third slide label</h3>
+              {/* <h3>Third slide label</h3>
               <p>
                 Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
+              </p> */}
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
@@ -81,16 +88,16 @@ function UncontrolledExample() {
         {/* ------------------------------------------------------------------------------------ */}
 
         <div id="rigth">
-          <img src={img1} alt="" id="img-2" />
+          <img src={img4} alt="" id="img-2" />
           <img
-            src={img1}
+            src={img5}
             alt=""
             id="img-2"
             style={{ borderTopRightRadius: "1rem" }}
           />
-          <img src={img1} alt="" id="img-2" />
+          <img src={img6} alt="" id="img-2" />
           <img
-            src={img1}
+            src={img7}
             alt=""
             id="img-2"
             style={{ borderBottomRightRadius: "1rem" }}
