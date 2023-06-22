@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { isLoggedIn } from '../../../hooks/loginToken';
 
 
 
@@ -8,6 +9,7 @@ const HabPenth = () => {
     const [precio, setPrecio] = useState('');
     const [tipoHab, setTipoHab] = useState('');
     const [cantidad, setCantidad] = useState('');
+    const tokenExists = isLoggedIn();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -78,9 +80,11 @@ const HabPenth = () => {
                 </div>
                 <div className="col-md-2 mt-lg-0 mt-md-0 mt-4 text-center">
                     <h6 className="mb-4" style={{ fontWeight: '600', color: '#A96596' }}>{precio} por noche</h6>
-                    <a href="" className="btn btn-sm w-100 text-black btn-outline-dark custom-bg shadow-none mb-2">
-                        Reservar
-                    </a>
+                    {tokenExists && (
+                        <a href="" className="btn btn-sm w-100 text-black btn-outline-dark custom-bg shadow-none mb-2">
+                            Reservar
+                        </a>
+                    )}
                     <a href="" className="btn btn-sm w-100 btn-outline-dark custom-bg2 shadow-none">
                         Más detalles
                     </a>

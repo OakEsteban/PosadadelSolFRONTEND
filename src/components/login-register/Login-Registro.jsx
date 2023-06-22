@@ -116,11 +116,15 @@ function LoginRegistro() {
         const [loginError, setLoginError] = useState('');
 
         const onSubmit = (data) => {
-            console.log(data)
             axios.post('http://localhost:4000/login', data)
                 .then((response) => {
                     // Manejar la respuesta del servidor si es exitosa
                     console.log(response.data);
+                    const token = response.data.token; // Obtener el token de la respuesta
+
+                    // Guardar el token en el local storage
+                    localStorage.setItem('token', token);
+
                     setLoggedIn(true); // Establecer el estado de inicio de sesión exitoso
                     setLoginError(''); // Limpiar el mensaje de error en caso de que haya uno anteriormente
                 })
@@ -130,7 +134,8 @@ function LoginRegistro() {
                     setLoggedIn(false); // Establecer el estado de inicio de sesión a false
                     setLoginError('Correo o contraseña incorrectos'); // Establecer el mensaje de error
                 });
-        }
+        };
+
 
         const handleLogout = () => {
             // Lógica para cerrar la sesión del usuario

@@ -59,7 +59,7 @@ export const Planes = () => {
                                 <div className="collapse navbar-collapse flex-column align-items-stretch mt-2" id="filterDropdown">
                                     <div className="border bg-light p-3 rounded mb-3">
                                         <h5 className="mb-3" style={{ fontWeight: '600', color: '#A96596' }}>
-                                            Tipo de servicio
+                                            Tipo de plan
                                         </h5>
                                         <div className="mb-2">
                                             <input
@@ -70,7 +70,8 @@ export const Planes = () => {
                                                 onChange={handleCheckboxChange}
                                             />
                                             <label className="form-check-label" style={{ fontWeight: '500' }} htmlFor="plan1">
-                                                Plan1
+                                                Relax Total
+
                                             </label>
                                         </div>
                                         <div className="mb-2">
@@ -82,7 +83,7 @@ export const Planes = () => {
                                                 onChange={handleCheckboxChange}
                                             />
                                             <label className="form-check-label" style={{ fontWeight: '500' }} htmlFor="plan2">
-                                                Plan2
+                                                Aventura
                                             </label>
                                         </div>
                                         <div className="mb-2">
@@ -94,7 +95,8 @@ export const Planes = () => {
                                                 onChange={handleCheckboxChange}
                                             />
                                             <label className="form-check-label" style={{ fontWeight: '500' }} htmlFor="plan3">
-                                                Plan3
+                                                Romance en el Paraíso
+
                                             </label>
                                         </div>
                                         <div className="mb-2">
@@ -106,7 +108,8 @@ export const Planes = () => {
                                                 onChange={handleCheckboxChange}
                                             />
                                             <label className="form-check-label" style={{ fontWeight: '500' }} htmlFor="plan4">
-                                                Plan4
+                                                Escapada Cultural
+
                                             </label>
                                         </div>
                                     </div>

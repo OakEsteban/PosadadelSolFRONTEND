@@ -38,11 +38,11 @@ const Plan2 = () => {
                     <img src={require("../../../Images/Plan2.jpg")} className="img-fluid rounded" alt="Room" />
                 </div>
                 <div className="col-md-5 px-lg-3 px-md-3 px-0">
-                    <h5 className="mb-3" style={{ fontWeight: '600', color: '#A96596' }}>Tipo de servicio: {tipo_serv}</h5>
+                    <h5 className="mb-3" style={{ fontWeight: '600', color: '#A96596' }}>Aventura</h5>
                     <div className="features mb-4">
                         <h6 className="mb-1" style={{ fontWeight: '600', color: '#A96596' }}>Descripción</h6>
                         <span className="badge rounded-pill bg-light text-dark text-wrap">
-                            {descripcion}
+                            Excursiones de senderismo, deportes y emocionantes actividades al aire libre.
                         </span>
                     </div>
                 </div>
