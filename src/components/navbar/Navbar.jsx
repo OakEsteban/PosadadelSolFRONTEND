@@ -3,6 +3,8 @@ import { MenuItems } from './MenuItems';
 import '../../Styles/navbar/Navbar.css';
 import { Button } from './Button';
 import { Link, NavLink } from 'react-router-dom';
+import { isLoggedIn, logout } from '../../hooks/loginToken';
+
 
 class Navbar extends Component {
 
@@ -24,8 +26,8 @@ class Navbar extends Component {
     document.removeEventListener('mousedown', this.handleClickOutside);
   }
 
-  handleClickOutside = event => {
-    if (this.menuRef && !this.menuRef.current.contains(event.target)) {
+  handleClickOutside = (event) => {
+    if (this.menuRef && this.menuRef.current && !this.menuRef.current.contains(event.target)) {
       this.setState({ isOpen: false });
     }
   };
@@ -41,9 +43,18 @@ class Navbar extends Component {
     this.setState({ clicked: !this.state.clicked });
   };
 
+  handleLogout = () => {
+    logout();
+    // Realiza cualquier otra lógica necesaria después de cerrar la sesión
+    window.location.reload(); // Recargar la página automáticamente
+    window.location.assign('/Inicia-Sesion'); // Redirigir a la página /Inicia-Sesion
+  };
+
+
   render() {
 
     const { isOpen } = this.state;
+    const tokenExists = isLoggedIn();
 
 
     return (
@@ -67,54 +78,54 @@ class Navbar extends Component {
             </li>
           ))}
         </ul>
-        <ul className='button-114'>
-          <Link to="/Inicia-Sesion" className="nav-link">
-            <Button className='btn-111'> Entra <i className="fa-solid fa-right-to-bracket"></i></Button>
-          </Link>
-        </ul>
+        {!tokenExists && (
+          <ul className='button-114'>
+            <Link to="/Inicia-Sesion" className="nav-link">
+              <Button className='btn-111'> Entra <i className="fa-solid fa-right-to-bracket"></i></Button>
+            </Link>
+          </ul>
+        )}
 
-        {/* Dropdow UserMenu*/}
-        <img src={require('../../Images/user.png')} className='user-pic' onClick={this.toggleMenu} />
+        {tokenExists && (
+          <>
+            <img src={require('../../Images/user.png')} className='user-pic' onClick={this.toggleMenu} />
 
-        <div ref={this.menuRef} className={`sub-menu-wrap ${isOpen ? 'open-menu' : ''}`} id="subMenu">
-          <div className='sub-menu'>
-            <div className="user-info">
-              <img src={require('../../Images/user.png')} className='user-pic' />
-              <h2>Usuario</h2>
+            <div ref={this.menuRef} className={`sub-menu-wrap ${isOpen ? 'open-menu' : ''}`} id="subMenu">
+              <div className='sub-menu'>
+                <div className="user-info">
+                  <img src={require('../../Images/user.png')} className='user-pic' />
+                  <h2>Usuario</h2>
+                </div>
+                <hr />
+
+                <Link to="" className='sub-menu-link'>
+                  <p> <i class="fa-solid fa-user" ></i>    Mi cuenta</p>
+                  <span><i class="fa-solid fa-angle-right"></i></span>
+                </Link>
+                <Link to="" className='sub-menu-link'>
+                  <p> <i class="fa-solid fa-cart-shopping"></i> Mis reservaciones</p>
+                  <span><i class="fa-solid fa-angle-right"></i></span>
+                </Link>
+                <Link to="" className='sub-menu-link'>
+                  <p> <i class="fa-solid fa-credit-card"></i> Método de pago</p>
+                  <span><i class="fa-solid fa-angle-right"></i></span>
+                </Link>
+                <hr />
+                <Link to="" className='sub-menu-link'>
+                  <p> <i class="fa-solid fa-life-ring"></i> Soporte</p>
+                  <span><i class="fa-solid fa-angle-right"></i></span>
+                </Link>
+                <Link to="" className='sub-menu-link' onClick={this.handleLogout}>
+                  <p> <i className="fa-solid fa-right-from-bracket"></i> Salir</p>
+                  <span><i className="fa-solid fa-angle-right"></i></span>
+                </Link>
+
+
+              </div>
+
             </div>
-            <hr />
-
-            <Link to="" className='sub-menu-link'>
-              <p> <i class="fa-solid fa-user" ></i>    Mi cuenta</p>
-              <span><i class="fa-solid fa-angle-right"></i></span>
-            </Link>
-            <Link to="" className='sub-menu-link'>
-              <p> <i class="fa-solid fa-cart-shopping"></i> Mis reservaciones</p>
-              <span><i class="fa-solid fa-angle-right"></i></span>
-            </Link>
-            <Link to="" className='sub-menu-link'>
-              <p> <i class="fa-solid fa-credit-card"></i> Método de pago</p>
-              <span><i class="fa-solid fa-angle-right"></i></span>
-            </Link>
-            <Link to="" className='sub-menu-link'>
-              <p> <i class="fa-solid fa-gear"></i> Configuraciones</p>
-              <span><i class="fa-solid fa-angle-right"></i></span>
-            </Link>
-
-            <hr />
-            <Link to="" className='sub-menu-link'>
-              <p> <i class="fa-solid fa-life-ring"></i> Soporte</p>
-              <span><i class="fa-solid fa-angle-right"></i></span>
-            </Link>
-            <Link to="" className='sub-menu-link'>
-              <p> <i class="fa-solid fa-right-from-bracket"></i> Salir</p>
-              <span><i class="fa-solid fa-angle-right"></i></span>
-            </Link>
-
-
-          </div>
-
-        </div>
+          </>
+        )}
 
       </nav>
     );

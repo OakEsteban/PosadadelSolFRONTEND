@@ -1,7 +1,5 @@
 import "../../Styles/login-register/login-register.css";
-import { useState, useRef, useEffect } from "react";
-import { useScript } from "../../hooks/useScript";
-import jwt_decode from "jwt-decode";
+import { useState, useEffect } from "react";
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
@@ -11,29 +9,29 @@ import axios from 'axios';
 
 function LoginRegistro() {
 
-    //Sección Botón Google. 
-    const googlebuttonref = useRef();
+    // //Sección Botón Google. 
+    // const googlebuttonref = useRef();
 
-    const [user, setuser] = useState(false);
-    const onGoogleSignIn = (user) => {
-        let userCred = user.credential;
-        let payload = jwt_decode(userCred);
-        console.log(payload);
-        setuser(payload);
-    };
-    useScript("https://accounts.google.com/gsi/client", () => {
-        window.google.accounts.id.initialize({
-            client_id: "375800270898-a1jsu4rlplt491r2m6p9pnlfpph42m6a.apps.googleusercontent.com",
-            callback: onGoogleSignIn,
-            auto_select: false,
-        });
+    // const [user, setuser] = useState(false);
+    // const onGoogleSignIn = (user) => {
+    //     let userCred = user.credential;
+    //     let payload = jwt_decode(userCred);
+    //     console.log(payload);
+    //     setuser(payload);
+    // };
+    // useScript("https://accounts.google.com/gsi/client", () => {
+    //     window.google.accounts.id.initialize({
+    //         client_id: "375800270898-a1jsu4rlplt491r2m6p9pnlfpph42m6a.apps.googleusercontent.com",
+    //         callback: onGoogleSignIn,
+    //         auto_select: false,
+    //     });
 
-        window.google.accounts.id.renderButton(googlebuttonref.current, {
-            size: "medium",
-        });
-    });
+    //     window.google.accounts.id.renderButton(googlebuttonref.current, {
+    //         size: "medium",
+    //     });
+    // });
 
-    //Fin sección Botón Google. 
+    // //Fin sección Botón Google. 
 
 
     //Funciones de animaciones para el apartado de imagenes el carrusel, en el apartado de login.
@@ -119,31 +117,23 @@ function LoginRegistro() {
         const onSubmit = (data) => {
             axios.post('http://localhost:4000/login', data)
                 .then((response) => {
-                    // Manejar la respuesta del servidor si es exitosa
                     console.log(response.data);
-                    const token = response.data.token; // Obtener el token de la respuesta
-
-                    // Guardar el token en el local storage
+                    const token = response.data.token;
                     localStorage.setItem('token', token);
 
-                    setLoggedIn(true); // Establecer el estado de inicio de sesión exitoso
-                    setLoginError(''); // Limpiar el mensaje de error en caso de que haya uno anteriormente
-                    navigate('/Inicio'); // Reemplaza "/" con la ruta de tu página principal
+                    setLoggedIn(true);
+                    setLoginError('');
+
+                    // Recargar la página automáticamente
+                    navigate('/Inicio');
+                    window.location.reload();
                 })
                 .catch((error) => {
-                    // Manejar el error si la solicitud no se puede completar
                     console.error(error);
-                    setLoggedIn(false); // Establecer el estado de inicio de sesión a false
-                    setLoginError('Correo o contraseña incorrectos'); // Establecer el mensaje de error
+                    setLoggedIn(false);
+                    setLoginError('Correo o contraseña incorrectos');
                 });
         };
-
-
-        const handleLogout = () => {
-            // Lógica para cerrar la sesión del usuario
-            setLoggedIn(false);
-        };
-
 
 
         return (
@@ -358,7 +348,7 @@ function LoginRegistro() {
 
                     <input type="submit" value="Registrate" className="sign-btn-11" />
 
-                    {/* Se añade el botón de Google */}
+                    {/* Se añade el botón de Google
 
                     <div
                         style={{
@@ -384,7 +374,7 @@ function LoginRegistro() {
                                 </button>
                             </div>
                         )}
-                    </div>
+                    </div> */}
                 </div>
             </form>
         );

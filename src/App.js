@@ -34,7 +34,7 @@ function App() {
         <Route path="/Hotel" element={<Hotel />} />
         <Route path="/Habitaciones" element={<Habitaciones />} />
         <Route path="/Servicios" element={<Servicios />} />
-        <Route path="/Nosotros" element={<Nosotros />} Nosotros/>
+        <Route path="/Nosotros" element={<Nosotros />} Nosotros />
         <Route path="/Planes" element={<Planes />} />
         <Route path="/Nosotros" element={<Nosotros />} />
         <Route path="/contactanos" element={<Contactanos />} />
@@ -43,7 +43,7 @@ function App() {
         <Route path="/Recuperar" element={<Recuperar />} />
         <Route path="*" element={<Page404 />} />
       </Routes>
-      <PanelAdmin></PanelAdmin>
+      {/* <PanelAdmin /> */}
     </Router>
   );
 }
