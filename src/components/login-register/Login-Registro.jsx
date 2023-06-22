@@ -114,6 +114,7 @@ function LoginRegistro() {
         const { register, formState: { errors, setErrors }, handleSubmit } = useForm();
         const [loggedIn, setLoggedIn] = useState(false);
         const [loginError, setLoginError] = useState('');
+        const navigate = useNavigate();
 
         const onSubmit = (data) => {
             axios.post('http://localhost:4000/login', data)
@@ -127,6 +128,7 @@ function LoginRegistro() {
 
                     setLoggedIn(true); // Establecer el estado de inicio de sesión exitoso
                     setLoginError(''); // Limpiar el mensaje de error en caso de que haya uno anteriormente
+                    navigate('/Inicio'); // Reemplaza "/" con la ruta de tu página principal
                 })
                 .catch((error) => {
                     // Manejar el error si la solicitud no se puede completar
@@ -189,15 +191,7 @@ function LoginRegistro() {
                         ¿Olvidaste tu contraseña?
                         <a href="/Recuperar"> Obtén ayuda.</a>
                     </p>
-
-                    {loggedIn ? (
-                        <div>
-                            <p>Iniciaste sesión exitosamente</p>
-                            <button onClick={handleLogout}>Cerrar sesión</button>
-                        </div>
-                    ) : (
-                        <input type="submit" value="Inicia Sesión" className="sign-btn-10" />
-                    )}
+                    <input type="submit" value="Inicia Sesión" className="sign-btn-10" />
                 </div>
 
             </form>
