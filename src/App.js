@@ -43,7 +43,7 @@ function App() {
         <Route path="/Recuperar" element={<Recuperar />} />
         <Route path="*" element={<Page404 />} />
       </Routes>
-      {/* <PanelAdmin /> */}
+      {<PanelAdmin/>}
     </Router>
   );
 }
