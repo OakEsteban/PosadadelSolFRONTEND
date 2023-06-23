@@ -12,14 +12,17 @@ import Planes from './components/pages/Planes.jsx';
 import Nosotros from '../src/components/pages/Nosotros.jsx';
 import Contactanos from '../src/components/pages/Contactanos.jsx';
 import Icono from './components/IconWhatsapp.jsx'
+
 //Inicio de sesión.
 import IniciaSesion from './components/login-register/Login-Registro.jsx';
 import Confirmacion from './components/pages/Confirmacion.jsx';
 import Recuperar from './components/login-register/Recuperar.jsx';
 // import Recuperar2 from './components/login-register/Recuperar2.jsx';
 // import Recuperar3 from './components/login-register/Recuperar3.jsx';
+
 //Pagina 404.
 import Page404 from './components/Page404.jsx';
+
 //Panel administrador
 import PanelAdmin from './components/panel-admin/PanelAdmin.jsx';
 
@@ -41,10 +44,12 @@ function App() {
         <Route path="/Inicia-Sesion" element={<IniciaSesion />} />
         <Route path="/Confirmacion" element={<Confirmacion />} />
         <Route path="/Recuperar" element={<Recuperar />} />
+        <Route path="/Admin" element={<PanelAdmin />} />
         <Route path="*" element={<Page404 />} />
       </Routes>
-      {<PanelAdmin/>}
+      {/* <Icono /> */}
     </Router>
+
   );
 }
 
