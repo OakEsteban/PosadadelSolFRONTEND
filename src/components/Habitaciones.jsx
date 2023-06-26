@@ -15,9 +15,9 @@ function habitaciones(){
                     </p>
                 </div>
                 <div className='cabezal-derecha'>
-                    <button className='botonsito'>
+                    <a className='botonsito' href='/Habitaciones'>
                         Ver más
-                    </button>
+                    </a>
                 </div>
             </div>
             <div className='mostrar-habitaciones'>
@@ -27,14 +27,14 @@ function habitaciones(){
                         <div className='futer-1'>
                             <div className='futer-izquierda'>
                                 <h3 className='sneci-1'>Sencilla</h3>
-                                <p className='sneci'>Descripcion</p>
+                                <p className='sneci'>Habitacion sencilla</p>
                             </div>
                             <div className='futer-derecha'>
                                 <h3>$ 000</h3>
                             </div>
                         </div>
-                        <div>
-                            <button className='botonsito-1'>RESERVAR</button>
+                        <div className='padre-boton'>
+                            <a className='botonsito-1' href='/Inicia-sesion'>RESERVAR</a>
                         </div>
                     </div>
                 </div>
@@ -44,14 +44,14 @@ function habitaciones(){
                         <div className='futer-1'>
                             <div className='futer-izquierda'>
                                 <h3 className='sneci-1'>Triple</h3>
-                                <p className='sneci'>Descripcion</p>
+                                <p className='sneci'>Habitacion Triple</p>
                             </div>
                             <div className='futer-derecha'>
                                 <h3>$ 000</h3>
                             </div>
                         </div>
-                        <div>
-                            <button className='botonsito-1'>RESERVAR</button>
+                        <div className='padre-boton'>
+                            <a className='botonsito-1' href='/Inicia-sesion'>RESERVAR</a>
                         </div>
                     </div>
                 </div>
@@ -61,14 +61,14 @@ function habitaciones(){
                         <div className='futer-1'>
                             <div className='futer-izquierda'>
                                 <h3 className='sneci-1'>Empresarial</h3>
-                                <p className='sneci'>Descripcion</p>
+                                <p className='sneci'>Habitacion Empresaria</p>
                             </div>
                             <div className='futer-derecha'>
                                 <h3>$ 000</h3>
                             </div>
                         </div>
-                        <div>
-                            <button className='botonsito-1'>RESERVAR</button>
+                        <div className='padre-boton'>
+                            <a className='botonsito-1' href='/Inicia-sesion'>RESERVAR</a>
                         </div>
                     </div>
                 </div>
@@ -78,14 +78,14 @@ function habitaciones(){
                         <div className='futer-1'>
                             <div className='futer-izquierda'>
                                 <h3 className='sneci-1'>Penthouse</h3>
-                                <p className='sneci'>Descripcion</p>
+                                <p className='sneci'>Habitacion Penthouse</p>
                             </div>
                             <div className='futer-derecha'>
                                 <h3>$ 000</h3>
                             </div>
                         </div>
-                        <div>
-                            <button className='botonsito-1'>RESERVAR</button>
+                        <div className='padre-boton'>
+                            <a className='botonsito-1' href='/Inicia-sesion'>RESERVAR</a>
                         </div>
                     </div>
                 </div>

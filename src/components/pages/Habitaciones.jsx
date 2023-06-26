@@ -9,42 +9,70 @@ import Footer from '../Footer';
 import axios from 'axios';
 
 
+
 export const Habitaciones = () => {
 
 
     const [opciones, setOpciones] = useState({
-        todas: true,
         sencilla: false,
         doble: false,
         triple: false,
         penthouse: false,
-        empresarial: false
+        empresarial: false,
+        sencillaydoble: false,
+        tripleyempresarial: false,
+        penthouseyempresarial: false
     });
 
-    useEffect(() => {
-        // Se ejecuta al cargar la página
-        setOpciones((prevOpciones) => ({ ...prevOpciones, todos: true }));
-    }, []);
+    const borrarTodo = () => {
+        setOpciones({
+            sencilla: false,
+            doble: false,
+            triple: false,
+            penthouse: false,
+            empresarial: false,
+            sencillaydoble: false,
+            triplayempresarial: false,
+            penthouseyempresarial: false
+        });
+    };
+
 
     const handleCheckboxChange = (event) => {
         const { id, checked } = event.target;
-        setOpciones({ ...opciones, [id]: checked });
+        if (id === 'sencillaydoble') {
+            setOpciones({ ...opciones, sencillaydoble: checked });
+        } else if (id === 'tripleyempresarial') {
+            setOpciones({ ...opciones, tripleyempresarial: checked });
+        } else if (id === 'penthouseyempresarial') {
+            setOpciones({ ...opciones, penthouseyempresarial: checked });
+        } else {
+            setOpciones({ ...opciones, [id]: checked });
+        }
     };
 
-    const [precio, setPrecio] = useState('');
+
+    const [precioSencilla, setPrecio] = useState('');
+    const [precioDoble, setPrecio1] = useState('');
+    const [precioTriple, setPrecio2] = useState('');
+    const [precioEmpresarial, setPrecio3] = useState('');
+    const [precioPenth, setPrecio4] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get('http://localhost:4000/habitaciones');
                 const { data } = response;
-                const formattedPrecio = formatCurrency(data[0].precio);
-                setPrecio(formattedPrecio);
+                setPrecio(formatCurrency(data[0].precio));
+                setPrecio1(formatCurrency(data[1].precio));
+                setPrecio2(formatCurrency(data[2].precio));
+                setPrecio3(formatCurrency(data[3].precio));
+                setPrecio4(formatCurrency(data[4].precio));
+
             } catch (error) {
                 console.error(error);
             }
         };
-
         fetchData();
     }, []);
 
@@ -56,14 +84,13 @@ export const Habitaciones = () => {
 
         return formattedValue.replace(/,00$/, '');
     };
-    console.log(precio);
 
 
     return (
         <div>
 
             <div className='bannerHabServ'>
-                <h1 className='h1-HabServ' >Nuestras Habitaciones </h1>
+                <h1 className='h1-HabServ' >Tipos de Habitaciones </h1>
 
             </div>
 
@@ -96,23 +123,10 @@ export const Habitaciones = () => {
                                         <label className="form-label" style={{ fontWeight: '500' }}>Salida</label>
                                         <input type="date" className="form-control shadow-none" />
                                     </div>
-
                                     <div className="border bg-light p-3 rounded mb-3">
                                         <h5 className="mb-3" style={{ fontWeight: '600', color: '#A96596' }}>
                                             Tipo de habitación
                                         </h5>
-                                        <div className="mb-2">
-                                            <input
-                                                type="checkbox"
-                                                id="todas"
-                                                className="form-check-input shadow-none me-1"
-                                                checked={opciones.todas}
-                                                onChange={handleCheckboxChange}
-                                            />
-                                            <label className="form-check-label " style={{ fontWeight: '500' }} htmlFor="todas">
-                                                Todas
-                                            </label>
-                                        </div>
                                         <div className="mb-2">
                                             <input
                                                 type="checkbox"
@@ -179,37 +193,50 @@ export const Habitaciones = () => {
                                         <h5 className="mb-3" style={{ fontWeight: '600', color: '#A96596' }}>
                                             Precio
                                         </h5>
-                                        <div className="d-flex">
-                                            <div className="me-2">
-                                                <label className="form-label" style={{ fontWeight: '500' }}>Min</label>
-                                                <input type="number" className="form-control shadow-none" min="100000" />
-                                            </div>
-                                            <div>
-                                                <label className="form-label" style={{ fontWeight: '500' }}>Max</label>
-                                                <input type="number" className="form-control shadow-none" max="500000" />
-                                            </div>
+                                        <div className="mb-2">
+                                            <input
+                                                type="checkbox"
+                                                id="sencillaydoble"
+                                                className="form-check-input shadow-none me-1"
+                                                checked={opciones.sencillaydoble}
+                                                onChange={handleCheckboxChange}
+                                            />
+                                            <label className="form-check-label" style={{ fontWeight: '500' }} htmlFor="sencillaydoble">
+                                                {precioSencilla} - {precioDoble}
+                                            </label>
+                                        </div>
+
+                                        <div className="mb-2">
+                                            <input
+                                                type="checkbox"
+                                                id="tripleyempresarial"
+                                                className="form-check-input shadow-none me-1"
+                                                checked={opciones.tripleyempresarial}
+                                                onChange={handleCheckboxChange}
+                                            />
+                                            <label className="form-check-label" style={{ fontWeight: '500' }} htmlFor="tripleyempresarial">
+                                                {precioTriple} - {precioEmpresarial}
+                                            </label>
+                                        </div>
+                                        <div className="mb-2">
+                                            <input
+                                                type="checkbox"
+                                                id="penthouseyempresarial"
+                                                className="form-check-input shadow-none me-1"
+                                                checked={opciones.penthouseyempresarial}
+                                                onChange={handleCheckboxChange}
+                                            />
+                                            <label className="form-check-label" style={{ fontWeight: '500' }} htmlFor="penthouseyempresarial">
+                                                {precioPenth}
+                                            </label>
                                         </div>
                                     </div>
 
                                     <div className="border bg-light p-3 rounded mb-3">
-                                        <h5 className="mb-3" style={{ fontWeight: '600', color: '#A96596' }}>
-                                            Húespedes
-                                        </h5>
-                                        <div className="d-flex">
-                                            <div className="me-2">
-                                                <label className="form-label" style={{ fontWeight: '500' }}>Adultos</label>
-                                                <input type="number" className="form-control shadow-none" />
-                                            </div>
-                                            <div>
-                                                <label className="form-label" style={{ fontWeight: '500' }}>Niños</label>
-                                                <input type="number" className="form-control shadow-none" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="border bg-light p-3 rounded mb-3">
-                                        <a href="" className="btn btn-sm w-100 btn-outline shadow-none" style={{ fontWeight: '500' }}>
+                                        <button className="btn btn-sm w-100 text-black btn-outline-dark custom-bg shadow-none mb-2" style={{ fontWeight: '500' }} onClick={borrarTodo}>
                                             Borrar todo
-                                        </a>
+                                        </button>
+
                                     </div>
                                 </div>
                             </div>
@@ -218,32 +245,54 @@ export const Habitaciones = () => {
 
 
                     <div className="col-lg-9 col-md-12 px-4">
-                        {opciones.todas && (
+                        {!opciones.sencilla && !opciones.doble && !opciones.triple && !opciones.penthouse && !opciones.empresarial && !opciones.sencillaydoble && !opciones.tripleyempresarial && !opciones.penthouseyempresarial && (
                             <>
-                                <HabSencilla precio={precio} />
+                                <HabSencilla />
                                 <HabDoble />
                                 <HabTriple />
                                 <HabEmpre />
                                 <HabPenth />
                             </>
                         )}
-                        {!opciones.todas && opciones.sencilla && <HabSencilla />}
-                        {!opciones.todas && opciones.doble && <HabDoble />}
-                        {!opciones.todas && opciones.triple && <HabTriple />}
-                        {!opciones.todas && opciones.penthouse && <HabPenth />}
-                        {!opciones.todas && opciones.empresarial && <HabEmpre />}
-
-
+                        {(opciones.sencilla || opciones.sencillaydoble) && (
+                            <HabSencilla />
+                        )}
+                        {(opciones.doble || opciones.sencillaydoble) && (
+                            <HabDoble />
+                        )}
+                        {opciones.triple && !opciones.tripleyempresarial && (
+                            <HabTriple />
+                        )}
+                        {opciones.empresarial && !opciones.tripleyempresarial && (
+                            <HabEmpre />
+                        )}
+                        {opciones.penthouse && !opciones.penthouseyempresarial && (
+                            <HabPenth />
+                        )}
+                        {opciones.penthouseyempresarial && (
+                            <>
+                                <HabPenth />
+                            </>
+                        )}
+                        {opciones.tripleyempresarial && (
+                            <>
+                                <HabTriple />
+                                <HabEmpre />
+                            </>
+                        )}
                     </div>
+
+
+
                 </div>
-            </div>
+            </div >
 
             <footer>
                 <Footer />
             </footer>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
-        </div>
+        </div >
     );
 }
 

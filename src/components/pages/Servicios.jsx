@@ -9,11 +9,8 @@ import Footer from '../Footer';
 
 
 
-
-
 export const Servicios = () => {
     const [opciones, setOpciones] = useState({
-        todos: true,
         transporte: false,
         desayuno: false,
         almuerzo: false,
@@ -22,20 +19,30 @@ export const Servicios = () => {
         servicioCuarto: false
     });
 
-    useEffect(() => {
-        // Se ejecuta al cargar la página
-        setOpciones((prevOpciones) => ({ ...prevOpciones, todos: true }));
-    }, []);
+    const borrarTodo = () => {
+        setOpciones({
+            transporte: false,
+            desayuno: false,
+            almuerzo: false,
+            cena: false,
+            lavanderia: false,
+            servicioCuarto: false
+        });
+    };
+
+    const todasLasOpcionesDesactivadas = Object.values(opciones).every(opcion => !opcion);
 
     const handleCheckboxChange = (event) => {
         const { id, checked } = event.target;
         setOpciones({ ...opciones, [id]: checked });
     };
+
     return (
+
         <div>
 
             <div className='bannerHabServ'>
-                <h1 className='h1-HabServ'>Nuestros Servicios</h1>
+                <h1 className='h1-HabServ'>Servicios</h1>
             </div>
 
             <div className="container">
@@ -60,18 +67,6 @@ export const Servicios = () => {
                                         <h5 className="mb-3" style={{ fontWeight: '600', color: '#A96596' }}>
                                             Tipo de servicio
                                         </h5>
-                                        <div className="mb-2">
-                                            <input
-                                                type="checkbox"
-                                                id="todos"
-                                                className="form-check-input shadow-none me-1"
-                                                checked={opciones.todos}
-                                                onChange={handleCheckboxChange}
-                                            />
-                                            <label className="form-check-label" style={{ fontWeight: '500' }} htmlFor="todos">
-                                                Todos
-                                            </label>
-                                        </div>
                                         <div className="mb-2">
                                             <input
                                                 type="checkbox"
@@ -145,26 +140,10 @@ export const Servicios = () => {
                                             </label>
                                         </div>
                                     </div>
-
-                                    <div className="border bg-light p-3 rounded mb-3">
-                                        <h5 className="mb-3" style={{ fontWeight: '600', color: '#A96596' }}>
-                                            Precio
-                                        </h5>
-                                        <div className="d-flex">
-                                            <div className="me-2">
-                                                <label className="form-label" style={{ fontWeight: '500' }}>Min</label>
-                                                <input type="number" className="form-control shadow-none" min="100000" />
-                                            </div>
-                                            <div>
-                                                <label className="form-label" style={{ fontWeight: '500' }}>Max</label>
-                                                <input type="number" className="form-control shadow-none" max="500000" />
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div className="border bg-light p-3 rounded mb-3" >
-                                        <a href="#" className="btn btn-sm w-100 shadow-none" style={{ fontWeight: '500' }}>
+                                        <button className="btn btn-sm w-100 text-black btn-outline-dark custom-bg shadow-none mb-2" style={{ fontWeight: '500' }} onClick={borrarTodo}>
                                             Borrar todo
-                                        </a>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -173,7 +152,7 @@ export const Servicios = () => {
 
 
                     <div className="col-lg-9 col-md-12 px-4">
-                        {opciones.todos && (
+                        {todasLasOpcionesDesactivadas && (
                             <>
                                 <Cuarto />
                                 <Transporte />
@@ -183,12 +162,12 @@ export const Servicios = () => {
                                 <Cena />
                             </>
                         )}
-                        {!opciones.todos && opciones.transporte && <Transporte />}
-                        {!opciones.todos && opciones.lavanderia && <Lavanderia />}
-                        {!opciones.todos && opciones.desayuno && <Desayuno />}
-                        {!opciones.todos && opciones.almuerzo && <Almuerzo />}
-                        {!opciones.todos && opciones.cena && <Cena />}
-                        {!opciones.todos && opciones.servicioCuarto && <Cuarto />}
+                        {!todasLasOpcionesDesactivadas && opciones.transporte && <Transporte />}
+                        {!todasLasOpcionesDesactivadas && opciones.lavanderia && <Lavanderia />}
+                        {!todasLasOpcionesDesactivadas && opciones.desayuno && <Desayuno />}
+                        {!todasLasOpcionesDesactivadas && opciones.almuerzo && <Almuerzo />}
+                        {!todasLasOpcionesDesactivadas && opciones.cena && <Cena />}
+                        {!todasLasOpcionesDesactivadas && opciones.servicioCuarto && <Cuarto />}
                     </div>
                 </div>
             </div>
@@ -199,6 +178,7 @@ export const Servicios = () => {
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
         </div>
+
     );
 }
 

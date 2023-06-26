@@ -192,6 +192,19 @@
   margin-top: 5vh;
   float: right;
 }
+
+.input-button-borrartodo {
+  border-radius: 5px;
+  border: none;
+  background-color: purple;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 5vh;
+  margin-right: 1vh;
+  float: right;
+}
 /* Estilos responsivos */
 @media (max-width: 980px) {
   .bannerContactenos {

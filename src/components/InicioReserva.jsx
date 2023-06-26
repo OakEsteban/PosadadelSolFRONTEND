@@ -46,16 +46,6 @@ function InicioReserva() {
                                 <option value="5"> Penthouse (Dos camas queen en el último piso, máximo 5 personas).</option>
                             </select>
                         </div>
-
-                        <div className="box-176">
-                            <p> Adultos: <span>*</span></p>
-                            <input type="number" className="input-176" min="1" />
-                        </div>
-
-                        <div className="box-176">
-                            <p> Niños: <span>*</span></p>
-                            <input type="number" className="input-176" min="5" />
-                        </div>
                         <input type="submit" value="Verificar" className="veri-btn-13" />
                     </form>
                 </section>

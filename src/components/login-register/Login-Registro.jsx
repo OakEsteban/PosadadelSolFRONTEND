@@ -1,7 +1,5 @@
 import "../../Styles/login-register/login-register.css";
-import { useState, useRef, useEffect } from "react";
-import { useScript } from "../../hooks/useScript";
-import jwt_decode from "jwt-decode";
+import { useState, useEffect } from "react";
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
@@ -10,29 +8,29 @@ import axios from 'axios';
 
 function LoginRegistro() {
 
-    //Sección Botón Google. 
-    const googlebuttonref = useRef();
+    // //Sección Botón Google. 
+    // const googlebuttonref = useRef();
 
-    const [user, setuser] = useState(false);
-    const onGoogleSignIn = (user) => {
-        let userCred = user.credential;
-        let payload = jwt_decode(userCred);
-        console.log(payload);
-        setuser(payload);
-    };
-    useScript("https://accounts.google.com/gsi/client", () => {
-        window.google.accounts.id.initialize({
-            client_id: "375800270898-a1jsu4rlplt491r2m6p9pnlfpph42m6a.apps.googleusercontent.com",
-            callback: onGoogleSignIn,
-            auto_select: false,
-        });
+    // const [user, setuser] = useState(false);
+    // const onGoogleSignIn = (user) => {
+    //     let userCred = user.credential;
+    //     let payload = jwt_decode(userCred);
+    //     console.log(payload);
+    //     setuser(payload);
+    // };
+    // useScript("https://accounts.google.com/gsi/client", () => {
+    //     window.google.accounts.id.initialize({
+    //         client_id: "375800270898-a1jsu4rlplt491r2m6p9pnlfpph42m6a.apps.googleusercontent.com",
+    //         callback: onGoogleSignIn,
+    //         auto_select: false,
+    //     });
 
-        window.google.accounts.id.renderButton(googlebuttonref.current, {
-            size: "medium",
-        });
-    });
+    //     window.google.accounts.id.renderButton(googlebuttonref.current, {
+    //         size: "medium",
+    //     });
+    // });
 
-    //Fin sección Botón Google. 
+    // //Fin sección Botón Google. 
 
 
     //Funciones de animaciones para el apartado de imagenes el carrusel, en el apartado de login.
@@ -116,30 +114,27 @@ function LoginRegistro() {
         const navigate = useNavigate();
 
         const onSubmit = (data) => {
-            console.log(data)
             axios.post('http://localhost:4000/login', data)
                 .then((response) => {
-                    // Manejar la respuesta del servidor si es exitosa
                     console.log(response.data);
-                    setLoggedIn(true); // Establecer el estado de inicio de sesión exitoso
-                    setLoginError(''); // Limpiar el mensaje de error en caso de que haya uno anteriormente
+                    const token = response.data.token;
+                    localStorage.setItem('token', token);
+
+                    setLoggedIn(true);
+                    setLoginError('');
+
+                    // Recargar la página automáticamente
                     navigate('/Inicio');
+                    window.location.reload();
                 })
                 .catch((error) => {
-                    // Manejar el error si la solicitud no se puede completar
                     console.error(error);
-                    setLoggedIn(false); // Establecer el estado de inicio de sesión a false
-                    setLoginError('Correo o contraseña incorrectos'); // Establecer el mensaje de error
+                    setLoggedIn(false);
+                    setLoginError('Correo o contraseña incorrectos');
                 });
-        }
-
-        const handleLogout = () => {
-            // Lógica para cerrar la sesión del usuario
-            setLoggedIn(false);
         };
 
-        
-        
+
         return (
             <form action="index.html" autoComplete="off" className="sign-in-form-10"
                 onSubmit={handleSubmit(onSubmit)}>
@@ -162,8 +157,8 @@ function LoginRegistro() {
                                 pattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
                             })} />
                         <label id="label-10">Correo Electrónico.</label>
-                        {errors.email?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
-                        {errors.email?.type === 'pattern' && <p className='p-error-114'> El formato del correo, es incorrecto </p>}
+                        {errors.email?.type === 'required' && <p className='p-error-114'> Este campo es requerido. </p>}
+                        {errors.email?.type === 'pattern' && <p className='p-error-114'> El formato del correo, es incorrecto. </p>}
 
                     </div>
 
@@ -174,7 +169,7 @@ function LoginRegistro() {
                                 pattern: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/,
                             })} />
                         <label id="label-10">Contraseña.</label>
-                        {errors.contrasena?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
+                        {errors.contrasena?.type === 'required' && <p className='p-error-114'> Este campo es requerido. </p>}
                         {errors.contrasena?.type === 'pattern' && <p className='p-error-114'> La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.
                         </p>}
                     </div>
@@ -185,113 +180,62 @@ function LoginRegistro() {
                         ¿Olvidaste tu contraseña?
                         <a href="/Recuperar"> Obtén ayuda.</a>
                     </p>
-
-
-                    {loggedIn ? (
-                        <div>
-                            <p>Iniciaste sesión exitosamente</p>
-                            <button onClick={handleLogout}>Cerrar sesión</button>
-                        </div>
-                    ) : (
-                        <input type="submit" value="Inicia Sesión" className="sign-btn-10" />
-                    )}
-                    {/* Se añade el botón de Google */}
-                    <div
-                        style={{
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            height: "40px",
-                        }}
-                    >
-                        {!user && <div ref={googlebuttonref}></div>}
-                        {user && (
-                            <div>
-                                <h1>{user.name}</h1>
-                                <img src={user.picture} alt="profile" />
-                                <p>{user.email}</p>
-
-                                <button
-                                    onClick={() => {
-                                        setuser(false);
-                                    }}
-                                >
-                                    Logout
-                                </button>
-                            </div>
-                        )}
-                    </div>
+                    <input type="submit" value="Inicia Sesión" className="sign-btn-10" />
                 </div>
-
-
-                <div
-                    style={{
-                        display: loggedIn ? "none" : "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        height: "40px",
-                    }}
-                >
-                    {!user && <div ref={googlebuttonref}></div>}
-                    {user && (
-                        <div>
-                            <h1>{user.name}</h1>
-                            <img src={user.picture} alt="profile" />
-                            <p>{user.email}</p>
-
-                            <button
-                                onClick={() => {
-                                    setuser(false);
-                                }}
-                            >
-                                Logout
-                            </button>
-                        </div>
-                    )}
-                </div>
-
-                {loginError && <p>{loginError}</p>}
 
             </form>
         );
     };
-    
+
 
     emailjs.init('IEnniO4mfUumuhLAb'); // Reemplaza 'YOUR_USER_ID' por tu ID de usuario de Email.js
     // Paso 3: Define la función para enviar el correo electrónico.
     function sendEmail(formdata) {
 
-    // Envía el correo electrónico utilizando la plantilla definida en tu cuenta de Email.js.
-    emailjs.send('service_c24qgpl', 'template_sgfjdeo', formdata)
-        .then(function(response) {
-        console.log('Correo electrónico enviado con éxito:', response);
-        }, function(error) {
-        console.error('Error al enviar el correo electrónico:', error);
-        });
+        // Envía el correo electrónico utilizando la plantilla definida en tu cuenta de Email.js.
+        emailjs.send('service_c24qgpl', 'template_sgfjdeo', formdata)
+            .then(function (response) {
+                console.log('Correo electrónico enviado con éxito:', response);
+            }, function (error) {
+                console.error('Error al enviar el correo electrónico:', error);
+            });
     }
 
     const Signupform = () => {
-        const { register, formState: { errors }, handleSubmit } = useForm();
+        const { register, handleSubmit, watch, formState: { errors } } = useForm();
         const navigate = useNavigate();
+
+        const [showError, setShowError] = useState(false);
+
+        const handleMouseEnter = () => {
+            setShowError(true);
+        };
+
+        const handleMouseLeave = () => {
+            setShowError(false);
+        };
 
         const onSubmit = (data) => {
             console.log(data)
             axios.post('http://localhost:4000/users', data)
                 .then(response => {
-                    
+
                     //Enviar correo
-                    const formdata = {nombres:data.nombres, email:data.email};
+                    const formdata = { nombres: data.nombres, email: data.email };
                     sendEmail(formdata)
-                    
+
                     //Ir a pagina de confirmacion
                     navigate('/Confirmacion');
-                    
+
                 })
                 .catch(error => {
                     console.error(error);
                     // Aquí se realizan otras acciones para cualquier error que ocurra durante el registro.
                 });
         }
+
+        const password = watch('contrasena'); // Obtener el valor del campo de contraseña
+
 
         return (
             <form action="index.html" autoComplete="off" className="sign-up-form-10" onSubmit={handleSubmit(onSubmit)}>
@@ -316,8 +260,8 @@ function LoginRegistro() {
                             maxLength: 30
                         })} />
                         <label id="label-10">Nombres.</label>
-                        {errors.nombres?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
-                        {errors.nombres?.type === 'maxLength' && <p className='p-error-114'> Estas excediendo el limite de caracteres (30) </p>}
+                        {errors.nombres?.type === 'required' && <p className='p-error-114'> Este campo es requerido. </p>}
+                        {errors.nombres?.type === 'maxLength' && <p className='p-error-114'> Estas excediendo el limite de caracteres (30). </p>}
                     </div>
 
                     <div className="input-wrap-10">
@@ -327,8 +271,8 @@ function LoginRegistro() {
                         })} />
 
                         <label id="label-10">Apellidos.</label>
-                        {errors.apellidos?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
-                        {errors.apellidos?.type === 'maxLength' && <p className='p-error-114'> Estas excediendo el limite de caracteres (30) </p>}
+                        {errors.apellidos?.type === 'required' && <p className='p-error-114'> Este campo es requerido. </p>}
+                        {errors.apellidos?.type === 'maxLength' && <p className='p-error-114'> Estas excediendo el limite de caracteres (30). </p>}
                     </div>
 
                     <div className="input-wrap-10">
@@ -337,33 +281,59 @@ function LoginRegistro() {
                             pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i
                         })} />
                         <label id="label-10">Correo Electrónico.</label>
-                        {errors.email?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
-                        {errors.email?.type === 'pattern' && <p className='p-error-114'> El formato del correo, es incorrecto </p>}
+                        {errors.email?.type === 'required' && <p className='p-error-114'> Este campo es requerido. </p>}
+                        {errors.email?.type === 'pattern' && <p className='p-error-114'> El formato del correo, es incorrecto. </p>}
                     </div>
 
                     <div className="input-wrap-10">
-                        <input type="password" className="input-field-11" autoComplete="off" {...register('contrasena', {
-                            required: true,
-                            maxLength: 13,
-                            pattern: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/,
-                        })} />
+                        <input
+                            type="password"
+                            className="input-field-11"
+                            autoComplete="off"
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                            {...register('contrasena', {
+                                required: true,
+                                maxLength: 16,
+                                pattern: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/,
+                            })}
+                        />
                         <label id="label-10">Contraseña.</label>
-                        {errors.contrasena?.type === 'pattern' && <p className='p-error-114'> La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.</p>}
-                        {errors.contrasena?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
-                        {errors.contrasena?.type === 'maxLength' && <p className='p-error-114'> Estas excediendo el limite de caracteres (13) </p>}
+                        {showError && (
+                            <p className='p-error-114 p-error-box'>
+                                La contraseña debe tener entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.
+                            </p>
+                        )}
+                        {errors.contrasena?.type === 'required' && (
+                            <p className='p-error-114'>Este campo es requerido.</p>
+                        )}
+                        {errors.contrasena?.type === 'maxLength' && (
+                            <p className='p-error-114'>Estás excediendo el límite de caracteres (16).</p>
+                        )}
                     </div>
 
-                    {/* <div className="input-wrap-10">
-                        <input type="password" className="input-field-11" autoComplete=" off" {...register('contraseñareg', {
-                            required: true,
-                            maxLength: 13,
-                            pattern: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/,
-                        })} />
+
+                    <div className="input-wrap-10">
+                        <input
+                            type="password"
+                            className="input-field-11"
+                            autoComplete="off"
+                            {...register('confirmarContrasena', {
+                                required: true,
+                                maxLength: 16,
+                                pattern: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/,
+                                validate: value => value === password
+                            })}
+                        />
                         <label id="label-10">Confirma tu contraseña.</label>
-                        {errors.contraseñalogin?.type === 'pattern' && <p className='p-error-114'> La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.</p>}
-                        {errors.contraseñareg?.type === 'required' && <p className='p-error-114'> Este campo es requerido </p>}
-                        {errors.contraseñareg?.type === 'maxLength' && <p className='p-error-114'> Estas excediendo el limite de caracteres (13) </p>}
-                    </div> */}
+                        {errors.confirmarContrasena?.type === 'required' && <p className='p-error-114'>Este campo es requerido.</p>}
+                        {errors.confirmarContrasena?.type === 'maxLength' && (
+                            <p className='p-error-114'>Estás excediendo el límite de caracteres (16).</p>
+                        )}
+                        {errors.confirmarContrasena?.type === 'validate' && (
+                            <p className='p-error-114'>Las contraseñas no coinciden.</p>
+                        )}
+                    </div>
 
 
 
@@ -377,7 +347,7 @@ function LoginRegistro() {
 
                     <input type="submit" value="Registrate" className="sign-btn-11" />
 
-                    {/* Se añade el botón de Google */}
+                    {/* Se añade el botón de Google
 
                     <div
                         style={{
@@ -403,7 +373,7 @@ function LoginRegistro() {
                                 </button>
                             </div>
                         )}
-                    </div>
+                    </div> */}
                 </div>
             </form>
         );
