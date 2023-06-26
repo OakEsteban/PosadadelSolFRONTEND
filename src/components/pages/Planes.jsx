@@ -5,10 +5,6 @@ import Plan3 from './PlanesCards/Plan3';
 import Plan4 from './PlanesCards/Plan4';
 import Footer from '../Footer';
 
-
-
-
-
 export const Planes = () => {
     const [opciones, setOpciones] = useState({
         plan1: false,
@@ -34,11 +30,9 @@ export const Planes = () => {
     };
     return (
         <div>
-
             <div className='bannerHabServ'>
                 <h1 className='h1-HabServ'>Planes</h1>
             </div>
-
             <div className="container">
                 <div className="row">
                     <div className="col-lg-3 col-md-12 mb-lg-0 mb-4 px-0">

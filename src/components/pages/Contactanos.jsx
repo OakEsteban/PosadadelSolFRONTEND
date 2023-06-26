@@ -3,6 +3,7 @@ import "../../Styles/Contactanos.css";
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 import Footer from '../Footer';
+import ModalMensaje from '../ModalMensaje';
 
 export const Contactanos = () => {
 
@@ -36,6 +37,7 @@ export const Contactanos = () => {
 
         }}>
             <div className='bodyContactenos'>
+                <ModalMensaje></ModalMensaje>
                 <div className='bannerContactenos'>
                     <h1 className='h1-contactenos'>¡Contactenos!</h1>
                 </div>
