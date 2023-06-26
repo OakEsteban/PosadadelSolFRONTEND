@@ -21,6 +21,7 @@ import Recuperar from './components/login-register/Recuperar.jsx';
 
 //Pagina 404.
 import Page404 from './components/Page404.jsx';
+import UsuarioConfiguracion from './components/pages/UsuarioConfiguracion.jsx';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route path="/Inicia-Sesion" element={<IniciaSesion />} />
         <Route path="/Confirmacion" element={<Confirmacion />} />
         <Route path="/Recuperar" element={<Recuperar />} />
+        <Route path="/Configuracion" element={<UsuarioConfiguracion />} />
         <Route path="*" element={<Page404 />} />
       </Routes>
     </Router>

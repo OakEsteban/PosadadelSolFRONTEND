@@ -6,7 +6,7 @@ import HabTriple from './HabitacionesCards/HabTriple';
 import HabEmpre from './HabitacionesCards/HabEmpre';
 import HabPenth from './HabitacionesCards/HabPenth';
 import Footer from '../Footer';
-
+import axios from 'axios';
 
 
 export const Habitaciones = () => {
