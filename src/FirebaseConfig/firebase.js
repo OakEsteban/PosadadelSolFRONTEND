@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import {getStorage, ref, getDownloadURL, uploadBytes  } from "firebase/storage";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -32,8 +33,8 @@ export async function getFile(imagePath) {
     }
   }
 
-export async function setFile(file){
-    const storageRef = ref(storage, '/usersIcon/1.jpg');
+export async function setFile(file, id){
+    const storageRef = ref(storage, '/usersIcon/'+id+'.jpg');
     uploadBytes(storageRef, file).then(snapshot => {console.log(snapshot)});
 }
 

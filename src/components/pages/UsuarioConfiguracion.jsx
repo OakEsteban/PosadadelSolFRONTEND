@@ -5,29 +5,40 @@ import axios from 'axios';
 import logoPosada from "../../Images/logoPosada.png";
 import defaultUser from "../../Images/user.png";
 import Footer from '../Footer';
-import {getFile} from '../../FirebaseConfig/firebase';
-import {setFile} from '../../FirebaseConfig/firebase';
+import {getFile, setFile} from '../../FirebaseConfig/firebase';
+import { getid } from '../../hooks/loginToken';
 
 export const UsuarioConfiguracion = () => {
 
     const { register, handleSubmit } = useForm();
-    const onSubmit = (data) => {
+
+    const onSubmit = async (data) => {
 
         //Actualizar informacion base de datos
-        const userID = 1;
-        data.id = ''+1;
-        console.log(data);
-        axios.put('http://localhost:4000/users/'+ userID, data)
-                .then(response => {           
-                    //Enviar correo
-                    //const formdata = {nombres:data.nombres, email:data.email};
-                    //sendEmail(formdata)
-                    //Ir a pagina de confirmacion
-                    console.log('Datos actuaizados');  
-                })
+        const userID = getid();
+        data.id = ''+ userID;
+        data.contrasena = '' + userpass; // esto es temporal
+        
+        if (data.nombres == ''){data.nombres = userName}
+        if (data.apellidos == ''){data.apellidos = userLastname}
+        if (data.email == ''){data.email = userEmail}
+        if (data.contrasena == ''){data.contrasena = userpass}
+        
+        try {
+            const response = await axios.put('http://localhost:4000/users/' + userID, data);
 
-        //Guardar imagen en firebase
-        setFile(imageFile);
+            if(imageFile){ //solo se vuelve a guardar si se selecciono una imagen
+                //Guardar imagen en firebase
+                await setFile(imageFile, getid());
+            }
+
+          } catch (error) {
+            // Manejar el error si ocurre
+          }
+        
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000); // se retrasa unos milisegundos despues del await setFile    
     }
 
     //Importar imagen
@@ -35,7 +46,7 @@ export const UsuarioConfiguracion = () => {
     const [imageFile, setImageFile] = useState('');
 
     useEffect(() => {
-        const imagePath = 'usersIcon/1.jpg';
+        const imagePath = 'usersIcon/'+ getid() +'.jpg';
 
         getFile(imagePath)
         .then((url) => {
@@ -51,10 +62,41 @@ export const UsuarioConfiguracion = () => {
     }, []);
 
     function changeTempImage(file){
+        //Archivo cargado temporalmente
         setImageFile(file);
+
+        //Previsualizacion
         setImageUrl(URL.createObjectURL(file));
+
+        console.log(getid());
     }
-    
+
+      //Cargar datos del usuario
+    const [userName, setName] = useState(null);
+    const [userLastname, setLastname] = useState(null);
+    const [userEmail, setEmail] = useState(null);
+    const [userpass, setpass] = useState(null); // esto es temporal
+
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const fetchData = async () => {
+        try {
+        const userID = getid();
+        const response = await axios.get('http://localhost:4000/users/' + userID);
+        setName(response.data[0].nombres);
+        setLastname(response.data[0].apellidos);
+        setEmail(response.data[0].email);
+        setpass(response.data[0].contrasena);
+        } catch (error) {
+        console.error(error);
+        }
+    };
+
+
+
 
     return (
         <div style={{
@@ -91,25 +133,24 @@ export const UsuarioConfiguracion = () => {
                     </div>
                     <form className='form-userConfig'  onSubmit={handleSubmit(onSubmit)}>
                         <div className='box3-userconfig'>
-                            <input className='TextInput-userConfig' placeholder='Nombres' type="text" {...register('nombres', {
-                            required: true,
+                            <input className='TextInput-userConfig' placeholder={userName} type="text" {...register('nombres', {
+
                             maxLength: 30
                         })}></input>
-                            <input className='TextInput-userConfig' placeholder='Apellidos' type="text" {...register('apellidos', {
-                            required: true,
+                            <input className='TextInput-userConfig' placeholder={userLastname} type="text" {...register('apellidos', {
+
                             maxLength: 30
                         })}></input>
                         </div>
                         <div className='box3-userconfig'>
-                            <input className='TextInput2-userConfig' placeholder='Correo' {...register('email', {
-                            required: true,
+                            <input className='TextInput2-userConfig'  placeholder={userEmail} {...register('email', {
+
                             maxLength: 30
                         })}></input>
                         </div>
                         <div className='box3-userconfig'>
                             <input className='TextInput2-userConfig' placeholder='Contraseña' {...register('contrasena', {
-                            required: true,
-                            maxLength: 30
+                            maxLength: 100
                         })}></input>
                         </div>
                         <div className='box3-userconfig'>

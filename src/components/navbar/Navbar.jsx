@@ -1,134 +1,153 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect, useRef } from 'react';
 import { MenuItems } from './MenuItems';
 import '../../Styles/navbar/Navbar.css';
 import { Button } from './Button';
 import { Link, NavLink } from 'react-router-dom';
 import { isLoggedIn, logout, getid} from '../../hooks/loginToken';
+import {getFile, setFile} from '../../FirebaseConfig/firebase';
+import defaultUser from "./../../Images/user.png";
+import axios from 'axios';
 
+const Navbar = () => {
+  const [clicked, setClicked] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [imageUrl, setImageUrl] = useState('');
 
-class Navbar extends Component {
+  const menuRef = useRef(null);
 
-  state = { clicked: false };
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    fetchUserImage();
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      isOpen: false
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
     };
-    this.menuRef = React.createRef();
-  }
+  }, []);
 
-  componentDidMount() {
-    document.addEventListener('mousedown', this.handleClickOutside);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleClickOutside);
-  }
-
-  handleClickOutside = (event) => {
-    if (this.menuRef && this.menuRef.current && !this.menuRef.current.contains(event.target)) {
-      this.setState({ isOpen: false });
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setIsOpen(false);
     }
   };
 
-  toggleMenu = () => {
-    this.setState(prevState => ({
-      isOpen: !prevState.isOpen
-    }));
+  const toggleMenu = () => {
+    setIsOpen((prevState) => !prevState);
   };
 
-
-  handleClick = () => {
-    this.setState({ clicked: !this.state.clicked });
-  };
-
-  handleLogout = () => {
+  const handleLogout = () => {
     logout();
     // Realiza cualquier otra lógica necesaria después de cerrar la sesión
     window.location.reload(); // Recargar la página automáticamente
     window.location.assign('/Inicia-Sesion'); // Redirigir a la página /Inicia-Sesion
   };
 
+  const fetchUserImage = () => {
+    const imagePath = 'usersIcon/' + getid() + '.jpg';
 
-  render() {
+    getFile(imagePath)
+      .then((url) => {
+        if (url) {
+          setImageUrl(url);
+        } else {
+          setImageUrl(defaultUser);
+        }
+      })
+      .catch((error) => {
+        setImageUrl(defaultUser);
+      });
+  };
 
-    const { isOpen } = this.state;
-    const tokenExists = isLoggedIn();
-    getid();
-    return (
-      <nav className='NavbarItems'>
-        <Link to="/Inicio" className='logo-114'>
-          <img src={require('../../Images/logoPosada.png')} alt="" />
-        </Link>
-        <div className='menu-icon' onClick={this.handleClick}>
-          <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
-        </div>
-        <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
-          {MenuItems.map((item, index) => (
-            <li key={index}>
-              <NavLink
-                className={item.cName}
-                to={item.url}
-                activeClassName='nav-link-active'
-              >
-                {item.title}
-              </NavLink>
-            </li>
-          ))}
+  const tokenExists = isLoggedIn();
+
+
+  //Cargar nombre del usuario en la barra de navegacion
+
+  const [userName, setName] = useState(null);
+    
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const fetchData = async () => {
+        try {
+        const userID = getid();
+        const response = await axios.get('http://localhost:4000/users/' + userID);
+        setName(response.data[0].nombres + " " + response.data[0].apellidos);
+        } catch (error) {
+        console.error(error);
+        }
+    };
+
+  return (
+    <nav className="NavbarItems">
+      <Link to="/Inicio" className="logo-114">
+        <img src={require('../../Images/logoPosada.png')} alt="" />
+      </Link>
+      <div className="menu-icon" onClick={() => setClicked(!clicked)}>
+        <i className={clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
+      </div>
+      <ul className={clicked ? 'nav-menu active' : 'nav-menu'}>
+        {MenuItems.map((item, index) => (
+          <li key={index}>
+            <NavLink
+              className={item.cName}
+              to={item.url}
+              activeClassName="nav-link-active"
+            >
+              {item.title}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+      {!tokenExists && (
+        <ul className="button-114">
+          <Link to="/Inicia-Sesion" className="nav-link">
+            <Button className="btn-111">
+              Entra <i className="fa-solid fa-right-to-bracket"></i>
+            </Button>
+          </Link>
         </ul>
-        {!tokenExists && (
-          <ul className='button-114'>
-            <Link to="/Inicia-Sesion" className="nav-link">
-              <Button className='btn-111'> Entra <i className="fa-solid fa-right-to-bracket"></i></Button>
-            </Link>
-          </ul>
-        )}
+      )}
 
-        {tokenExists && (
-          <>
-            <img src={require('../../Images/user.png')} className='user-pic' onClick={this.toggleMenu} />
+      {tokenExists && (
+        <>
+          <img src={imageUrl} className="user-pic" onClick={toggleMenu} />
 
-            <div ref={this.menuRef} className={`sub-menu-wrap ${isOpen ? 'open-menu' : ''}`} id="subMenu">
-              <div className='sub-menu'>
-                <div className="user-info">
-                  <img src={require('../../Images/user.png')} className='user-pic' />
-                  <h2>Usuario</h2>
-                </div>
-                <hr />
-
-                <Link to="" className='sub-menu-link'>
-                  <p> <i class="fa-solid fa-user" ></i>    Mi cuenta</p>
-                  <span><i class="fa-solid fa-angle-right"></i></span>
-                </Link>
-                <Link to="" className='sub-menu-link'>
-                  <p> <i class="fa-solid fa-cart-shopping"></i> Mis reservaciones</p>
-                  <span><i class="fa-solid fa-angle-right"></i></span>
-                </Link>
-                <Link to="" className='sub-menu-link'>
-                  <p> <i class="fa-solid fa-credit-card"></i> Método de pago</p>
-                  <span><i class="fa-solid fa-angle-right"></i></span>
-                </Link>
-                <hr />
-                <Link to="" className='sub-menu-link'>
-                  <p> <i class="fa-solid fa-life-ring"></i> Soporte</p>
-                  <span><i class="fa-solid fa-angle-right"></i></span>
-                </Link>
-                <Link to="" className='sub-menu-link' onClick={this.handleLogout}>
-                  <p> <i className="fa-solid fa-right-from-bracket"></i> Salir</p>
-                  <span><i className="fa-solid fa-angle-right"></i></span>
-                </Link>
-
-
+          <div ref={menuRef} className={`sub-menu-wrap ${isOpen ? 'open-menu' : ''}`} id="subMenu">
+            <div className="sub-menu">
+              <div className="user-info">
+                <img src={imageUrl} className="user-pic" alt="User" />
+                <h2>{userName}</h2>
               </div>
+              <hr />
 
+              <Link to="/configuracion" className="sub-menu-link">
+                <p> <i class="fa-solid fa-user" ></i>    Mi cuenta</p>
+                <span><i class="fa-solid fa-angle-right"></i></span>
+              </Link>
+              <Link to="" className="sub-menu-link">
+                <p> <i class="fa-solid fa-cart-shopping"></i> Mis reservaciones</p>
+                <span><i class="fa-solid fa-angle-right"></i></span>
+              </Link>
+              <Link to="" className="sub-menu-link">
+                <p> <i class="fa-solid fa-credit-card"></i> Método de pago</p>
+                <span><i class="fa-solid fa-angle-right"></i></span>
+              </Link>
+              <hr />
+              <Link to="" className="sub-menu-link">
+                <p> <i class="fa-solid fa-life-ring"></i> Soporte</p>
+                <span><i class="fa-solid fa-angle-right"></i></span>
+              </Link>
+              <Link to="" className="sub-menu-link" onClick={handleLogout}>
+                <p> <i className="fa-solid fa-right-from-bracket"></i> Salir</p>
+                <span><i className="fa-solid fa-angle-right"></i></span>
+              </Link>
             </div>
-          </>
-        )}
-
-      </nav>
-    );
-  }
-}
+          </div>
+        </>
+      )}
+    </nav>
+  );
+};
 
 export default Navbar;
