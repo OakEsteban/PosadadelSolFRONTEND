@@ -10,7 +10,6 @@
 }
 
 .cont-10 {
-  
   width: 90%;
   height: 30vi;
   display: flex;
@@ -55,6 +54,8 @@
 }
 
 #left {
+  display: flex;
+  flex-wrap: wrap;
   width: 27vi;
   border: none;
   height: 100%;
@@ -64,6 +65,8 @@
 }
 
 #rigth {
+  display: flex;
+  flex-wrap: wrap;
   width: 27vi;
   border: none;
   height: 100%;

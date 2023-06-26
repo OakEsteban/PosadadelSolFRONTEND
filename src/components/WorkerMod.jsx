@@ -10,7 +10,7 @@ function WorkerMod() {
     <>
       <div className="cont3">
         <p id="txt-1">
-          <strong> Conoce a nuestros trabajadores</strong>
+          <strong> CONOCE A NUESTROS TRABAJADORES</strong>
           <p id="txt-2">
             Contamos con un gran servicio que ofrecer, reconocido por
             los expertos en la región.
