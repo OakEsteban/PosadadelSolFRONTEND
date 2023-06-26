@@ -61,6 +61,8 @@ import '../../Styles/Nosotros.css'
 import imagenhotelnosotros from '../../Images/hotel-apartado-nosotros.jpg'
 import imagenhotelnosotros2 from '../../Images/imagenhotelnosotros2.webp'
 
+import Desarrolladores from "../Desarrolladores";
+
 
 export const Nosotros = () => {
   return (
@@ -126,7 +128,9 @@ export const Nosotros = () => {
 
       <WorkerMod />
       <Services />
+      <Desarrolladores />
       <Footer />
+      
 
 
     </div>

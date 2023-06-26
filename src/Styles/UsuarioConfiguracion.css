@@ -1,0 +1,152 @@
+.body-usuarioConfig {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+  }
+  
+  .panel-userconfig {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4vh;
+  }
+  .Img1-userConfig{
+    width: 15vmin;
+    height: 15vmin;
+  }
+  .Img2-userConfig {
+    width: 30vmin;
+    height: 30vmin;
+    border-radius: 50%;
+    overflow:hidden;
+  }
+  
+  .leftPanel-userconfig {
+    background-color: #de92d1;
+    width: 500px;
+    height: 80vh;
+    border-radius: 20px;
+  }
+  
+  .box1-userconfig {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3vh;
+  }
+  
+  .box2-userConfig {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 1vh;
+  }
+  
+  .Text1-userConfig {
+    color: #883C77;
+    padding-left: 1vh;
+  }
+  
+  .text2-userConfig {
+    color: white;
+  }
+  
+  .submitPhoto-userConfig {
+    border-radius: 5px;
+    border: none;
+    background-color: #A96596;
+    cursor: pointer;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  .box3-userconfig {
+    padding: 1.5vh;
+  }
+  
+  .TextInput-userConfig {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1.5vmin;
+    width: 30vmin;
+    outline: none;
+    margin-left: 1vmin;
+  }
+  
+  .TextInput2-userConfig {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1.5vmin;
+    width: 61.5vmin;
+    outline: none;
+    margin-left: 1vmin;
+  }
+  
+  .input-button-userConfig {
+    border-radius: 5px;
+    border: none;
+    background-color: #A96596;
+    color: white;
+    padding: 15px 20px;
+    margin-top: 5vh;
+    width: 61.5vmin;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  /* Media queries para hacer los estilos responsivos */
+  
+  @media (max-width: 1150px) {
+    .body-usuarioConfig {
+      flex-direction: column;
+    }
+
+    .leftPanel-userconfig {
+        background-color: #de92d1;
+        width: 40vh;
+        height: 70vh;
+        border-radius: 20px;
+      }
+    .Img1-userConfig{
+        width: 15vmin;
+        height: 15vmin;
+      }
+    .Img2-userConfig {
+        width: 22vh;
+        height: 22vh;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+  
+    .leftPanel-userconfig {
+      width: 80%;
+      height: 60vh;
+    }
+
+    .TextInput-userConfig{
+        width: 90%;
+        margin-top: 3vmin;
+    }
+    .TextInput2-userConfig {
+      width: 90%;
+    }
+  
+    .input-button-userConfig {
+      width: 90%;
+    }
+
+    .submitPhoto-userConfig {
+      border-radius: 5px;
+      width: 32vmin;
+      border: none;
+      background-color: #A96596;
+      cursor: pointer;
+      padding: 10px 40px;
+      text-align: center;
+      text-decoration: none;
+    }
+  }

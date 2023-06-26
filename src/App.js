@@ -21,6 +21,7 @@ import Recuperar from './components/login-register/Recuperar.jsx';
 
 //Pagina 404.
 import Page404 from './components/Page404.jsx';
+import UsuarioConfiguracion from './components/pages/UsuarioConfiguracion.jsx';
 
 //Panel administrador
 import PanelAdmin from './components/panel-admin/PanelAdmin.jsx';
@@ -43,6 +44,7 @@ function App() {
         <Route path="/Inicia-Sesion" element={<IniciaSesion />} />
         <Route path="/Confirmacion" element={<Confirmacion />} />
         <Route path="/Recuperar" element={<Recuperar />} />
+        <Route path="/Configuracion" element={<UsuarioConfiguracion />} />
         <Route path="/Admin" element={<PanelAdmin />} />
         <Route path="*" element={<Page404 />} />
       </Routes>

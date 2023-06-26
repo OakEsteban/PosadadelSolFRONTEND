@@ -115,7 +115,7 @@ function PreguntasFre() {
               <div className="ques-1">
                 <div id="q-1">
                   <p id="txt-11">
-                    <strong>¿El locacion tiene buenas vistas?</strong>
+                    <strong>¿La locacion tiene buenas vistas?</strong>
                   </p>
                   <p id="txt-14">
                     En nuestras ubicacion contamos con las mejores vistas

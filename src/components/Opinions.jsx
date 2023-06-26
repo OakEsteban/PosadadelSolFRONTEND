@@ -6,7 +6,7 @@ function Opinions() {
         <body>
             <section id="testimonials">
                 <div class="testimonial-heading">
-                    <span>Comentarios</span>
+                    
                     <h1>Nuestros clientes opinan...</h1>
                 </div>
                 <div class="testimonial-box-container">

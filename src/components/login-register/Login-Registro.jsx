@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
-
 import axios from 'axios';
 
 
@@ -133,6 +132,8 @@ function LoginRegistro() {
                     setLoggedIn(false);
                     setLoginError('Correo o contraseña incorrectos');
                 });
+
+                
         };
 
 
@@ -216,6 +217,8 @@ function LoginRegistro() {
             setShowError(false);
         };
 
+        const password = watch('contrasena'); // Obtener el valor del campo de contraseña
+
         const onSubmit = (data) => {
             console.log(data)
             axios.post('http://localhost:4000/users', data)
@@ -234,8 +237,6 @@ function LoginRegistro() {
                     // Aquí se realizan otras acciones para cualquier error que ocurra durante el registro.
                 });
         }
-
-        const password = watch('contrasena'); // Obtener el valor del campo de contraseña
 
 
         return (
