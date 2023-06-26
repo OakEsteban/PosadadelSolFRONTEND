@@ -132,6 +132,8 @@ function LoginRegistro() {
                     setLoggedIn(false);
                     setLoginError('Correo o contraseña incorrectos');
                 });
+
+                
         };
 
 

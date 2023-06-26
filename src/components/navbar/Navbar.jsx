@@ -41,6 +41,7 @@ const Navbar = () => {
     window.location.assign('/Inicia-Sesion'); // Redirigir a la página /Inicia-Sesion
   };
 
+  //Cargar imagen de perfil
   const fetchUserImage = () => {
     const imagePath = 'usersIcon/' + getid() + '.jpg';
 
@@ -65,7 +66,9 @@ const Navbar = () => {
   const [userName, setName] = useState(null);
     
     useEffect(() => {
+      if(tokenExists){
         fetchData();
+      }
     }, []);
 
     const fetchData = async () => {
