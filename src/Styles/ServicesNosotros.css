@@ -48,7 +48,7 @@
 .cont-5 {
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   flex-direction: column;
   border: none;
   width: 100%;

@@ -66,6 +66,8 @@ Container-100 -> Contenedor externo
 }
 
 #txt-1 {
+  margin-top: 5%;
+  font-size: 2.5vi;
   text-align: right;
   color: #a9659a;
 }
