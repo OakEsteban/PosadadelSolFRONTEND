@@ -24,6 +24,8 @@ emailjs.init('jc2KHEe6_bqatSo0Q');
   emailjs.send('service_bz02f69', 'template_l0pjheh', templateParams)
   .then(function (response) {
     console.log('Correo electrónico enviado con éxito:', response);
+    alert('Por favor, revisa tu bandeja de Spam para observar el correo si no lo ves en tu bandeja principal.');
+
   }, function (error) {
     console.error('Error al enviar el correo electrónico:', error);
   });
