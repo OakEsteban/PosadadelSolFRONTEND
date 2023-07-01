@@ -1,6 +1,5 @@
 import React, { useState, createContext } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-
 //Barra de navegación.
 import Navbar from './components/navbar/Navbar.jsx';
 
