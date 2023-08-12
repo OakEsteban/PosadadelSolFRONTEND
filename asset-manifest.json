@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/PosadadelSolFRONTEND/static/css/main.9478694e.css",
-    "main.js": "/PosadadelSolFRONTEND/static/js/main.af563eaa.js",
+    "main.js": "/PosadadelSolFRONTEND/static/js/main.f84ce8cb.js",
     "static/js/787.319676fc.chunk.js": "/PosadadelSolFRONTEND/static/js/787.319676fc.chunk.js",
     "static/media/Plan4.jpg": "/PosadadelSolFRONTEND/static/media/Plan4.6c32c039219005a832ac.jpg",
     "static/media/habitacion2.jpeg": "/PosadadelSolFRONTEND/static/media/habitacion2.455f1604cc5156fd3a2d.jpeg",
@@ -50,11 +50,11 @@
     "static/media/Abascal.jpg": "/PosadadelSolFRONTEND/static/media/Abascal.249acda0bc888a53fe21.jpg",
     "index.html": "/PosadadelSolFRONTEND/index.html",
     "main.9478694e.css.map": "/PosadadelSolFRONTEND/static/css/main.9478694e.css.map",
-    "main.af563eaa.js.map": "/PosadadelSolFRONTEND/static/js/main.af563eaa.js.map",
+    "main.f84ce8cb.js.map": "/PosadadelSolFRONTEND/static/js/main.f84ce8cb.js.map",
     "787.319676fc.chunk.js.map": "/PosadadelSolFRONTEND/static/js/787.319676fc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9478694e.css",
-    "static/js/main.af563eaa.js"
+    "static/js/main.f84ce8cb.js"
   ]
 }
