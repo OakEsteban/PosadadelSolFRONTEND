@@ -50,22 +50,22 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Navigate to="/Inicio" replace />} />
+          <Route path="/PosadadelSolFRONTEND/" element={<Navigate to="/Inicio" replace />} />
           <Route exact path="/Inicio" element={<Inicio />} />
-          <Route path="/Hotel" element={<Hotel />} />
-          <Route path="/Habitaciones" element={<Habitaciones />} />
-          <Route path="/Servicios" element={<Servicios />} />
-          <Route path="/Planes" element={<Planes />} />
-          <Route path="/Nosotros" element={<Nosotros />} />
-          <Route path="/contactanos" element={<Contactanos />} />
-          <Route path="/Inicia-Sesion" element={<IniciaSesion />} />
-          <Route path="/Confirmacion" element={<Confirmacion />} />
-          <Route path="/Recuperar" element={<Recuperar />} />
-          <Route path="/Recuperar2" element={<Recuperar2 />} />
-          <Route path="/Recuperar3" element={<Recuperar3 />} />
-          <Route path="/Configuracion" element={<UsuarioConfiguracion />} />
-          <Route path="/Pagos" element={<Pagos />} />
-          <Route path="/Admin" element={<PanelAdmin />} />
+          <Route path="/PosadadelSolFRONTEND/Hotel" element={<Hotel />} />
+          <Route path="/PosadadelSolFRONTEND/Habitaciones" element={<Habitaciones />} />
+          <Route path="/PosadadelSolFRONTEND/Servicios" element={<Servicios />} />
+          <Route path="/PosadadelSolFRONTEND/Planes" element={<Planes />} />
+          <Route path="/PosadadelSolFRONTEND/Nosotros" element={<Nosotros />} />
+          <Route path="/PosadadelSolFRONTEND/contactanos" element={<Contactanos />} />
+          <Route path="/PosadadelSolFRONTEND/Inicia-Sesion" element={<IniciaSesion />} />
+          <Route path="/PosadadelSolFRONTEND/Confirmacion" element={<Confirmacion />} />
+          <Route path="/PosadadelSolFRONTEND/Recuperar" element={<Recuperar />} />
+          <Route path="/PosadadelSolFRONTEND/Recuperar2" element={<Recuperar2 />} />
+          <Route path="/PosadadelSolFRONTEND/Recuperar3" element={<Recuperar3 />} />
+          <Route path="/PosadadelSolFRONTEND/Configuracion" element={<UsuarioConfiguracion />} />
+          <Route path="/PosadadelSolFRONTEND/Pagos" element={<Pagos />} />
+          <Route path="/PosadadelSolFRONTEND/Admin" element={<PanelAdmin />} />
           <Route path="*" element={<Page404 />} />
         </Routes>
         {/* <Icono /> */}
