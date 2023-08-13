@@ -5,37 +5,37 @@
 export const MenuItems = [
     {
         title: 'INICIO',
-        url: "/Inicio",
+        url: "/PosadadelSolFRONTEND/Inicio",
         cName: 'nav-links'
     },
     {
         title: 'HABITACIONES',
-        url: "/Habitaciones",
+        url: "/PosadadelSolFRONTEND/Habitaciones",
         cName: 'nav-links'
     },
     {
         title: 'SERVICIOS',
-        url: "/Servicios",
+        url: "/PosadadelSolFRONTEND/Servicios",
         cName: 'nav-links'
     },
     {
         title: 'PLANES',
-        url: "/Planes",
+        url: "/PosadadelSolFRONTEND/Planes",
         cName: 'nav-links'
     },
     {
         title: 'NOSOTROS',
-        url: "/Nosotros",
+        url: "/PosadadelSolFRONTEND/Nosotros",
         cName: 'nav-links'
     },
     {
         title: 'CONTACTANOS',
-        url: "/Contactanos",
+        url: "/PosadadelSolFRONTEND/Contactanos",
         cName: 'nav-links'
     },
     {
         title: 'INICIA SESIÓN/REGISTRATE',
-        url: "/Inicia-Sesion",
+        url: "/PosadadelSolFRONTEND/Inicia-Sesion",
         cName: 'nav-links-mobile'
     }
 

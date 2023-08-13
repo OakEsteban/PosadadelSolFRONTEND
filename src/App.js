@@ -50,8 +50,8 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/PosadadelSolFRONTEND/" element={<Navigate to="/Inicio" replace />} />
-          <Route exact path="/Inicio" element={<Inicio />} />
+          <Route path="/PosadadelSolFRONTEND/" element={<Navigate to="/PosadadelSolFRONTEND/Inicio" replace />} />
+          <Route exact path="/PosadadelSolFRONTEND/Inicio" element={<Inicio />} />
           <Route path="/PosadadelSolFRONTEND/Hotel" element={<Hotel />} />
           <Route path="/PosadadelSolFRONTEND/Habitaciones" element={<Habitaciones />} />
           <Route path="/PosadadelSolFRONTEND/Servicios" element={<Servicios />} />
