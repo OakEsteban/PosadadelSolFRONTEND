@@ -104,7 +104,7 @@ const Navbar = () => {
       </ul>
       {!tokenExists && (
         <ul className="button-114">
-          <Link to="/Inicia-Sesion" className="nav-link">
+          <Link to="/PosadadelSolFRONTEND/Inicia-Sesion" className="nav-link">
             <Button className="btn-111">
               Entra <i className="fa-solid fa-right-to-bracket"></i>
             </Button>

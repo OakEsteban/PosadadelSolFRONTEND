@@ -18,7 +18,7 @@ export const Page404 = () => {
                                 </h3>
                                 <p class="p-404">¡La página que estás buscando no está disponible! <i class="fa-solid fa-face-sad-cry"></i></p>
 
-                                <Link to="/Inicio" className='link_404'>
+                                <Link to="/PosadadelSolFRONTEND/Inicio" className='link_404'>
                                     <i class="fa-solid fa-house"></i>  Ir a inicio
                                 </Link>
                             </div>
